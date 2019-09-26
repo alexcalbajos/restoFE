@@ -1,0 +1,9 @@
+<ng-container *ngIf="walletAmount > 0">
+    <div fxLayout="row"
+        fxLayoutAlign="space-between start">
+        <h3 class="area-title bold uppercase-first">{{ 'CREDITS' | translate }}</h3>
+    </div>
+    <button (click)="useCredit()"
+        [translate]="'USE_MY_CREDITS'"
+        [translateParams]="{ credit : walletAmount }"></button>
+</ng-container>

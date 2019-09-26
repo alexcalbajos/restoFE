@@ -1,0 +1,13 @@
+<ng-container *ngIf="!forDisplay">
+    <fa-icon *ngFor="let n of range; let $index = index;"
+        icon="star"
+        class="to-rate"
+        (click)="mark($index)"
+        [ngClass]="getClass($index)"></fa-icon>
+</ng-container>
+<ng-container *ngIf="forDisplay">
+    <fa-icon *ngFor="let n of range; let $index = index;"
+        icon="star"
+        class="to-display"
+        [ngClass]="getClass($index)"></fa-icon>
+</ng-container>

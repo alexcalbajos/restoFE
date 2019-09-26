@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Light/Search-Icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M17.538,17.567 C16.965,18.142 16.036,18.142 15.463,17.567 L12.513,14.604 C11.228,15.484 9.675,16 8,16 C3.582,16 0,12.419 0,8 C0,3.582 3.582,0 8,0 C12.418,0 16,3.582 16,8 C16,9.681 15.479,11.239 14.594,12.527 L17.538,15.483 C18.111,16.058 18.111,16.992 17.538,17.567 L17.538,17.567 Z M8,3 C5.238,3 3,5.239 3,8 C3,10.762 5.238,13 8,13 C10.761,13 13,10.762 13,8 C13,5.239 10.761,3 8,3 L8,3 Z" fill="#FFFFFF"></path>
+    </g>
+</svg>

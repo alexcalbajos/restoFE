@@ -1,0 +1,43 @@
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/miscellaneous.scss";
+
+:host {
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 170px;
+    margin-top: 125px;
+
+    .container {
+        box-shadow: $shadow;
+        height: 100%;
+        background-color: $themeMainColor;
+        position: relative;
+
+        .svg-container {
+            position: absolute;
+            left: 0;
+            height: 130px;
+        }
+
+        h2 {
+            color: $primaryColor;
+            margin-bottom: 20px;
+
+            &.bold {
+                text-transform: lowercase;
+            }
+        }
+
+        ri-app-store-button, ri-google-play-button {
+            ::ng-deep {
+                .action {
+                    border-radius: $borderRadius;
+                    background-color: $primaryColor;
+                    height: 40px;
+                    padding: 10px 15px;
+                }
+            }
+        }
+    }
+}

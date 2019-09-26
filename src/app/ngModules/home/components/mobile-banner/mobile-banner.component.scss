@@ -1,0 +1,35 @@
+@import "../../../../../styles/variables/colors.scss";
+
+:host {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: $lightGray;
+    z-index: 99;
+
+    .banner-container {
+        padding: 15px 10px;
+    }
+
+    #LogoContainer {
+        background-color: $themeMainColor;
+        height: 45px;
+        width: 45px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+
+        ::ng-deep {
+            svg {
+                height: 60%;
+            }
+        }
+    }
+
+    .background-food {
+        opacity: 0.2;
+        background-size: 250px;
+    }
+}

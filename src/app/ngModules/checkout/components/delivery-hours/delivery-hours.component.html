@@ -1,0 +1,27 @@
+<h3 class="area-title bold uppercase-first">{{ 'DELIVERY_TIME' | translate }}</h3>
+<div *ngIf="!deliveryDays"
+    class="spinner-container"
+    fxLayout="column"
+    fxLayoutAlign="center center">
+    <mat-spinner diameter="30"></mat-spinner>
+</div>
+<div *ngIf="deliveryDays">
+    <h4 *ngIf="deliveryDays.length === 0"
+        [translate]="'PROVIDER_INV_ADDRESS'"
+        [translateParams]="{ address : address }"></h4>
+    <mat-radio-group *ngIf="deliveryDays.length > 0"
+        [(ngModel)]="selectedDeliveryMoment"
+        fxLayout="column">
+        <mat-radio-button [value]="0"
+            (click)="emmitDeliveryHour()">
+            <span>{{ 'ASAP' | translate }}</span>
+            <span class="fade">{{ deliveryDays[0].weekdayKey | translate }} {{ 'TO' | translate }} {{ deliveryDays[0].hours[0].time }}</span>
+        </mat-radio-button>
+        <mat-radio-button [value]="1"
+            (click)="selectSpecificDeliveryTime()">
+            <span>{{ 'SCHEDULE' | translate }}</span>
+            <span *ngIf="selectedyDay && selectedHour"
+                class="fade">{{ selectedyDay.weekdayKey | translate }} {{ 'TO' | translate }} {{ selectedHour.time }}</span>
+        </mat-radio-button>
+    </mat-radio-group>
+</div>

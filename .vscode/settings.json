@@ -1,0 +1,8 @@
+{
+    "editor.formatOnSave": true,
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "importSorter.generalConfiguration.sortOnBeforeSave": true,
+    "html.format.wrapLineLength": 0,
+    "html.format.wrapAttributes": "force",
+}

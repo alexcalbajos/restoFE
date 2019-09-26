@@ -1,0 +1,93 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<img *ngIf="product.image_app_list"
+    [src]="product.image_app_list">
+<div fxLayout="column">
+    <h4 class="product-name">{{ product.name }}</h4>
+    <span class="product-description"
+        *ngIf="product.description">{{ product.description }}</span>
+    <ng-container *ngFor="let option of product.options">
+        <div *ngIf="option.isAvailable"
+            ri-custom-data
+            [data]="option.id">
+            <div fxLayout="row"
+                fxLayoutAlign="start center"
+                fxLayoutGap="5px"
+                class="option-name-container">
+                <h4 class="option-name"
+                    [ngClass]="{'unselected' : option.unselected}">{{ option.name }}</h4>
+                <span *ngIf="option.required === 1"
+                    class="option-required fade"
+                    [ngClass]="{'unselected' : option.unselected}">({{ 'MANDATORY' | translate }})</span>
+            </div>
+            <mat-radio-group *ngIf="option.singleChoice === 1"
+                [(ngModel)]="option.selectedValue"
+                (change)="productService.handleProductChange(product)">
+                <mat-radio-button *ngFor="let value of option.values"
+                    [value]="value"
+                    [ngClass]="{'hide': !value.isAvailable}">
+                    <span>{{ value.name }}</span>
+                    <span *ngIf="value.price > 0"
+                        class="fade">{{ value.price | number : '1.2-2' }}&euro;</span>
+                </mat-radio-button>
+                <mat-radio-button *ngIf="!option.required"
+                    [value]="undefined">
+                    <span>({{ 'NO_SELECTION' | translate }})</span>
+                </mat-radio-button>
+            </mat-radio-group>
+            <mat-selection-list *ngIf="option.singleChoice === 0"
+                [disableRipple]="true">
+                <mat-list-option *ngFor="let value of option.values"
+                    class="custom"
+                    [ngClass]="{'disabled' : option.atLimit, 'hide': !value.isAvailable}"
+                    [checkboxPosition]="'before'"
+                    [selected]="value.qty > 0"
+                    [value]="value.id"
+                    [disabled]="true"
+                    ri-custom-data
+                    [data]="value.id">
+                    <div (click)="optionClicked(product, value, option)"
+                        class="custom-content"
+                        fxLayout="row"
+                        fxLayoutAlign="space-between center">
+                        <span>{{ value.name }}</span>
+                        <div fxLayout="row"
+                            fxLayoutAlign="center center"
+                            fxLayoutGap="10px">
+                            <ri-quantity-input class="invis"
+                                [ngClass]="{'vis': value.qty}"
+                                [qty]="value.qty"
+                                [disableAdd]="option.atLimit"
+                                (qtyChange)="productService.valueQtyChange(product, value, option, $event)"></ri-quantity-input>
+                            <span *ngIf="value.price > 0"
+                                class="fade">{{ value.price | number : '1.2-2' }}&euro;</span>
+                        </div>
+                    </div>
+                </mat-list-option>
+            </mat-selection-list>
+        </div>
+    </ng-container>
+    <input [(ngModel)]="product.comment"
+        placeholder="{{ 'PRODUCT_COMMENTS' | translate }}">
+    <div id="QtyRow"
+        fxLayout="row"
+        fxLayoutAlign="space-between center">
+        <div fxLayout="row"
+            fxLayoutAlign="center center"
+            fxLayoutGap="15px">
+            <span class="uppercase bold">{{ 'QUANTITY' | translate }}</span>
+            <ri-quantity-input [qty]="product.qty"
+                [disableDelete]="true"
+                (qtyChange)="productService.productQtyChange(product, $event)"></ri-quantity-input>
+        </div>
+        <div fxLayout="row"
+            fxLayoutAlign="center center"
+            fxLayoutGap="15px">
+            <span class="uppercase">{{ 'TOTAL' | translate }}</span>
+            <p class="accent">{{ product.calculatedPrice | number : '1.2-2' }}&euro;</p>
+        </div>
+    </div>
+    <button class="accent-color"
+        (click)="addProductToCart()">{{ 'ADD_TO_CART' | translate }}</button>
+</div>

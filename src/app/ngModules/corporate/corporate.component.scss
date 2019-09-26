@@ -1,0 +1,35 @@
+@import "../../../styles/variables/responsive.scss";
+@import "../../../styles/variables/miscellaneous.scss";
+@import "../../../styles/variables/colors.scss";
+
+ri-corporate {
+    position: relative;
+
+    .container.shadow {
+        padding: 25px 50px;
+        box-sizing: border-box;
+        margin-bottom: 60px;
+
+        @media only screen and (max-width: $sm-maxWidth) {
+            padding: 25px;
+        }
+    }
+
+    .table-container {
+        @include scrollX;
+    }
+
+    .background-food {
+        top: 120px;
+    }
+
+    .input-with-icons {
+        margin: 10px 0 30px;
+    }
+
+    .actions-row, .pages-row, .title-row {
+        h3, button {
+            margin-bottom: 10px;
+        }
+    }
+}

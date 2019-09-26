@@ -1,0 +1,59 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<h3 class="bold area-title">{{ 'NEW_ADDRESS_TITLE' | translate }}</h3>
+<form fxLayout="column"
+    id="AddCorporateAddressForm"
+    [formGroup]="addCorporateAddressForm"
+    (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <span class="input-title">{{ 'ADDRESS' | translate }}</span>
+        <input ri-address-input
+            type="text"
+            id="AddCorporateAddress"
+            [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(addCorporateAddressForm.controls['address'])}"
+            placeholder="{{ 'ADDRESS_PLACEHOLDER' | translate }}"
+            formControlName="address"
+            [value]="address"
+            (selectedPlaceValidated)="selectedPlaceValidated($event)">
+        <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(addCorporateAddressForm.controls['address'])}"
+            class="input-error placeholder"></span>
+        <span [ngClass]="{'show': formValidationService.displayError(addCorporateAddressForm.controls['address'], 'invalidAddress')}"
+            class="input-error">{{ 'AUTOCOMPLETE_ADDRESS_EXACT' | translate }}</span>
+        <span [ngClass]="{'show': formValidationService.displayError(addCorporateAddressForm.controls['address'], 'custom')}"
+            class="input-error">{{ addCorporateAddressForm.controls['address'].errors?.custom }}</span>
+        <span [ngClass]="{'show': formValidationService.displayError(addCorporateAddressForm.controls['address'], 'required')}"
+            class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+    </div>
+    <div class="form-control">
+        <span class="input-title">{{ 'INSTRUCTION' | translate }}</span>
+        <input type="text"
+            formControlName="comments"
+            placeholder="{{ 'ADD_RIDER_INSTRUCTION' | translate }}">
+    </div>
+    <div id="DeliveryHours">
+        <h4>{{ 'ADDRESS_SCHEDULE_USE' | translate }}</h4>
+        <mat-radio-group formControlName="use_schedule"
+            name="use_schedule">
+            <mat-radio-button [value]="false">{{ 'ADDRESS_SCHEDULE_USE_FALSE' | translate }}</mat-radio-button>
+            <mat-radio-button [value]="true">{{ 'ADDRESS_SCHEDULE_USE_TRUE' | translate }}</mat-radio-button>
+        </mat-radio-group>
+        <mat-expansion-panel [expanded]="addCorporateAddressForm.value.use_schedule">
+            <div class="form-control">
+                <ri-corporate-schedule-table #corporateTable
+                    [morningSchedules]="morningSchedules"
+                    [eveningSchedules]="eveningSchedules"
+                    [selectedSchedules]="selectedSchedules"
+                    (hourChanged)="scheduleChanged()"></ri-corporate-schedule-table>
+                <input formControlName="schedules"
+                    class="hide">
+                <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(addCorporateAddressForm.controls['schedules'])}"
+                    class="input-error placeholder"></span>
+                <span [ngClass]="{'show': formValidationService.displayError(addCorporateAddressForm.controls['schedules'], 'custom')}"
+                    class="input-error">{{ addCorporateAddressForm.controls['schedules'].errors?.custom }}</span>
+            </div>
+        </mat-expansion-panel>
+    </div>
+    <button class="wide accent-color"
+        type="submit">{{ 'SAVE' | translate }}</button>
+</form>

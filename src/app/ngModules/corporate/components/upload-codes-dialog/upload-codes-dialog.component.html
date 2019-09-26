@@ -1,0 +1,17 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<h3 class="bold area-title">{{ 'UPLOAD_CODES_TITLE' | translate }}</h3>
+<div class="form-control">
+    <span class="input-title"
+        for="file">{{ 'UPLOAD_CODES_INFO' | translate }}</span>
+    <input type="file"
+        id="file"
+        (change)="setFile($event.target.files)">
+    <span class="input-error placeholder"
+        [ngClass]="{'hide': error}"></span>
+    <span class="input-error"
+        [ngClass]="{'show': error}">{{ error | translate }}</span>
+</div>
+<button class="wide form-button accent-color"
+    (click)="upload()">{{ 'UPLOAD' | translate }}</button>

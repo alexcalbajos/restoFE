@@ -1,0 +1,54 @@
+<h2 class="category-name uppercase-first"
+    fxHide.lt-sm>{{ category.name }}</h2>
+<h3 class="category-name uppercase-first bold centered"
+    fxHide.gt-xs>{{ category.name }}</h3>
+<div fxLayout="row wrap"
+    fxLayoutGap.xs="0%"
+    fxLayoutGap="2%"
+    fxLayoutAlign="start stretch">
+    <ng-container *ngFor="let product of category.products">
+        <div *ngIf="product.isAvailable"
+            class="product"
+            [ngClass]="{
+                'selected' : displaySelectedCount(product),
+                'no-description': !product.shortDescription && !category.show_images
+            }"
+            fxFlex.xs="100"
+            fxFlex.lt-lg="49"
+            fxFlex="32"
+            fxLayout="column"
+            (click)="openDialog(product)">
+            <div *ngIf="category.show_images"
+                class="img-container"
+                fxLayout="column">
+                <div class="product-image"
+                    defaultImage="/assets/images/no_photo.png"
+                    [lazyLoad]="product.image_web_big_restoin"
+                    [offset]="10"></div>
+            </div>
+            <div class="content"
+                fxFlex="1 1 auto"
+                fxLayout="row"
+                fxLayoutAlign="space-between start"
+                fxLayoutGap="10px">
+                <div fxLayout="column"
+                    fxFlex="1 1 0">
+                    <h4 class="product-name">{{ product.shortName }}</h4>
+                    <span>{{ product.shortDescription }}</span>
+                </div>
+                <p class="accent">{{ product.final_price | number : '1.2-2' }}&euro;</p>
+            </div>
+            <div fxLayout="row"
+                fxLayoutAlign="end center">
+                <div *ngIf="displaySelectedCount(product)"
+                    class="ri-label accent-color">
+                    <span class="before-multiply">{{ cart.productIdQtyPairs[product.id] }}</span>
+                </div>
+                <div *ngIf="!displaySelectedCount(product)"
+                    class="ri-label invis">
+                    <span class="before-multiply"></span>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,53 @@
+{
+    "rulesDirectory": [
+        "node_modules/codelyzer"
+    ],
+    "extends": [
+        "angular-tslint-rules"
+    ],
+    "rules": {
+        "curly": [
+            true,
+            "ignore-same-line"
+        ],
+        "prefer-function-over-method": false,
+        "typedef": [
+            true,
+            "call-signature",
+            "arrow-call-signature",
+            "parameter",
+            "arrow-parameter",
+            "property-declaration",
+            "variable-declaration",
+            "member-variable-declaration",
+            "object-destructuring",
+            "array-destructuring"
+        ],
+        "no-inferrable-types": false,
+        "newline-per-chained-call": false,
+        "no-template-call-expression": false,
+        "trackBy-function": false,
+        "use-view-encapsulation": false,
+        "prefer-readonly": false,
+        "no-floating-promises": false,
+        "no-parameter-reassignment": false,
+        "no-import-side-effect": [
+            true,
+            {
+                "ignore-module": "(intl-tel-input)"
+            }
+        ],
+        "only-arrow-functions": [
+            true,
+            "allow-declarations"
+        ],
+        "ordered-imports": false,
+        "return-undefined": false,
+        "no-void-expression": false,
+        "template-cyclomatic-complexity": [
+            false
+        ],
+        "no-unnecessary-type-assertion": false,
+        "no-unbound-method": false
+    }
+}

@@ -1,0 +1,42 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/responsive.scss";
+
+:host {
+    position: relative;
+    padding-top: 65px;
+
+    @media only screen and (max-width: $xs-maxWidth) {
+        padding-top: 0;
+    }
+
+    .fixed-element {
+        position: absolute;
+        top: 0;
+        transform: translateZ(0);
+        background-color: $primaryColor;
+        z-index: 1;
+
+        &.fixed {
+            position: fixed;
+            top: $headerHeight;
+        }
+    }
+
+    #CategoriesHeader {
+        .nav {
+            padding-top: 30px;
+        }
+    }
+
+    #Others {
+        margin-left: auto;
+    }
+
+    ri-product-category:not(:first-of-type) {
+        @media only screen and (max-width: $xs-maxWidth) {
+            display: block;
+            border-top: 1px solid $mediumGray;
+        }
+    }
+}

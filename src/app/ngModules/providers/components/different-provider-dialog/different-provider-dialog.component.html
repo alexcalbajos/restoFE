@@ -1,0 +1,19 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<div fxLayout="column"
+    fxLayoutAlign="center center">
+    <h3 class="bold area-title centered">{{ 'DIFFERENT_SUPPLIERS' | translate }}</h3>
+    <div id="InlineContainer">
+        <span>{{ 'DELETE_ARTICLES' | translate }}</span>
+        <span *ngIf="cartService._cart.getValue().provider"
+            class="accent">{{ cartService._cart.getValue().provider.name }}</span>
+        <span>{{ 'CREATE_BASKET_WITH_ARTICLES' | translate }}</span>
+        <span class="accent">{{ data.product.cartProvider.name }}</span>
+        <span class="after-question"></span>
+    </div>
+    <button class="form-button"
+        (click)="createNewCart()">{{ 'CREATE_BASKET' | translate }}</button>
+    <span class="secondary-button form-button"
+        (click)="keepInitialCart()">{{ 'KEEP_BASKET' | translate }}</span>
+</div>

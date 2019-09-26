@@ -1,0 +1,18 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<h3 *ngIf="!clientAddress"
+    class="bold area-title">{{ 'ADD_NEW_ADDRESS' | translate }}</h3>
+<h3 *ngIf="clientAddress"
+    class="bold area-title">{{ 'EDIT_ADDRESS' | translate }}</h3>
+<ri-add-address-form (addressChanged)="dialogRef.close($event)"
+    [address]="clientAddress"
+    #addAddressForm></ri-add-address-form>
+<div fxLayout="row"
+    fxLayoutAlign="space-between center"
+    class="buttons-row">
+    <button type="button"
+        (click)="dialogRef.close()">{{ 'CANCEL' | translate }}</button>
+    <button class="main-color"
+        (click)="submit()">{{ 'SAVE' | translate }}</button>
+</div>

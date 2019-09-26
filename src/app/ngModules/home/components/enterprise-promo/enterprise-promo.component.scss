@@ -1,0 +1,48 @@
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/responsive.scss";
+
+:host {
+    display: block;
+    background-color: $themeSecondaryColor;
+
+    .container {
+        padding-top: 80px;
+        padding-bottom: 55px;
+
+        @media only screen and (max-width: $sm-maxWidth) {
+            padding-top: 45px;
+            padding-bottom: 45px;
+        }
+
+        @media only screen and (max-width: $xs-maxWidth) {
+            padding-bottom: 0;
+        }
+
+        h2 {
+            color: $themeAccentColor;
+        }
+
+        #PromoImage {
+            background: url("/assets/images/enterprise_promo.jpg") no-repeat center;
+            background-size: cover;
+            height: 280px;
+
+            @media only screen and (max-width: $sm-maxWidth) {
+                width: 650px !important;
+                max-width: 100%;
+            }
+
+            @media only screen and (max-width: $xs-maxWidth) {
+                max-width: 100vw;
+            }
+        }
+
+        #PromoTitle {
+            display: inline;
+
+            h2 {
+                display: inline;
+            }
+        }
+    }
+}

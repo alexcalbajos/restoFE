@@ -1,0 +1,74 @@
+$areaHeight: 85px;
+$areaMargin: 10px;
+
+.area {
+    margin-bottom: 30px;
+    display: block;
+}
+
+.area-title {
+    margin-bottom: 20px;
+}
+
+.area-box-list {
+    max-height: calc(#{$areaHeight} * 3 + #{$areaMargin} * 2);
+    margin-right: -20px;
+    padding-right: 10px;
+
+    @include scrollY;
+}
+
+.area-box-button {
+    color: $themeAccentColor;
+    cursor: pointer;
+}
+
+.area-box, ri-address-box, ri-credit-card-box {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border: 1px solid $lightGray;
+    min-height: $areaHeight;
+    box-sizing: border-box;
+
+    &.selectable {
+        transition: $transition;
+        cursor: pointer;
+
+        &:hover {
+            border-color: $themeAccentColor;
+        }
+    }
+
+    &.selected {
+        border-color: $themeAccentColor;
+    }
+
+    &.responsive {
+        @media only screen and (max-width: $xs-maxWidth) {
+            padding: 0;
+            border: none;
+        }
+    }
+
+    &.fade {
+        * {
+            opacity: 0.7 !important;
+        }
+    }
+
+    .svg-container {
+        padding-right: 10px;
+        width: 50px;
+        justify-content: center;
+
+        svg {
+            height: 60px !important;
+            width: 100% !important;
+        }
+    }
+
+    &:nth-of-type(n+2) {
+        margin-top: $areaMargin;
+    }
+}

@@ -1,0 +1,26 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<h3 class="bold area-title centered">{{ 'ORDER_PROBLEM' | translate }}</h3>
+<div fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="20px">
+    <button class="wide"
+        (click)="sendProblem('ORDER_NOT_ARRIVED')">{{ 'ORDER_NOT_ARRIVED' | translate }}</button>
+    <button class="wide"
+        (click)="sendProblem('MISSING_PRODUCTS')">{{ 'MISSING_PRODUCTS' | translate }}</button>
+    <button class="wide"
+        (click)="sendProblem('COLD_DISHES')">{{ 'COLD_DISHES' | translate }}</button>
+    <button class="wide"
+        (click)="sendProblem('INCORRECT_PRODUCTS')">{{ 'INCORRECT_PRODUCTS' | translate }}</button>
+    <button class="wide"
+        (click)="sendProblem('DAMAGED_PRODUCTS')">{{ 'DAMAGED_PRODUCTS' | translate }}</button>
+    <button class="wide"
+        (click)="sendProblem('BADLY_COOKED_PRODUCTS')">{{ 'BADLY_COOKED_PRODUCTS' | translate }}</button>
+    <button class="wide"
+        (click)="sendProblem('RESTRICTIONS_NOT_RESPECTED')">{{ 'RESTRICTIONS_NOT_RESPECTED' | translate }}</button>
+    <button class="wide"
+        (click)="sendProblem('NOT_RIGHT_ORDER')">{{ 'NOT_RIGHT_ORDER' | translate }}</button>
+    <button class="wide"
+        (click)="sendProblem('OTHER_PROBLEM')">{{ 'OTHER_PROBLEM' | translate }}</button>
+</div>

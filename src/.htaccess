@@ -1,0 +1,41 @@
+SetEnvIfNoCase ORIGIN (.*\.resto-in\..*) ORIGIN=$1
+Header always set Access-Control-Allow-Methods "POST, GET, PUT, OPTIONS, PATCH, DELETE"
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Credentials "true"
+Header always set Access-Control-Allow-Headers "Authorization,Content-Type,x-channel,x-client-token,x-version,x-access-token"
+
+<IfModule mod_rewrite.c>
+    #DirectoryIndex
+    #RewriteEngine On
+
+    # make sure we're always on https
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+    # special sitemap.xml file
+    RewriteCond %{HTTP_HOST} ^(.*).resto-in.(.*)$ [NC]
+    RewriteRule ^sitemap\.xml sitemap-%2.xml [L]
+    RewriteCond %{HTTP_HOST} (.*).resto-in.(.*)$ [NC]
+    RewriteRule ^robots\.txt$ robots-%2.txt [L]
+    Options +FollowSymLinks
+
+    # Prerender.io stuff
+    <IfModule mod_headers.c>
+        #RequestHeader set X-Prerender-Token "F4Cwz2Y6TQwBqsbwfeIh"
+    </IfModule>
+    <IfModule mod_proxy_http.c>
+        RewriteCond %{HTTP_USER_AGENT} Googlebot|bingbot|Googlebot-Mobile|Baiduspider|Yahoo|YahooSeeker|DoCoMo|Twitterbot|TweetmemeBot|Twikle|Netseer|Daumoa|SeznamBot|Ezooms|MSNBot|Exabot|MJ12bot|sogou\sspider|YandexBot|bitlybot|ia_archiver|proximic|spbot|ChangeDetection|NaverBot|MetaJobBot|magpie-crawler|Genieo\sWeb\sfilter|Qualidator.com\sBot|Woko|Vagabondo|360Spider|ExB\sLanguage\sCrawler|AddThis.com|aiHitBot|Spinn3r|BingPreview|GrapeshotCrawler|CareerBot|ZumBot|ShopWiki|bixocrawler|uMBot|sistrix|linkdexbot|AhrefsBot|archive.org_bot|SeoCheckBot|TurnitinBot|VoilaBot|SearchmetricsBot|Butterfly|Yahoo!|Plukkie|yacybot|trendictionbot|UASlinkChecker|Blekkobot|Wotbox|YioopBot|meanpathbot|TinEye|LuminateBot|FyberSpider|Infohelfer|linkdex.com|Curious\sGeorge|Fetch-Guess|ichiro|MojeekBot|SBSearch|WebThumbnail|socialbm_bot|SemrushBot|Vedma|alexa\ssite\saudit|SEOkicks-Robot|Browsershots|BLEXBot|woriobot|AMZNKAssocBot|Speedy|oBot|HostTracker|OpenWebSpider|WBSearchBot|FacebookExternalHit [NC,OR]
+        RewriteCond %{QUERY_STRING} _escaped_fragment_
+        RewriteCond %{HTTP_HOST} ^(.*).resto-in.(.*)$ [NC]
+        # Only proxy the request to Prerender if it's a request for HTML
+        RewriteRule  ^(?!.*?(\.js|\.css|\.xml|\.less|\.png|\.jpg|\.jpeg|\.gif|\.pdf|\.doc|\.txt|\.ico|\.rss|\.zip|\.mp3|\.rar|\.exe|\.wmv|\.doc|\.avi|\.ppt|\.mpg|\.mpeg|\.tif|\.wav|\.mov|\.psd|\.ai|\.xls|\.mp4|\.m4a|\.swf|\.dat|\.dmg|\.iso|\.flv|\.m4v|\.torrent))(.*) https://service.prerender.io/https://%1.resto-in.%2/$2 [P,L]
+    </IfModule>
+
+    # If an existing asset or directory is requested go to it as it is
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+    RewriteRule ^ - [L]
+
+    # If the requested resource doesn't exist, use index.html
+    RewriteRule ^ /index.html
+</IfModule>

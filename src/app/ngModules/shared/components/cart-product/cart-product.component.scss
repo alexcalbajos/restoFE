@@ -1,0 +1,22 @@
+@import "../../../../../styles/variables/colors.scss";
+
+:host {
+    display: block;
+
+    .box {
+        padding: 10px 0;
+        border-bottom: 1px solid $lightGray;
+
+        .name-container {
+            margin-bottom: 5px;
+
+            .name {
+                cursor: pointer;
+            }
+
+            .price {
+                text-align: right;
+            }
+        }
+    }
+}

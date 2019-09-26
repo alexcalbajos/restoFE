@@ -1,0 +1,35 @@
+<div fxLayout="column"
+    fxFlex="stretch"
+    fxLayoutAlign="center start">
+    <h4>{{ 'REGISTERED_ADDRESSES' | translate }}</h4>
+    <div *ngIf="!dataLoaded"
+        class="spinner-container"
+        fxFlex="1 1 auto"
+        fxFlexAlign="stretch"
+        fxLayout="column"
+        fxLayoutAlign="center center">
+        <mat-spinner diameter="30"></mat-spinner>
+    </div>
+    <div *ngIf="dataLoaded && addresses?.length < 1"
+        fxFlex="1 1 auto"
+        fxFlexAlign="stretch"
+        fxLayout="column"
+        fxLayoutAlign="center center">
+        <span>{{ 'NO_ADDRESS_REGISTERED' | translate }}</span>
+    </div>
+    <div *ngIf="dataLoaded && addresses?.length > 0"
+        fxFlex="1 1 auto"
+        fxFlexAlign="stretch"
+        fxLayout="column"
+        fxLayoutAlign="start start"
+        class="area-box-list">
+        <ri-address-box fxFlexAlign="stretch"
+            *ngFor="let address of addresses"
+            [address]="address"
+            [allowEdit]="!clientService._client.getValue().isCorporate"
+            (addressEdited)="getAddresses()"></ri-address-box>
+    </div>
+    <button class="wide main-color form-button"
+        (click)="add()"
+        [disabled]="clientService._client.getValue().isCorporate">{{ '+' | translate }} {{ 'ADD_NEW_ADDRESS' | translate }}</button>
+</div>

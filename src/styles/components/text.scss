@@ -1,0 +1,171 @@
+h1, h2, h3, h4 {
+    margin: 0;
+    font-family: "Rubik";
+    color: $themeMainColor;
+    user-select: none;
+}
+
+h1, h2 {
+    font-weight: 300;
+
+    &.bold {
+        font-weight: 700;
+    }
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    line-height: 1.1;
+
+    @media only screen and (max-width: $xs-maxWidth) {
+        font-size: 32px;
+    }
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1.75px;
+
+    &.bold {
+        font-weight: 500;
+        letter-spacing: initial;
+    }
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 500;
+
+    &.wide {
+        font-weight: 400;
+        letter-spacing: 1.40px;
+    }
+
+    &.bold {
+        font-weight: bold;
+    }
+}
+
+p, span {
+    user-select: none;
+    font-family: "Poppins";
+    color: $strongGrey;
+
+    &.accent {
+        font-family: "Rubik";
+        color: $themeAccentColor;
+        font-weight: 500;
+    }
+}
+
+p {
+    margin: 0;
+    font-size: 15px;
+
+    &.accent {
+        letter-spacing: 1.32px;
+    }
+}
+
+span {
+    @include spanFont;
+
+    &.accent {
+        letter-spacing: 1.06px;
+    }
+
+    &.fade {
+        opacity: 0.5;
+    }
+
+    &.bold {
+        font-weight: bold;
+    }
+
+    &.highlight {
+        color: $themeMainColor;
+    }
+
+    &.highlight-accent {
+        color: $themeAccentColor;
+    }
+}
+
+.centered {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.uppercase-first {
+    text-transform: lowercase;
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+}
+
+/*
+* === PIPE ===
+*/
+.after-pipe-group {
+    &:not(:last-child)::after {
+        content: "|";
+        padding: 0 3px;
+        display: inline-block;
+        font-weight: normal;
+    }
+}
+
+.after-pipe::after {
+    content: "|";
+}
+
+.before-pipe::before {
+    content: "|";
+}
+
+/*
+* === MULTIPLY ===
+*/
+.before-multiply::before {
+    content: "x";
+}
+
+/*
+* === DASH ===
+*/
+.after-dash::after {
+    content: "-";
+}
+
+.before-dash::before {
+    content: "-";
+}
+
+/*
+* === OTHER ===
+*/
+.after-question::after {
+    content: "?";
+}
+
+.after-percent::after {
+    content: "%";
+}

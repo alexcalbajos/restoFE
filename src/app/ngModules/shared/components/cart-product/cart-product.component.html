@@ -1,0 +1,26 @@
+<div *ngIf="!hideProduct"
+    class="box">
+    <div fxLayout="row"
+        fxLayoutAlign="center center"
+        class="name-container">
+        <span class="name"
+            fxFlex="1 1 auto"
+            (click)="edit(product)">{{ product.name }}</span>
+        <ri-quantity-input [qty]="product.qty"
+            (qtyChange)="productQtyChange(product, $event)"></ri-quantity-input>
+        <span fxFlex="65px"
+            class="price accent">{{ product.calculatedPrice | number : '1.2-2' }}&euro;</span>
+    </div>
+    <div *ngFor="let option of product.options">
+        <div *ngIf="option.singleChoice === 1">
+            <span class="fade"
+                *ngIf="option.selectedValue">{{ option.selectedValue.name }}</span>
+        </div>
+        <div *ngIf="option.singleChoice === 0">
+            <div fxLayout="row"
+                *ngFor="let selectedValue of option.selectedValues">
+                <span class="fade">{{ selectedValue.name }}</span>
+            </div>
+        </div>
+    </div>
+</div>

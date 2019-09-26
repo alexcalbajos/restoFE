@@ -1,0 +1,116 @@
+button {
+    user-select: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding-top: $spanVerticalPadding;
+    padding-bottom: $spanVerticalPadding;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: 1px solid $mediumGray;
+    border-radius: $borderRadius;
+    background-color: transparent;
+    color: $themeMainColor;
+    font-family: "Rubik";
+    font-size: $spanFontSize;
+    letter-spacing: 1.2px;
+    transition: $transition;
+    white-space: nowrap;
+    line-height: $spanLineHeight;
+
+    &.short {
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+    &.wide {
+        width: 100% !important;
+        padding-left: $spanVerticalPadding / 2;
+        padding-right: $spanVerticalPadding / 2;
+    }
+
+    &.thin {
+        padding-left: $spanVerticalPadding / 2;
+        padding-right: $spanVerticalPadding / 2;
+    }
+
+    &.icon {
+        padding: $spanVerticalPadding;
+        border: none;
+
+        .svg-container {
+            height: $spanLineHeight !important;
+        }
+    }
+
+    &.main-color {
+        background-color: $themeMainColor;
+        border-color: $themeMainColor;
+        color: $primaryColor;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &.accent-color {
+        background-color: $themeAccentColor;
+        color: $primaryColor;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &.with-spinner {
+        display: flex;
+        justify-content: center;
+
+        span {
+            color: inherit;
+        }
+    }
+
+    &:disabled {
+        cursor: default;
+        pointer-events: none;
+
+        &:hover {
+            box-shadow: none;
+        }
+
+        &:not(.keep-style) {
+            background-color: $lightGray;
+            border-color: $lightGray;
+            color: $mediumGray;
+        }
+    }
+
+    &:hover {
+        box-shadow: $shadow;
+    }
+}
+
+span.secondary-button {
+    text-decoration: underline;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+span.secondary-button-accent {
+    text-decoration: none;
+    cursor: pointer;
+    color: $themeAccentColor;
+}
+
+ri-google-play-button, ri-app-store-button {
+    cursor: pointer;
+    transition: $transition;
+
+    .svg-container {
+        height: 100%;
+    }
+
+    &:hover {
+        opacity: 0.7;
+    }
+}

@@ -1,0 +1,21 @@
+.intl-tel-input.separate-dial-code {
+    .flag-container {
+        width: 100%;
+
+        .selected-flag {
+            background-color: $primaryColor;
+
+            .selected-dial-code {
+                @include spanFont;
+            }
+        }
+
+        .country-list {
+            @include scrollY;
+
+            overflow-x: hidden;
+            width: 250px;
+            position: fixed;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<div fxLayout="row"
+    fxLayoutGap="10px"
+    fxLayoutAlign="start center">
+    <span fxFlex="20"
+        fxFlex.lt-sm="40"></span>
+    <span fxFlex="20"
+        fxFlex.lt-sm="30"
+        class="centered bold">{{ 'CORP_ORDER' | translate }}</span>
+    <span fxFlex="20"
+        fxFlex.lt-sm="30"
+        class="centered bold">{{ 'CORP_ORDER_AMOUNT' | translate }}</span>
+</div>
+<ri-corporate-client-order-amount-row *ngFor="let orderAmount of orderAmounts"
+    [orderAmount]="orderAmount"></ri-corporate-client-order-amount-row>

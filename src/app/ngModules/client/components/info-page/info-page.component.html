@@ -1,0 +1,38 @@
+<div class="container">
+    <div fxLayout="row"
+        fxLayout.lt-md="column"
+        fxLayoutGap="35px"
+        fxLayoutGap.lt-sm="15px">
+        <ri-client-details class="shadow"
+            fxFlex="50"></ri-client-details>
+        <ri-client-password class="shadow"
+            fxFlex="50"></ri-client-password>
+    </div>
+    <div fxLayout="row"
+        fxLayout.lt-md="column"
+        fxLayoutGap="35px"
+        fxLayoutGap.lt-sm="15px">
+        <ri-client-credit-cards class="shadow"
+            fxFlex="50"></ri-client-credit-cards>
+        <ri-client-addresses class="shadow"
+            fxFlex="50"></ri-client-addresses>
+    </div>
+    <div [fxLayout]="walletContainerLayout"
+        fxLayout.lt-md="column"
+        fxLayoutGap="35px"
+        fxLayoutGap.lt-sm="15px">
+        <ri-client-wallet class="shadow"
+            [ngClass]="walletClass"
+            fxFlex="50"></ri-client-wallet>
+        <ri-client-preferences class="shadow"
+            fxFlex="50"></ri-client-preferences>
+    </div>
+    <div fxLayout="row"
+        fxLayoutAlign="end end">
+        <span class="secondary-button"
+            (click)="deleteAccount()"
+            [translate]="'DELETE_ACCOUNT'"
+            [translateParams]="{providerName: staticConfig.brandName}"></span>
+    </div>
+</div>
+<div class="background-food"></div>

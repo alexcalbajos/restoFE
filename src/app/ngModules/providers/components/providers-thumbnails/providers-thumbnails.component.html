@@ -1,0 +1,43 @@
+<div fxLayout="row wrap"
+    fxLayoutGap.xs="0%"
+    fxLayoutGap="5%"
+    fxLayoutAlign="start start">
+    <a class="provider"
+        *ngFor="let provider of providers"
+        [routerLink]="provider.provider_url"
+        (click)="providersService.setLastProviderEta(provider)"
+        fxFlex.xs="100"
+        fxFlex.lt-lg="47.5"
+        fxFlex="30">
+        <meta [content]="provider.absoluteUrl"
+            itemprop="url" />
+        <div class="img-container"
+            fxLayout="column">
+            <div class="provider-image"
+                [ngClass]="{'fade': provider.status !== 2}"
+                defaultImage="/assets/images/no_photo.png"
+                [lazyLoad]="provider.providers_app_main"
+                [offset]="10"></div>
+        </div>
+        <h4>{{ provider.name }}</h4>
+        <div fxLayout="row wrap">
+            <a *ngFor="let category of provider.provider_categories"
+                [routerLink]="cityRoute + '/' + category.category.link.toLowerCase()"
+                class="after-pipe-group">
+                <span class="category">{{ category.category.label }}</span>
+            </a>
+        </div>
+        <div id="Labels"
+            fxLayout="row"
+            fxLayoutAlign="space-between center">
+            <ri-provider-rating class="ri-label"
+                [rating]="provider.avg_note"></ri-provider-rating>
+            <div class="ri-label">
+                <span *ngIf="provider.status === 2"
+                    [translate]="provider.etaToDisplay"
+                    [translateParams]="provider.etaToDisplayParams"></span>
+                <span *ngIf="provider.status === 1">{{ 'OPENS_AT' | translate }} {{ provider.opensAt | date:'HH:mm' }}</span>
+            </div>
+        </div>
+    </a>
+</div>

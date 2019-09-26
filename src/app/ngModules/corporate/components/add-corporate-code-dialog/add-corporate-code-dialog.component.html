@@ -1,0 +1,43 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<h3 class="bold area-title">{{ 'NEW_CODE_TITLE' | translate }}</h3>
+<form fxLayout="column"
+    id="AddCodeForm"
+    [formGroup]="addCodeForm"
+    (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <span class="input-title">{{ 'CORP_CODE' | translate }}</span>
+        <input [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(addCodeForm.controls['code'])}"
+            type="text"
+            formControlName="code"
+            placeholder="{{ 'CORP_CODE' | translate }}">
+        <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(addCodeForm.controls['code'])}"
+            class="input-error placeholder"></span>
+        <span [ngClass]="{'show': formValidationService.displayError(addCodeForm.controls['code'], 'required')}"
+            class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+    </div>
+    <div class="form-control">
+        <span class="input-title">{{ 'EXPIRATION_DATE' | translate }}</span>
+        <div class="input-with-icons">
+            <input [owlDateTime]="dt1"
+                [owlDateTimeTrigger]="dt1"
+                formControlName="date"
+                placeholder="{{ 'EXPIRATION_DATE' | translate }}"
+                [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(addCodeForm.controls['date'])}">
+            <div class="icon-container"
+                [owlDateTimeTrigger]="dt1">
+                <div class="svg-container icon large"
+                    [inlineSVG]="'/assets/svg/date.svg'"></div>
+            </div>
+        </div>
+        <owl-date-time [pickerType]="'calendar'"
+            #dt1></owl-date-time>
+        <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(addCodeForm.controls['date'])}"
+            class="input-error placeholder"></span>
+        <span [ngClass]="{'show': formValidationService.displayError(addCodeForm.controls['date'], 'owlDateTimeParse')}"
+            class="input-error">{{ 'INVALID_DATE' | translate }}</span>
+    </div>
+    <button class="wide accent-color"
+        type="submit">{{ 'SAVE' | translate }}</button>
+</form>

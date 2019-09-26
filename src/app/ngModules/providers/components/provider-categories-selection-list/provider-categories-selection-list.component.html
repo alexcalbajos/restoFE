@@ -1,0 +1,12 @@
+<mat-selection-list #selectedCategories
+    id="CategoriesList"
+    [disableRipple]="true"
+    (selectionChange)="newSelection(selectedCategories)"
+    fxLayout="column">
+    <mat-list-option *ngFor="let category of categories"
+        [checkboxPosition]="'before'"
+        [selected]="category.selected"
+        [value]="category.link">
+        {{ category.label }} ({{ category.numberOfProviders }})
+    </mat-list-option>
+</mat-selection-list>

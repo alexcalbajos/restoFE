@@ -1,0 +1,19 @@
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/responsive.scss";
+
+:host {
+    display: block;
+
+    #Title {
+        padding: 65px 0 55px;
+
+        @media only screen and (max-width: $xs-maxWidth) {
+            padding: 65px 0 15px;
+        }
+    }
+
+    .thumbnail {
+        height: 480px;
+    }
+}

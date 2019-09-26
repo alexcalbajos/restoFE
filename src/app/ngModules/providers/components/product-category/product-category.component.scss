@@ -1,0 +1,78 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/responsive.scss";
+@import "../../../../../styles/variables/grids.scss";
+
+:host {
+    .category-name {
+        padding: 40px 0 25px;
+
+        @media only screen and (max-width: $xs-maxWidth) {
+            padding: 20px 0 20px;
+        }
+    }
+
+    .product {
+        border: 1px solid $primaryColor;
+        transition: $transition;
+        cursor: pointer;
+
+        @include threeColumns(2%, 25px);
+
+        &.selected {
+            border: 1px solid $lightGray;
+        }
+
+        &.no-description {
+            @media only screen and (max-width: $xs-maxWidth) {
+                flex-direction: row-reverse !important;
+
+                .content {
+                    padding: 15px 10px;
+
+                    .product-name {
+                        padding-bottom: 0;
+                    }
+                }
+
+                .ri-label {
+                    height: 100%;
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+
+                    &.invis {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            .product-image {
+                transform: scale(1.05);
+            }
+        }
+
+        .img-container {
+            overflow: hidden;
+
+            .product-image {
+                transition: $transition;
+                width: 100%;
+                padding-top: 75%;
+                background-position: center;
+                background-size: cover;
+                border-radius: $borderRadius;
+            }
+        }
+
+        .content {
+            padding: 10px 10px 0px;
+
+            .product-name {
+                padding-bottom: 5px;
+            }
+        }
+    }
+}

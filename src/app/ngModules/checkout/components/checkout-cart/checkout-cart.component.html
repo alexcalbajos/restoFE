@@ -1,0 +1,57 @@
+<div class="fixed-element"
+    #fixedElement>
+    <div class="shadow">
+        <button class="accent-color wide"
+            [disabled]="!dataLoaded"
+            (click)="onValidateCart()">{{ 'PASS_ORDER' | translate }}</button>
+        <div class="content-wrapper"
+            fxLayout="column">
+            <span *ngIf="cart?.products.length === 0"
+                fxFlex="1 1 auto"
+                fxLayout="row"
+                fxLayoutAlign="center center">{{ 'YOUR_BASKET_EMPTY' | translate }}</span>
+            <div *ngIf="cart?.products.length > 0"
+                fxFlex="1 1 auto"
+                class="products-container">
+                <div *ngIf="!groupedProducts">
+                    <ri-cart-product *ngFor="let product of cart?.products"
+                        [product]="product"></ri-cart-product>
+                </div>
+                <div *ngIf="groupedProducts">
+                    <div *ngFor="let attachedClientFullName of groupedProducts | keyvalue"
+                        class="product-group">
+                        <span class="bold">{{ attachedClientFullName.key }}</span>
+                        <ri-cart-product [product]="product"
+                            *ngFor="let product of groupedProducts[attachedClientFullName.key]"></ri-cart-product>
+                    </div>
+                </div>
+            </div>
+            <ri-checkout-cart-actions [automaticValidationResponse]="automaticValidationResponse"></ri-checkout-cart-actions>
+            <span *ngIf="cart?.cutlery"
+                id="Cutlery"
+                class="main-color highlight bold">{{ 'CUTLERY_TAG' | translate }}</span>
+            <div *ngIf="automaticValidationResponse"
+                fxLayout="row"
+                fxLayoutAlign="space-between center">
+                <span>{{ 'SUBTOTAL' | translate }}</span>
+                <span class="accent">{{ cart?.total | number : '1.2-2' }}&euro;</span>
+            </div>
+            <div *ngIf="automaticValidationResponse?.delivery?.fee"
+                fxLayout="row"
+                fxLayoutAlign="space-between center">
+                <span>{{ 'DELIVERY_FEES' | translate }}</span>
+                <span class="accent">{{ automaticValidationResponse?.delivery?.fee | number : '1.2-2' }}&euro;</span>
+            </div>
+            <div *ngIf="automaticValidationResponse?.cartTotal >= 0"
+                fxLayout="row"
+                fxLayoutAlign="space-between center"
+                class="total">
+                <span>{{ 'TOTAL_CAPS' | translate }}</span>
+                <p *ngIf="automaticValidationResponse"
+                    class="accent">{{ automaticValidationResponse?.cartTotal | number : '1.2-2' }}&euro;</p>
+                <p *ngIf="!automaticValidationResponse"
+                    class="accent">{{ cart?.total | number : '1.2-2' }}&euro;</p>
+            </div>
+        </div>
+    </div>
+</div>

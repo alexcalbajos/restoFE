@@ -1,0 +1,30 @@
+<div class="container"
+    fxLayout="row"
+    fxLayout.lt-md="column"
+    fxLayoutAlign.lt-md="center center"
+    fxLayoutGap="35px">
+    <div fxFlex="50%"
+        fxFlex.lt-md="100%"
+        fxLayoutGap="15px"
+        fxLayoutGap.lt-md="25px"
+        fxLayout="column"
+        fxLayoutAlign="center start"
+        fxLayoutAlign.lt-md="center center">
+        <div fxLayout="column">
+            <div id="PromoTitle"
+                fxLayoutGap="10px">
+                <h2>{{ 'ENTERPRISE_PROMO_TITLE_1' | translate }}</h2>
+                <h2 class="bold">{{ 'ENTERPRISE_PROMO_TITLE_2' | translate }}</h2>
+            </div>
+            <span class="fade"
+                ngClass.lt-md="centered">{{ 'ACCESS_OUR_SERVICE' | translate }}</span>
+        </div>
+        <button class="accent-color"
+            routerLink="./presentation/enterprise">{{ 'RESTOIN' | translate }} {{ 'FOR_BUSINESS_GENERIC' | translate }}</button>
+    </div>
+    <div id="PromoImage"
+        fxFlex="50%"
+        fxFlex.lt-md="100%"
+        fxLayout="column">
+    </div>
+</div>

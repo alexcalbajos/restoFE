@@ -1,0 +1,9 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<button class="wide"
+    (click)="dialogRef.close('add')">{{ '+' | translate }} {{ 'ADD_NEW_CARD' | translate }}</button>
+<div class="divider"></div>
+<h3 class="bold area-title uppercase-first">{{ 'PAYMENTS' | translate }}</h3>
+<ri-payment-methods (paymentSelected)="dialogRef.close($event)"
+    [paymentMethods]="allPaymentMethods"></ri-payment-methods>

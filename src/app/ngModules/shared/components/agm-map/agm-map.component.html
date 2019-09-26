@@ -1,0 +1,42 @@
+<agm-map #agmMap>
+    <agm-marker *ngIf="clientMarker"
+        [latitude]="clientMarker?.lat"
+        [longitude]="clientMarker?.lng"
+        iconUrl="/assets/images/tracking/casa.png"></agm-marker>
+    <agm-marker *ngIf="sellingPointMarker"
+        [latitude]="sellingPointMarker?.lat"
+        [longitude]="sellingPointMarker?.lng"
+        iconUrl="/assets/images/tracking/sellingpoint.png"
+        [openInfoWindow]="true">
+        <agm-info-window>
+            <ri-agm-info-window-content [imgSrc]="order?.selling_point?.provider?.logo_url"
+                [name]="order?.selling_point.provider.name"
+                [phone]="order?.selling_point.tel"></ri-agm-info-window-content>
+        </agm-info-window>
+    </agm-marker>
+    <agm-marker *ngIf="deliveryManMarker"
+        [latitude]="deliveryManMarker?.lat"
+        [longitude]="deliveryManMarker?.lng"
+        iconUrl="/assets/images/tracking/driver.png"
+        [openInfoWindow]="true">
+        <agm-info-window>
+            <ri-agm-info-window-content [imgSrc]="order?.delivery_men_id?.photo_url"
+                [name]="order?.delivery_men_id.first_name"
+                [phone]="order?.delivery_men_id.mobile"></ri-agm-info-window-content>
+        </agm-info-window>
+    </agm-marker>
+</agm-map>
+<div *ngIf="showBetaOptions">
+    <button (click)="changeStatus(0)"
+        style="position: fixed; bottom: 0; left: 0; z-index: 100;">{{ '0' | translate }}</button>
+    <button (click)="changeStatus(1)"
+        style="position: fixed; bottom: 0; left: 100px; z-index: 100;">{{ '1' | translate }}</button>
+    <button (click)="changeStatus(2)"
+        style="position: fixed; bottom: 0; left: 200px; z-index: 100;">{{ '2' | translate }}</button>
+    <button (click)="changeStatus(3)"
+        style="position: fixed; bottom: 0; left: 300px; z-index: 100;">{{ '3' | translate }}</button>
+    <button (click)="changeStatus(4)"
+        style="position: fixed; bottom: 0; left: 400px; z-index: 100;">{{ '4' | translate }}</button>
+    <button (click)="changeStatus(5)"
+        style="position: fixed; bottom: 0; left: 500px; z-index: 100;">{{ '5' | translate }}</button>
+</div>

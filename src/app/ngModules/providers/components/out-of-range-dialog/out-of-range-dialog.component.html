@@ -1,0 +1,13 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<div fxLayout="column"
+    fxLayoutAlign="center center">
+    <h3 class="bold area-title centered"
+        [translate]="'PROVIDER_INV_ADDRESS'"
+        [translateParams]="{address: sessionAddressService._sessionAddress.getValue().address}"></h3>
+    <button class="form-button"
+        (click)="goToProvidersListPage()">{{ 'VIEW_RESTAURANTS_IN_ZONE' | translate }}</button>
+    <span class="secondary-button form-button"
+        (click)="changeAddress()">{{ 'CHANGE_ADDRESS' | translate }}</span>
+</div>

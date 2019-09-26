@@ -1,0 +1,31 @@
+@mixin popularity($color) {
+    span {
+        color: $color;
+    }
+
+    .svg-container {
+        ::ng-deep {
+            path {
+                fill: $color;
+            }
+        }
+    }
+}
+
+.box {
+    &.xs {
+        @include popularity(#c3ebaa);
+    }
+
+    &.sm {
+        @include popularity(#b2e195);
+    }
+
+    &.md {
+        @include popularity(#87c560);
+    }
+
+    &.lg {
+        @include popularity(#5e963a);
+    }
+}

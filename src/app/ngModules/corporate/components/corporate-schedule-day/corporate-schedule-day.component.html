@@ -1,0 +1,75 @@
+<div fxLayout="row"
+    fxLayoutGap="10px"
+    fxLayoutAlign="end center">
+    <span fxFlex="20"
+        class="bold">{{ day.name | translate }}</span>
+    <div fxLayout="row"
+        fxLayout.lt-md="column"
+        fxFlex="40"
+        fxLayoutAlign="center center"
+        fxLayoutGap="10px"
+        fxLayoutGap.lt-md="15px">
+        <ng-select fxFlex="50"
+            [items]="morningSchedules"
+            bindLabel="time"
+            [clearable]="false"
+            [searchable]="false"
+            [appendTo]="'body'"
+            [(ngModel)]="day.morningStart"
+            (change)="onMorningChange()"></ng-select>
+        <ng-select fxFlex="50"
+            [items]="morningSchedules"
+            bindLabel="time"
+            [clearable]="false"
+            [searchable]="false"
+            [appendTo]="'body'"
+            [(ngModel)]="day.morningEnd"
+            (change)="onMorningChange()"></ng-select>
+    </div>
+    <div fxLayout="row"
+        fxLayout.lt-md="column"
+        fxFlex="40"
+        fxLayoutAlign="center center"
+        fxLayoutGap="10px"
+        fxLayoutGap.lt-md="15px">
+        <ng-select fxFlex="50"
+            [items]="eveningSchedules"
+            bindLabel="time"
+            [clearable]="false"
+            [searchable]="false"
+            [appendTo]="'body'"
+            [(ngModel)]="day.eveningStart"
+            (change)="onEveningChange()"></ng-select>
+        <ng-select fxFlex="50"
+            [items]="eveningSchedules"
+            bindLabel="time"
+            [clearable]="false"
+            [searchable]="false"
+            [appendTo]="'body'"
+            [(ngModel)]="day.eveningEnd"
+            (change)="onEveningChange()"></ng-select>
+    </div>
+</div>
+<div fxLayout="row"
+    fxLayoutGap="10px"
+    fxLayoutAlign="end center">
+    <span fxFlex="20"></span>
+    <div fxLayout="row"
+        fxLayout.lt-md="column"
+        fxFlex="40"
+        fxLayoutAlign="start center">
+        <span [ngClass]="{'show': !day.isValid && invalidMorning && incompleteMorning}"
+            class="input-error">{{ 'BOTH_HOURS' | translate }}</span>
+        <span [ngClass]="{'show': !day.isValid && invalidMorning && !incompleteMorning}"
+            class="input-error">{{ 'SUPERIOR_START' | translate }}</span>
+    </div>
+    <div fxLayout="row"
+        fxLayout.lt-md="column"
+        fxFlex="40"
+        fxLayoutAlign="start center">
+        <span [ngClass]="{'show': !day.isValid && invalidEvening && incompleteEvening}"
+            class="input-error">{{ 'BOTH_HOURS' | translate }}</span>
+        <span [ngClass]="{'show': !day.isValid && invalidEvening && !incompleteEvening}"
+            class="input-error">{{ 'SUPERIOR_START' | translate }}</span>
+    </div>
+</div>

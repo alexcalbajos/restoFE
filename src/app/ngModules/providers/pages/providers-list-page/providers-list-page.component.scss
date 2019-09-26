@@ -1,0 +1,79 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/responsive.scss";
+
+$verticalElementWidth: 300px;
+$verticalElementMargin: 50px;
+$topPadding: 20px;
+
+ri-providers-list-page {
+    display: block;
+    min-height: 100vh;
+
+    .fixed-element-container {
+        width: calc(100% - #{$verticalElementWidth} - #{$verticalElementMargin});
+        margin-left: auto;
+    }
+
+    .fixed-element {
+        position: fixed;
+        padding-top: $topPadding;
+        background-color: $primaryColor;
+        transform: translateZ(0);
+        z-index: 1;
+    }
+
+    .fixed-element-container-mobile {
+        position: absolute;
+        padding-top: $topPadding;
+    }
+
+    .fixed-element-mobile {
+        background-color: $primaryColor;
+        transform: translateZ(0);
+        z-index: 1;
+
+        &.fixed {
+            padding-top: $headerHeightMobile;
+            top: 0;
+            position: fixed;
+        }
+    }
+
+    .dynamic-content {
+        padding-top: 120px;
+    }
+
+    #AddressMobileBar {
+        padding-top: 10px;
+    }
+
+    ri-providers-filters {
+        padding-top: $topPadding;
+        min-height: calc(100vh - #{$headerHeight});
+
+        .fixed-vertical-element {
+            height: calc(100vh - #{$topPadding} - #{$topPadding} - #{$headerHeight});
+            min-height: calc(100vh - #{$topPadding} - #{$topPadding} - #{$headerHeight});
+            width: $verticalElementWidth;
+            position: fixed;
+            transform: translateZ(0);
+            transition: $transition;
+
+            &.absolute {
+                position: absolute;
+                bottom: 0;
+            }
+        }
+    }
+
+    @media only screen and (max-width: $sm-maxWidth) {
+        .fixed-element-container {
+            width: 100%;
+        }
+
+        .dynamic-content {
+            padding-top: 160px;
+        }
+    }
+}

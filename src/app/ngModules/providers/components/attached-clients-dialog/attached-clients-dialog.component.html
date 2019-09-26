@@ -1,0 +1,33 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<h3 class="bold area-title">{{ 'MULTIORDER_POPUP_TITLE' | translate }}</h3>
+<div class="input-with-icons">
+    <input type="text"
+        (keyup)="applyFilter($event.target.value)">
+    <div class="icon-container">
+        <div class="svg-container icon large"
+            [inlineSVG]="'/assets/svg/search.svg'"></div>
+    </div>
+</div>
+<mat-selection-list #clientsList
+    [disableRipple]="true"
+    (selectionChange)="displayError = false"
+    fxLayout="column">
+    <mat-list-option *ngFor="let attachedClient of attachedClients"
+        [checkboxPosition]="'before'"
+        [selected]="attachedClient.checked"
+        [value]="attachedClient"
+        ri-custom-data
+        [data]="attachedClient.id">
+        {{ attachedClient.fullName }}
+    </mat-list-option>
+</mat-selection-list>
+<div fxLayout="column">
+    <span [ngClass]="{'hide': displayError}"
+        class="input-error placeholder"></span>
+    <span [ngClass]="{'show': displayError}"
+        class="input-error">{{ 'MINIMUM_ONE_CLIENT' | translate }}</span>
+</div>
+<button class="wide form-button"
+    (click)="addClients(clientsList)">{{ 'MULTIORDER_POPUP_SAVE_BUTTON' | translate }}</button>

@@ -1,0 +1,25 @@
+<mat-radio-group *ngIf="dataLoaded"
+    [(ngModel)]="selectedPaymentMethod"
+    fxLayout="column"
+    (change)="handleSelectedPayment(selectedPaymentMethod)">
+    <mat-radio-button *ngFor="let paymentMethod of paymentMethods"
+        [value]="paymentMethod">{{ paymentMethod.description | translate }}</mat-radio-button>
+</mat-radio-group>
+<div *ngIf="!dataLoaded || allowAdd && !dropinLoaded"
+    class="spinner-container"
+    fxLayout="column"
+    fxLayoutAlign="center center">
+    <mat-spinner diameter="30"></mat-spinner>
+</div>
+<ri-dropin-form #dropinForm
+    *ngIf="showDropin"
+    [ngClass]="{ 'hide': !dropinLoaded }"
+    (dropinError)="handleSelectedPayment(undefined)"
+    (dataLoaded)="dataLoaded = $event; dropinLoaded = $event;"
+    (cardSaved)="handleSelectedPayment($event)"></ri-dropin-form>
+<div class="area-box-list">
+    <ri-credit-card-box *ngFor="let creditCard of creditCards"
+        class="selectable"
+        [creditCard]="creditCard"
+        (click)="handleSelectedPayment(creditCard)"></ri-credit-card-box>
+</div>

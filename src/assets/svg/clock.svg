@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Clock" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="bounds" x="0" y="0" width="24" height="24"></rect>
+        <circle id="Oval" stroke="#2D1A4B" fill-rule="nonzero" cx="12" cy="12" r="10"></circle>
+        <path d="M12,6.5 L12,12.9585188 L12,6.5 Z M12,13 L17.5,13 L12,13 Z" id="Combined-Shape" stroke="#2D1A4B" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero"></path>
+    </g>
+</svg>

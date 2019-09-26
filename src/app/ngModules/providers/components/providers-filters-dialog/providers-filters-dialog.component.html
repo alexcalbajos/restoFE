@@ -1,0 +1,43 @@
+<div class="box shadow"
+    fxLayout="row"
+    fxLayoutAlign="space-between center">
+    <div id="MenuIcon"
+        class="svg-container icon"
+        [inlineSVG]="'/assets/svg/menu.svg'"></div>
+    <p class="accent uppercase">{{ 'FILTERS' | translate }}</p>
+    <div class="svg-container icon"
+        (click)="dialogRef.close()"
+        id="CloseAccentIcon"
+        [inlineSVG]="'/assets/svg/close.svg'"></div>
+</div>
+<mat-expansion-panel>
+    <mat-expansion-panel-header class="box"
+        [collapsedHeight]="'auto'"
+        [expandedHeight]="'auto'">
+        <mat-panel-title>
+            <span class="fade centered">{{ 'SORT_BY' | translate }}</span>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-radio-group [(ngModel)]="selectedSortingOption"
+        fxLayout="column">
+        <mat-radio-button *ngFor="let option of providersService.sortingOptions"
+            [value]="option">
+            {{ option.name | translate }}
+        </mat-radio-button>
+    </mat-radio-group>
+</mat-expansion-panel>
+<div fxLayout="column"
+    class="box">
+    <span class="fade centered">{{ 'CATEGORIES' | translate }}</span>
+    <ri-provider-categories-selection-list [categories]="providersService.providerCategories"
+        (selectionChange)="newSelection($event)"></ri-provider-categories-selection-list>
+</div>
+<div id="ButtonsRow"
+    #buttonsRow
+    class="box"
+    fxLayout="row"
+    fxLayoutAlign="space-between center">
+    <button (click)="dialogRef.close()">{{ 'CANCEL' | translate }}</button>
+    <button class="main-color"
+        (click)="applyFilters()">{{ 'APPLY' | translate }}</button>
+</div>

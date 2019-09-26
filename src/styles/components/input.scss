@@ -1,0 +1,104 @@
+input, textarea {
+    padding: $spanVerticalPadding;
+    border-radius: $borderRadius;
+    border: 1px solid $lightGray;
+    transition: $transition;
+    width: 100%;
+    box-sizing: border-box;
+    appearance: none;
+    resize: none;
+
+    @include spanFont;
+
+    &.highlight {
+        border: 1px solid $themeMainColor;
+    }
+
+    &.invalid {
+        border: 1px solid $errorColor;
+    }
+
+    &:focus {
+        box-shadow: $shadow;
+    }
+
+    &::placeholder {
+        color: $strongGrey;
+        opacity: 0.5;
+    }
+
+    &.autocomplete {
+        padding-left: 0;
+        border-bottom: 2px solid $mediumGray;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+
+        &:focus {
+            box-shadow: none;
+            border-bottom: 2px solid $themeMainColor;
+        }
+    }
+
+    &[type=number]::-webkit-inner-spin-button,
+    &[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+.input-title {
+    opacity: 0.5;
+    padding: 7px 0px;
+}
+
+.input-error {
+    @include ellipsis;
+
+    color: $errorColor;
+    transition: $transition;
+    margin-top: -2px;
+    margin-bottom: -$smallSpan;
+    height: $spanLineHeight;
+    display: none;
+    text-align: left;
+    font-size: $smallSpan;
+
+    &.placeholder {
+        display: inline;
+        opacity: 0;
+    }
+
+    &.centered {
+        text-align: center;
+    }
+
+    &.info {
+        color: $themeMainColor;
+    }
+}
+
+.input-with-icons {
+    position: relative;
+
+    input {
+        padding-right: $spanVerticalPadding + $largeIconSize + $spanVerticalPadding;
+    }
+
+    .icon-container {
+        padding: $spanVerticalPadding;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        mat-spinner {
+            height: $largeIconSize !important;
+            width: $largeIconSize !important;
+
+            svg {
+                height: $largeIconSize !important;
+                width: $largeIconSize !important;
+            }
+        }
+    }
+}

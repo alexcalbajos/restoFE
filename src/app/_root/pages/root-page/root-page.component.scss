@@ -1,0 +1,20 @@
+@import "../../../../styles/variables/miscellaneous.scss";
+@import "../../../../styles/variables/responsive.scss";
+
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+
+    router-outlet {
+        &.fixed {
+            display: block;
+            margin-top: $headerHeight;
+
+            @media only screen and (max-width: $xs-maxWidth) {
+                margin-top: $headerHeightMobile;
+            }
+        }
+    }
+}

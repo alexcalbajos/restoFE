@@ -1,0 +1,36 @@
+<div id="CategoriesHeader"
+    class="navbar fixed-element"
+    #fixedElement
+    fxHide.lt-sm>
+    <ng-container *ngFor="let category of provider.categories">
+        <h4 *ngIf="category.hasAvailableProducts"
+            [id]="category.id"
+            class="nav uppercase-first"
+            (click)="scrollToCategory(category)">{{ category.name }}</h4>
+    </ng-container>
+    <div id="Others"
+        class="nav"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="3px"
+        [matMenuTriggerFor]="othersMenu">
+        <h4 class="uppercase-first">{{ 'PLUS' | translate }}</h4>
+        <div class="svg-container icon"
+            [inlineSVG]="'/assets/svg/chevron_down.svg'"></div>
+    </div>
+</div>
+<mat-menu #othersMenu="matMenu"
+    [overlapTrigger]="false"
+    xPosition="before">
+    <ng-container *ngFor="let category of otherCategories">
+        <h4 *ngIf="category.hasAvailableProducts"
+            class="nav uppercase-first"
+            (click)="scrollToCategory(category)">{{ category?.name }}</h4>
+    </ng-container>
+</mat-menu>
+<ri-product-category ri-custom-data
+    [data]="category.id"
+    [provider]="provider"
+    [category]="category"
+    *ngFor="let category of provider.categories"
+    [ngClass]="{'hide': !category.hasAvailableProducts}"></ri-product-category>

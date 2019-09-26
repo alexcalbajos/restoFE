@@ -1,0 +1,12 @@
+<div fxLayout="row"
+    fxLayout.lt-sm="column"
+    fxLayoutGap="15px"
+    fxLayoutGap.lt-sm="25px"
+    fxLayoutAlign="start center">
+    <div class="large-circle credit"></div>
+    <div fxLayout="column"
+        fxLayoutAlign.lt-sm="center center">
+        <h4>{{ 'MY_CREDITS' | translate }}</h4>
+        <span ngClass.lt-sm="centered">{{ 'YOUR_CREDIT' | translate }} <b>{{ walletAmount | number : '1.2-2' }}&euro;</b> {{ 'ON_YOUR_ACCOUNT' | translate }}</span>
+    </div>
+</div>

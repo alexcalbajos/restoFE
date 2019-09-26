@@ -1,0 +1,22 @@
+@import "../../../../../styles/variables/colors.scss";
+
+:host {
+    display: flex;
+
+    .to-rate {
+        cursor: pointer;
+        padding: 0 2px;
+    }
+
+    .to-display {
+        padding: 0 2px;
+    }
+
+    fa-icon.selected {
+        color: $themeAccentColor;
+    }
+
+    fa-icon.unselected {
+        color: $mediumGray;
+    }
+}

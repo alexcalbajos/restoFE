@@ -1,0 +1,11 @@
+.divider {
+    border-bottom: 1px solid $lightGray;
+
+    &.main-color {
+        border-color: $themeMainColor;
+    }
+
+    &.thick {
+        border-bottom: 3px solid $lightGray;
+    }
+}

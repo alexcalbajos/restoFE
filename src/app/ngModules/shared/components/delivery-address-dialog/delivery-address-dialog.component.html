@@ -1,0 +1,24 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<div fxLayout="column"
+    fxLayoutAlign="center center">
+    <h3 class="bold area-title centered">{{ 'PLEASE_ENTER_ADDRESS' | translate }}</h3>
+    <span>{{ 'ADDRESS_MAKESURE' | translate }}</span>
+    <div class="form-control">
+        <span class="input-title">{{ 'ADDRESS' | translate }}</span>
+        <input ri-address-input
+            type="text"
+            id="DeliveryAddress"
+            [ngClass]="{'invalid' : error}"
+            placeholder="{{ 'ADDRESS_PLACEHOLDER' | translate }}"
+            (input)="refreshValidation()"
+            (selectedPlaceValidated)="selectedPlaceValidated($event)">
+        <span [ngClass]="{'hide': error }"
+            class="input-error placeholder"></span>
+        <span [ngClass]="{'show': error }"
+            class="input-error">{{ error | translate }}</span>
+    </div>
+    <button class="wide main-color form-button"
+        (click)="submit()">{{ 'CONFIRM_ADDRESS' | translate }}</button>
+</div>

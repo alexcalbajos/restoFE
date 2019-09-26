@@ -1,0 +1,7 @@
+.buttons-row {
+    justify-content: center;
+
+    &.spaced {
+        justify-content: space-between;
+    }
+}

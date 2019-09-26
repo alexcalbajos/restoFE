@@ -1,0 +1,21 @@
+$xs-maxWidth: 599px;
+
+$sm-minWidth: 600px;
+$sm-maxWidth: 959px;
+
+$md-minWidth: 960px;
+$md-maxWidth: 1279px;
+
+$lg-minWidth: 1280px;
+$lg-maxWidth: 1919px;
+
+$xl-minWidth: 1920px;
+$xl-maxWidth: 5000px;
+
+@media only screen and (max-width: $lg-maxWidth) {}
+
+@media only screen and (max-width: $md-maxWidth) {}
+
+@media only screen and (max-width: $sm-maxWidth) {}
+
+@media only screen and (max-width: $xs-maxWidth) {}

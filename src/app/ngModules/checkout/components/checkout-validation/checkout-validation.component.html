@@ -1,0 +1,43 @@
+<div class="container"
+    fxLayout="row"
+    fxLayoutAlign="space-between"
+    fxLayoutGap="30px">
+    <div fxFlex="1 1 auto"
+        id="CheckoutSteps"
+        class="shadow">
+        <ri-device-data-wrapper></ri-device-data-wrapper>
+        <ri-checkout-addresses #checkoutAddresses
+            class="area"></ri-checkout-addresses>
+        <div class="divider thick"></div>
+        <ri-delivery-hours class="area"></ri-delivery-hours>
+        <div class="divider thick"></div>
+        <ri-checkout-payment #checkoutPayment
+            *ngIf="displayPayment"
+            [bonificationAmount]="bonificationAmount"
+            [corporateExtraPay]="corporateExtraPay"
+            class="area"></ri-checkout-payment>
+        <div *ngIf="displayPayment"
+            class="divider thick"></div>
+        <ri-checkout-payment-options *ngIf="displayPaymentOptions"
+            class="area"></ri-checkout-payment-options>
+        <div *ngIf="displayPaymentOptions"
+            class="divider thick"></div>
+        <div *ngIf="displayCodePromo"
+            fxLayout="row wrap"
+            fxLayoutAlign="start center"
+            fxLayoutGap="20px">
+            <ri-promo-code class="area"></ri-promo-code>
+            <ri-checkout-wallet class="area"></ri-checkout-wallet>
+        </div>
+        <div *ngIf="displayCodePromo"
+            class="divider thick"></div>
+        <ri-cutlery class="area"></ri-cutlery>
+        <ri-checkout-mobile-summary fxHide
+            fxShow.lt-md
+            (validateCart)="validateOrder()"></ri-checkout-mobile-summary>
+    </div>
+    <ri-checkout-cart fxFlex="365px"
+        fxHide.lt-md
+        class="cart"
+        (validateCart)="validateOrder()"></ri-checkout-cart>
+</div>

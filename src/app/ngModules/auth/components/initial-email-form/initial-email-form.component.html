@@ -1,0 +1,26 @@
+<form fxLayout="column"
+    id="AuthForm"
+    [formGroup]="authForm"
+    (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <span class="input-title">{{ 'ENTER_EMAIL_ADDRESS' | translate }}</span>
+        <input [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(authForm.controls['email'])}"
+            #emailInput
+            type="email"
+            formControlName="email"
+            placeholder="{{ 'ENTER_EMAIL_ADDRESS' | translate }}">
+        <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(authForm.controls['email'])}"
+            class="input-error placeholder"></span>
+        <span [ngClass]="{'show': formValidationService.displayError(authForm.controls['email'], 'required')}"
+            class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+        <span [ngClass]="{'show': formValidationService.displayError(authForm.controls['email'], 'email')}"
+            class="input-error">{{ 'ERR_1624' | translate }}</span>
+    </div>
+    <button class="main-color wide with-spinner"
+        type="submit"
+        [disabled]="disableContinue">
+        <span *ngIf="!disableContinue">{{ 'CONTINUE' | translate }}</span>
+        <mat-spinner *ngIf="disableContinue"
+            diameter="20"></mat-spinner>
+    </button>
+</form>

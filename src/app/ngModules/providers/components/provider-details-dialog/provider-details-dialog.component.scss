@@ -1,0 +1,26 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+
+.provider-name {
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.provider-category {
+    text-transform: lowercase;
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+}
+
+.provider-description {
+    padding-top: 5px;
+    display: block;
+    text-align: center;
+}
+
+.provider-image {
+    width: 100%;
+    border-radius: $borderRadius;
+    margin: 40px 0 20px;
+}

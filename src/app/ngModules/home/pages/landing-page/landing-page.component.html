@@ -1,0 +1,11 @@
+<ri-mobile-banner fxHide
+    fxShow.lt-md></ri-mobile-banner>
+<ri-jumbo #jumbo
+    (specialCategorySelected)="specialCategorySelected($event)"></ri-jumbo>
+<ri-offers (specialCategorySelected)="specialCategorySelected($event)"
+    fxHide.lt-sm></ri-offers>
+<ri-categories-promo #categories
+    (specialCategorySelected)="specialCategorySelected($event)"></ri-categories-promo>
+<ri-enterprise-promo></ri-enterprise-promo>
+<ri-thumbnail-promo></ri-thumbnail-promo>
+<ri-mobile-promo fxHide.lt-md></ri-mobile-promo>

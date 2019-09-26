@@ -1,0 +1,132 @@
+<form fxLayout="column"
+    id="RegisterForm"
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()">
+    <div fxLayout="row"
+        fxLayoutGap="35px"
+        fxFlexAlign="stretch">
+        <div class="form-control">
+            <span class="input-title">{{ 'FNAME' | translate }}</span>
+            <input [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(registerForm.controls['first_name'])}"
+                #firstNameInput
+                type="text"
+                formControlName="first_name"
+                placeholder="{{ 'FNAME' | translate }}">
+            <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(registerForm.controls['first_name'])}"
+                class="input-error placeholder"></span>
+            <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['first_name'], 'required')}"
+                class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['first_name'], 'minlength')}"
+                class="input-error">{{ 'MIN_2_CHARACTERS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['first_name'], 'maxlength')}"
+                class="input-error">{{ 'MAX_60_CHARACTERS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['first_name'], 'custom')}"
+                class="input-error">{{ registerForm.controls['first_name'].errors?.custom | translate }}</span>
+        </div>
+        <div class="form-control">
+            <span class="input-title">{{ 'LNAME' | translate }}</span>
+            <input [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(registerForm.controls['last_name'])}"
+                type="text"
+                formControlName="last_name"
+                placeholder="{{ 'LNAME' | translate }}">
+            <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(registerForm.controls['last_name'])}"
+                class="input-error placeholder"></span>
+            <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['last_name'], 'required')}"
+                class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['last_name'], 'minlength')}"
+                class="input-error">{{ 'MIN_2_CHARACTERS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['last_name'], 'maxlength')}"
+                class="input-error">{{ 'MAX_60_CHARACTERS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['last_name'], 'custom')}"
+                class="input-error">{{ registerForm.controls['last_name'].errors?.custom | translate }}</span>
+        </div>
+    </div>
+    <div class="form-control">
+        <span class="input-title">{{ 'ENTER_EMAIL_ADDRESS' | translate }}</span>
+        <input [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(registerForm.controls['email'])}"
+            (input)="watchForSocGen()"
+            type="email"
+            formControlName="email"
+            placeholder="{{ 'ENTER_EMAIL_ADDRESS' | translate }}">
+        <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(registerForm.controls['email'])}"
+            class="input-error placeholder"></span>
+        <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['email'], 'required')}"
+            class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+        <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['email'], 'email')}"
+            class="input-error">{{ 'ERR_1624' | translate }}</span>
+        <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['email'], 'custom')}"
+            class="input-error">{{ registerForm.controls['email'].errors?.custom | translate }}</span>
+    </div>
+    <div class="form-control">
+        <span class="input-title">{{ 'RESET_PASSWORD' | translate }}</span>
+        <input [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(registerForm.controls['password'])}"
+            type="password"
+            formControlName="password"
+            autocomplete="new-password"
+            placeholder="{{ 'RESET_PASSWORD' | translate }}">
+        <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(registerForm.controls['password'])}"
+            class="input-error placeholder"></span>
+        <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['password'], 'custom')}"
+            class="input-error">{{ registerForm.controls['password'].errors?.custom | translate }}</span>
+        <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['password'], 'required')}"
+            class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+        <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['password'], 'minlength')}"
+            class="input-error">{{ 'MIN_8_CHARACTERS' | translate }}</span>
+    </div>
+    <div class="form-control">
+        <span class="input-title">{{ 'PHONE' | translate }}</span>
+        <input ri-intl-tel-input
+            type="tel"
+            [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(registerForm.controls['phone'])}"
+            formControlName="phone">
+        <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(registerForm.controls['phone'])}"
+            class="input-error placeholder"></span>
+        <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['phone'], 'required')}"
+            class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+        <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['phone'], 'pattern')}"
+            class="input-error">{{ 'INVALID_PHONE' | translate }}</span>
+        <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['phone'], 'minlength')}"
+            class="input-error">{{ 'MIN_9_CHARACTERS' | translate }}</span>
+        <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['phone'], 'maxlength')}"
+            class="input-error">{{ 'MAX_10_CHARACTERS' | translate }}</span>
+        <span [ngClass]="{'show': formValidationService.displayError(registerForm.controls['phone'], 'custom')}"
+            class="input-error">{{ registerForm.controls['phone'].errors?.custom | translate }}</span>
+    </div>
+    <div class="form-control">
+        <span *ngIf="isSocGen"
+            class="input-title highlight bold">{{ 'WELCOME_SCG' | translate }}</span>
+        <span *ngIf="isBoursorama"
+            class="input-title highlight bold">{{ 'WELCOME_BOURSAMA' | translate }}</span>
+        <ng-select *ngIf="divisions.length > 0"
+            [items]="divisions"
+            bindLabel="name"
+            class="tall"
+            placeholder="{{ 'SELECT_DEPARTMENT' | translate }}"
+            [clearable]="false"
+            [searchable]="false"
+            formControlName="division"></ng-select>
+        <span class="input-error placeholder"></span>
+    </div>
+    <mat-checkbox [disableRipple]="true"
+        formControlName="gdpr"
+        [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(registerForm.controls['gdpr'])}">
+        {{ 'AGREE_TO' | translate }}
+        <span (click)="openGdpr()"
+            class="secondary-button">{{ 'TOS_TITLE' | translate }}</span>
+        {{ 'AND' | translate }}
+        <span (click)="openGdpr()"
+            class="secondary-button">{{ 'PRIVACY_POLICY_TITLE' | translate }}</span>
+    </mat-checkbox>
+    <mat-checkbox [disableRipple]="true"
+        formControlName="newsletter"
+        class="no-validation">{{ 'RECEIVE_NEWSLETTER' | translate }}</mat-checkbox>
+    <mat-checkbox [disableRipple]="true"
+        formControlName="stayConnected">{{ 'STAY_LOGGED_IN' | translate }}</mat-checkbox>
+    <button class="main-color wide with-spinner"
+        type="submit"
+        [disabled]="disableRegister">
+        <span *ngIf="!disableRegister">{{ 'CREATE_ACCOUNT' | translate }}</span>
+        <mat-spinner *ngIf="disableRegister"
+            diameter="20"></mat-spinner>
+    </button>
+</form>

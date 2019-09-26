@@ -1,0 +1,51 @@
+<div id="Title"
+    class="container"
+    fxLayout="row"
+    fxLayout.lt-sm="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="10px"
+    fxLayoutGap.lt-sm="0px">
+    <h2>{{ 'YOU_WANT' | translate }}</h2>
+    <h2 class="bold">{{ 'COLLABORATE' | translate }}</h2>
+</div>
+<div class="container"
+    fxLayout="row"
+    fxLayout.lt-sm="column"
+    fxLayoutAlign="center center">
+    <div class="thumbnail"
+        fxLayout="column"
+        fxLayoutAlign="start center"
+        (click)="becomeCourier()">
+        <h3 class="uppercase">{{ 'DRIVERS' | translate }}</h3>
+        <div class="large-circle riders"></div>
+        <span class="fade"
+            fxFlex="1 1 auto"
+            fxFlexAlign="stretch"
+            fxHide.lt-md>{{ 'JOIN_OUR_RIDERS' | translate }}</span>
+        <button ngClass.sm="thin">{{ 'BECOME_COURIER' | translate }}</button>
+    </div>
+    <div class="thumbnail"
+        fxLayout="column"
+        fxLayoutAlign="start center"
+        routerLink="../presentation/restaurant">
+        <h3 class="uppercase">{{ 'RESTAURANT' | translate }}</h3>
+        <div class="large-circle restaurant"></div>
+        <span class="fade"
+            fxFlex="1 1 auto"
+            fxFlexAlign="stretch"
+            fxHide.lt-md>{{ 'JOIN_OUR_PARTNERS' | translate }}</span>
+        <button ngClass.sm="thin">{{ 'BECOME_PARTNER' | translate }}</button>
+    </div>
+    <div class="thumbnail"
+        fxLayout="column"
+        fxLayoutAlign="start center"
+        (click)="openWindow('https://resto-in.workable.com/')">
+        <h3 class="uppercase">{{ 'CAREER' | translate }}</h3>
+        <div class="large-circle jobs"></div>
+        <span class="fade"
+            fxFlex="1 1 auto"
+            fxFlexAlign="stretch"
+            fxHide.lt-md>{{ 'JOIN_OUR_TEAM' | translate }}</span>
+        <button ngClass.sm="thin">{{ 'JOIN_US' | translate }}</button>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Close</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/close" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bounds">
+            <rect x="0" y="0" width="10" height="10"></rect>
+        </g>
+        <path d="M8.125,7.91666667 L2.29166667,2.70833333" id="Line-5" stroke="#2D1A4B" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" transform="translate(5.208333, 5.208333) rotate(5.000000) translate(-5.208333, -5.208333) "></path>
+        <path d="M8.125,7.91666667 L2.29166667,2.70833333" id="Line-5" stroke="#2D1A4B" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" transform="translate(5.208333, 5.208333) scale(-1, 1) rotate(5.000000) translate(-5.208333, -5.208333) "></path>
+    </g>
+</svg>

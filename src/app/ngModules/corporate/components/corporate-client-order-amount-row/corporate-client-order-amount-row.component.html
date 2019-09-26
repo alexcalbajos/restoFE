@@ -1,0 +1,15 @@
+<div fxLayout="row"
+    fxLayoutGap="10px"
+    fxLayoutAlign="start center">
+    <span fxFlex="20"
+        fxFlex.lt-sm="40"
+        class="bold">{{ orderAmount.day | translate }}</span>
+    <input fxFlex="20"
+        fxFlex.lt-sm="30"
+        type="number"
+        [(ngModel)]="orderAmount.orders">
+    <input fxFlex="20"
+        fxFlex.lt-sm="30"
+        type="number"
+        [(ngModel)]="orderAmount.limit">
+</div>

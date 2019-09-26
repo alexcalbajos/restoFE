@@ -1,0 +1,9 @@
+@import "../../../../../styles/variables/colors.scss";
+
+:host {
+    display: block;
+
+    .no-color {
+        color: $strongGrey;
+    }
+}

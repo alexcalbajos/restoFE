@@ -1,0 +1,27 @@
+<div class="fixed-vertical-element"
+    #fixedVerticalElement
+    fxLayout="column">
+    <div class="title-box">
+        <div fxLayout="row"
+            fxLayoutAlign="start center"
+            fxLayoutGap="10px">
+            <div id="MenuIcon"
+                class="svg-container icon large"
+                [inlineSVG]="'/assets/svg/menu.svg'"></div>
+            <p class="accent uppercase">{{ 'FILTERS' | translate }}</p>
+        </div>
+    </div>
+    <div class="box"
+        fxLayout="column"
+        fxFlex="1 1 auto">
+        <span class="box-title fade">{{ 'CATEGORIES' | translate }}</span>
+        <div *ngIf="!providersService.providerCategories?.length"
+            class="spinner-container"
+            fxLayout="column"
+            fxLayoutAlign="center center">
+            <mat-spinner diameter="30"></mat-spinner>
+        </div>
+        <ri-provider-categories-selection-list [categories]="providersService.providerCategories"
+            (selectionChange)="newSelection($event)"></ri-provider-categories-selection-list>
+    </div>
+</div>

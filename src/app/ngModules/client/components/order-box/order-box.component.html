@@ -1,0 +1,54 @@
+<div fxLayout="row"
+    fxLayout.lt-sm="column"
+    fxLayoutGap="15px"
+    class="area-box selectable"
+    [ngClass]="boxClass">
+    <div class="large-circle small"
+        fxHide.lt-sm
+        [style.background-image]="order.selling_point.provider.sanitizedLogo"></div>
+    <div fxLayout="column"
+        fxLayout.lt-sm="row"
+        fxFlex="1 1 auto">
+        <div fxLayout="column">
+            <span>{{ order.provider.name }}</span>
+            <span class="fade">{{ order.deliverytime | date:'dd/MM/yy HH:mm' }}</span>
+        </div>
+        <div fxLayout="column"
+            fxFlex="1 1 auto"
+            fxLayoutAlign="end start"
+            fxLayoutAlign.lt-sm="start end">
+            <span *ngIf="!order.resend"
+                class="accent">{{ order.total_ft | number : '1.2-2' }}&euro;</span>
+            <span *ngIf="order.resend"
+                class="accent">{{ 0 }}&euro;</span>
+        </div>
+    </div>
+    <div fxLayout="column"
+        fxLayout.lt-sm="row"
+        fxLayoutAlign="center end"
+        fxLayoutAlign.lt-sm="center center"
+        fxLayoutGap="10px">
+        <button class="wide short"
+            [disabled]="order.resend"
+            fxHide.lt-sm
+            [ngClass]="reorderButtonClass"
+            (click)="reorder($event)">{{ 'REORDER' | translate }}</button>
+        <button *ngIf="!hideViewDetails"
+            class="wide short"
+            fxHide.lt-sm
+            [ngClass]="detailsButtonClass"
+            (click)="viewDetails($event)">{{ 'VIEW_DETAILS' | translate }}</button>
+        <button class="wide"
+            [disabled]="order.resend"
+            fxHide
+            fxShow.lt-sm
+            [ngClass]="reorderButtonClass"
+            (click)="reorder($event)">{{ 'REORDER' | translate }}</button>
+        <button *ngIf="!hideViewDetails"
+            class="wide"
+            fxHide
+            fxShow.lt-sm
+            [ngClass]="detailsButtonClass"
+            (click)="viewDetails($event)">{{ 'DETAILS' | translate }}</button>
+    </div>
+</div>

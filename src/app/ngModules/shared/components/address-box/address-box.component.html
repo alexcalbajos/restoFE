@@ -1,0 +1,20 @@
+<div fxLayout="row"
+    fxFlex="stretch"
+    fxLayoutAlign="space-between start">
+    <div fxLayout="column">
+        <span>{{ address.address }}</span>
+        <span class="fade"
+            *ngIf="address.comments">{{ address.comments }}</span>
+        <span class="fade"
+            *ngIf="address.phone1">{{ address.phone1 }}</span>
+    </div>
+    <div fxLayout="column"
+        fxLayoutAlign="end end">
+        <span *ngIf="allowEdit"
+            (click)="edit()"
+            class="area-box-button">{{ 'EDIT' | translate }}</span>
+        <span *ngIf="allowEdit"
+            (click)="delete()"
+            class="area-box-button">{{ 'DELETE' | translate }}</span>
+    </div>
+</div>

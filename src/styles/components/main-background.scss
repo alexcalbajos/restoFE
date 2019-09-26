@@ -1,0 +1,24 @@
+.main-background {
+    display: block;
+    height: 85vh;
+    min-height: 480px;
+    background-image: url("/assets/images/jumbo/falafel.png"), url("/assets/images/jumbo/glass.png"), url("/assets/images/jumbo/poke.png"), url("/assets/images/jumbo/marble.jpg");
+    background-position: left 15.5vh, calc(50% - 345px) -115px, right 19vh, center;
+    background-repeat: no-repeat;
+    background-size: auto, auto, auto, cover;
+
+    @media only screen and (max-width: $md-maxWidth) {
+        background-position: -150px 15.5vh, calc(50% - 150px) -115px, right 50vh, center;
+    }
+
+    @media only screen and (max-width: $sm-maxWidth) {
+        background-size: 200px, 0, 300px, cover;
+        background-position: -70px 55px, calc(50% - 150px) -115px, right 53vh, center;
+    }
+
+    @media only screen and (max-width: $xs-maxWidth) {
+        background-image: url("/assets/images/jumbo/falafel_mobile.png"), url("/assets/images/jumbo/glass.png"), url("/assets/images/jumbo/poke_mobile.png"), url("/assets/images/jumbo/marble.jpg");
+        background-size: 65px, 0, 290px, cover;
+        background-position: left 50px, calc(50% - 150px) -115px, bottom center, center;
+    }
+}

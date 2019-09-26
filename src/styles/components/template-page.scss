@@ -1,0 +1,25 @@
+.template-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    min-height: 60vh;
+
+    &.not-centered {
+        justify-content: flex-start;
+
+        .template-page-container {
+            margin-top: 30px;
+        }
+    }
+
+    .template-page-container {
+        background-color: $lightGray;
+        padding: 10px 0;
+
+        &.small {
+            padding: 10px;
+            max-width: 365px !important;
+        }
+    }
+}

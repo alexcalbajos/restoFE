@@ -1,0 +1,129 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,400,500,700");
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,700");
+
+/*
+* === VARIABLES ===
+*/
+@import "variables/colors.scss";
+@import "variables/miscellaneous.scss";
+@import "variables/responsive.scss";
+@import "variables/grids.scss";
+
+/*
+* === COMPONENTS ===
+*/
+@import "components/dialog.scss";
+@import "components/dialog-mobile.scss";
+@import "components/autocomplete.scss";
+@import "components/svg.scss";
+@import "components/navbar.scss";
+@import "components/button.scss";
+@import "components/text.scss";
+@import "components/label.scss";
+@import "components/input.scss";
+@import "components/google-autocomplete.scss";
+@import "components/selectables.scss";
+@import "components/form.scss";
+@import "components/area.scss";
+@import "components/divider.scss";
+@import "components/intl-tel.scss";
+@import "components/ng-select.scss";
+@import "components/table.scss";
+@import "components/main-background.scss";
+@import "components/checkout-page-dialogs.scss";
+@import "components/cart.scss";
+@import "components/container.scss";
+@import "components/template-page.scss";
+@import "components/expansion-panel.scss";
+@import "components/dropin.scss";
+@import "components/thumbnail.scss";
+@import "components/zopim.scss";
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+
+    button:focus,
+    input:focus,
+    textarea:focus,
+    img:focus,
+    span:focus,
+    div:focus,
+    h4:focus,
+    mat-selection-list:focus,
+    mat-list-option:focus {
+        outline: 0;
+    }
+
+    .hide {
+        display: none !important;
+    }
+
+    .show {
+        display: initial;
+    }
+
+    .invis {
+        opacity: 0 !important;
+        pointer-events: none;
+    }
+
+    .vis {
+        opacity: 1 !important;
+        pointer-events: all;
+    }
+
+    mat-spinner {
+        circle {
+            stroke: $themeMainColor !important;
+        }
+    }
+
+    .mat-progress-bar-fill::after {
+        background-color: $themeMainColor;
+    }
+
+    .spinner-container {
+        height: 200px;
+    }
+
+    .braintree-show-card {
+        z-index: 1;
+    }
+
+    .shadow {
+        box-shadow: $shadow;
+        background-color: $primaryColor;
+        z-index: 1;
+    }
+
+    .background-food {
+        content: "";
+        background: url(/assets/svg/food_dark.svg) repeat top;
+        background-color: $mediumGray;
+        background-size: 1000px;
+        opacity: 0.3;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .large-page {
+        min-height: 100vh;
+    }
+}

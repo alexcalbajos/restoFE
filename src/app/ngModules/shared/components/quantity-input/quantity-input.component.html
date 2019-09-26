@@ -1,0 +1,13 @@
+<div class="svg-container icon large"
+    (click)="minus($event)"
+    [ngClass]="{'disabled' : disableDelete && qty == 1}"
+    [inlineSVG]="'/assets/svg/minus.svg'"></div>
+<div class="square"
+    (click)="preventDefault($event)">
+    <span>{{ qty }}</span>
+</div>
+<div class="svg-container icon large"
+    (click)="plus($event)"
+    id="PlusIcon"
+    [ngClass]="{'disabled': disableAdd}"
+    [inlineSVG]="'/assets/svg/plus.svg'"></div>

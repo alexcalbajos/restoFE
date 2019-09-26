@@ -1,0 +1,29 @@
+<div class="fixed-element"
+    #fixedElement>
+    <ri-attached-clients *ngIf="client?.attached_clients && client?.attached_clients.length > 0"></ri-attached-clients>
+    <div class="shadow">
+        <button class="accent-color wide"
+            [disabled]="cart.products.length === 0"
+            (click)="onValidateCart()">{{ 'CONFIRM_BASKET' | translate }}</button>
+        <div class="content-wrapper"
+            fxLayout="column">
+            <span *ngIf="cart.products.length === 0"
+                fxFlex="1 1 auto"
+                fxLayout="row"
+                fxLayoutAlign="center center">{{ 'YOUR_BASKET_EMPTY' | translate }}</span>
+            <div *ngIf="cart.products.length > 0"
+                fxFlex="1 1 auto"
+                class="products-container">
+                <ri-cart-product *ngFor="let product of cart.products"
+                    [product]="product"
+                    [isShoppingCart]="true"></ri-cart-product>
+            </div>
+            <div *ngIf="cart.total > 0"
+                fxLayout="row"
+                fxLayoutAlign="space-between center">
+                <span class="uppercase">{{ 'TOTAL' | translate }}</span>
+                <p class="accent">{{ cart.total | number : '1.2-2' }}&euro;</p>
+            </div>
+        </div>
+    </div>
+</div>

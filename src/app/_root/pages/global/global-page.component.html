@@ -1,0 +1,11 @@
+<div class="main-background">
+    <div class="container"
+        fxLayout="column"
+        fxLayoutAlign="center center">
+        <h3>{{ 'Please select a country:' | translate }}</h3>
+        <h1 class="bold"
+            (click)="goToCountry('.fr')">{{ 'France' | translate }}</h1>
+        <h1 class="bold"
+            (click)="goToCountry('.es')">{{ 'Spain' | translate }}</h1>
+    </div>
+</div>

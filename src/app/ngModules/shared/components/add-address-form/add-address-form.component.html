@@ -1,0 +1,74 @@
+<form fxLayout="column"
+    fxLayoutAlign="center center"
+    id="AddAddressForm"
+    [formGroup]="addAddressForm">
+    <div class="form-control">
+        <span class="input-title">{{ 'ADDRESS' | translate }}</span>
+        <input ri-address-input
+            type="text"
+            id="AddAddress"
+            [value]="preselectedAddress"
+            [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(addAddressForm.controls['address'])}"
+            placeholder="{{ 'ADDRESS_PLACEHOLDER' | translate }}"
+            formControlName="address"
+            (selectedPlaceValidated)="selectedPlaceValidated($event)">
+        <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(addAddressForm.controls['address'])}"
+            class="input-error placeholder"></span>
+        <span [ngClass]="{'show': formValidationService.displayError(addAddressForm.controls['address'], 'invalidAddress')}"
+            class="input-error">{{ 'AUTOCOMPLETE_ADDRESS_EXACT' | translate }}</span>
+        <span [ngClass]="{'show': formValidationService.displayError(addAddressForm.controls['address'], 'custom')}"
+            class="input-error">{{ addAddressForm.controls['address'].errors?.custom }}</span>
+        <span [ngClass]="{'show': formValidationService.displayError(addAddressForm.controls['address'], 'required')}"
+            class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+    </div>
+    <div fxFlexAlign="stretch"
+        fxLayout="row"
+        fxLayout.lt-sm="column"
+        fxLayoutGap="35px"
+        fxLayoutGap.lt-sm="0px">
+        <div class="form-control">
+            <span class="input-title">{{ 'FLOOR' | translate }}</span>
+            <input type="text"
+                formControlName="floor"
+                placeholder="{{ 'FLOOR_EX' | translate }}">
+            <span class="input-error placeholder"></span>
+        </div>
+        <div class="form-control">
+            <span class="input-title">{{ 'APARTMENT' | translate }}</span>
+            <input type="text"
+                formControlName="apartment"
+                placeholder="{{ 'APARTMENT_EX' | translate }}">
+            <span class="input-error placeholder"></span>
+        </div>
+    </div>
+    <div fxFlexAlign="stretch"
+        fxLayout="row"
+        fxLayout.lt-sm="column"
+        fxLayoutGap="35px"
+        fxLayoutGap.lt-sm="0px">
+        <div class="form-control">
+            <span class="input-title">{{ 'PHONE' | translate }}</span>
+            <input ri-intl-tel-input
+                type="tel"
+                [value]="preselectedPhoneNumber"
+                [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(addAddressForm.controls['phone'])}"
+                formControlName="phone">
+            <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(addAddressForm.controls['phone'])}"
+                class="input-error placeholder"></span>
+            <span [ngClass]="{'show': formValidationService.displayError(addAddressForm.controls['phone'], 'minlength')}"
+                class="input-error">{{ 'MIN_9_CHARACTERS' | translate }}</span>
+        </div>
+        <div class="form-control">
+            <span class="input-title">{{ 'DIGICODE' | translate }}</span>
+            <input type="text"
+                formControlName="interphone"
+                placeholder="{{ 'INTERPHONE_EX' | translate }}">
+        </div>
+    </div>
+    <div class="form-control">
+        <span class="input-title">{{ 'DELIVERY_INSTRUCTIONS' | translate }}</span>
+        <input type="text"
+            formControlName="comments"
+            placeholder="{{ 'COMMENTS_EX' | translate }}">
+    </div>
+</form>

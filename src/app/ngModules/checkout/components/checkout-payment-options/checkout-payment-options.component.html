@@ -1,0 +1,24 @@
+<h3 class="area-title bold uppercase-first">{{ 'ENTERPRISE_OPTIONS' | translate }}</h3>
+<div fxLayout="column"
+    fxLayoutGap="25px">
+    <input *ngFor="let paymentOption of corporatePaymentMethod?.options"
+        autocomplete="new-password"
+        [type]="paymentOption.type"
+        [id]="paymentOption.id"
+        [placeholder]="paymentOption.title"
+        (input)="paymentOption.invalid = false"
+        (change)="optionUpdated(paymentOption, $event.target.value)"
+        [ngClass]="{ 'invalid': paymentOption.invalid }">
+    <input *ngIf="corporatePaymentMethod?.use_codes && !corporatePaymentMethod?.display_codes_selector"
+        placeholder="{{ 'CORP_CODES_PH' | translate }}"
+        autocomplete="new-password"
+        (change)="codeUpdated($event.target.value)">
+    <ng-select *ngIf="corporatePaymentMethod?.use_codes && corporateCodes"
+        [items]="corporateCodes"
+        bindLabel="code"
+        [clearable]="false"
+        [searchable]="false"
+        [appendTo]="'body'"
+        (change)="setSelectedCorporateCode()"
+        [(ngModel)]="selecedCorporateCode"></ng-select>
+</div>

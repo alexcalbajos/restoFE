@@ -1,0 +1,8 @@
+<button class="wide"
+    (click)="openDialog()">{{ 'MULTIORDER_CHOOSE_CLIENTS' | translate }}</button>
+<ng-select [items]="checkedAttachedClients"
+    bindLabel="fullName"
+    [clearable]="false"
+    [searchable]="false"
+    [(ngModel)]="selectedAttachedClient"
+    (change)="changeSelectedAttachedClient($event)"></ng-select>

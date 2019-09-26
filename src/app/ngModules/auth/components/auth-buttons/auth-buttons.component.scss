@@ -1,0 +1,9 @@
+@import "../../../../../styles/variables/colors.scss";
+
+:host {
+    width: 100%;
+
+    .border {
+        border-bottom: 1px solid $mediumGray;
+    }
+}

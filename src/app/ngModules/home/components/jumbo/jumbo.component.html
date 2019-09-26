@@ -1,0 +1,84 @@
+<div class="main-background">
+    <div class="container"
+        fxLayout="column"
+        fxLayoutAlign="center center">
+        <div ngClass.lt-sm="inline-container">
+            <h1>{{ 'BEST_RESTAURANTS' | translate }}</h1>
+            <h1 id="AddressContainerSibling"
+                class="bold">{{ 'LESS_30_MIN' | translate }}</h1>
+        </div>
+        <ri-header id="SecondaryHeader"
+            isIncomplete="true"></ri-header>
+        <div id="FixedContainer">
+            <div id="AddressContainer"
+                fxLayout="row"
+                fxLayoutAlign="space-between center"
+                fxLayoutGap="10px"
+                fxLayoutGap.lt-sm="0px">
+                <div fxFlex="1 1 auto"
+                    fxLayout="column"
+                    *ngIf="!client?.isCorporate">
+                    <span class="input-error placeholder"></span>
+                    <div class="input-switch">
+                        <div class="input-box"
+                            [ngClass]="{'input-with-icons': clientAddresses?.length > 0}">
+                            <input ri-address-input
+                                type="text"
+                                id="JumboAddress"
+                                placeholder="{{ 'ADDRESS_PLACEHOLDER' | translate }}"
+                                [value]="selectedAddress"
+                                [appendToBody]="true"
+                                [ngClass]="{
+                                    'invalid' : invalidAddress,
+                                    'highlight': categoryForPromo
+                                }"
+                                (selectedPlaceValidated)="selectedPlaceValidated($event)"
+                                (input)="invalidAddress = false">
+                            <div *ngIf="clientAddresses?.length > 0"
+                                class="icon-container">
+                                <div #toggleIcon
+                                    class="svg-container icon large"
+                                    [inlineSVG]="'/assets/svg/chevron_down.svg'"
+                                    (click)="toggleSelect()"></div>
+                            </div>
+                        </div>
+                        <ng-select #select
+                            class="tall only-dropdown"
+                            [items]="clientAddresses"
+                            bindLabel="address"
+                            placeholder="{{ 'PLEASE_ENTER_ADDRESS' | translate }}"
+                            [clearable]="false"
+                            [searchable]="false"
+                            (change)="addressInput.setInputValue(selectedAddress)"
+                            [(ngModel)]="selectedAddress"></ng-select>
+                    </div>
+                    <span [ngClass]="{'hide': invalidAddress }"
+                        class="input-error placeholder"></span>
+                    <span [ngClass]="{'show': invalidAddress }"
+                        class="input-error">{{ 'AUTOCOMPLETE_ADDRESS_EXACT' | translate }}</span>
+                </div>
+                <ng-select *ngIf="client?.isCorporate"
+                    fxFlex="1 1 auto"
+                    class="tall"
+                    [items]="clientAddresses"
+                    bindLabel="address"
+                    placeholder="{{ 'PLEASE_ENTER_ADDRESS' | translate }}"
+                    [clearable]="false"
+                    [searchable]="false"
+                    [(ngModel)]="selectedAddress">
+                </ng-select>
+                <button class="main-color"
+                    (click)="showProviders()"
+                    fxHide.lt-sm>{{ 'SEE_RESTAURANTS' | translate }}</button>
+                <button class="main-color icon"
+                    (click)="showProviders()"
+                    fxShow.lt-sm
+                    fxHide>
+                    <div class="svg-container icon"
+                        [inlineSVG]="'/assets/svg/search_white.svg'"></div>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

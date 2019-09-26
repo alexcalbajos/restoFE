@@ -1,0 +1,45 @@
+<div class="container">
+    <h3 class="bold centered static-page-title">{{ 'PRESS_TITLE' | translate }}</h3>
+    <div fxLayout="row"
+        fxLayout.lt-md="column-reverse"
+        fxLayoutGap="35px">
+        <div fxLayout="column"
+            fxFlex="60"
+            fxLayoutGap="25px">
+            <h2 ngClass.lt-md="centered">{{ 'MENTIONS'| translate }}</h2>
+            <div *ngFor="let report of reports"
+                class="press"
+                fxLayout="row"
+                fxLayoutAlign="start center"
+                fxLayoutGap="35px">
+                <div class="svg-container"
+                    id="Logo"
+                    [inlineSVG]="'/assets/svg/logo.svg'"></div>
+                <div fxLayout="column"
+                    fxLayoutGap="10px">
+                    <h4>{{ 'RESTO_IN' | translate }}</h4>
+                    <span class="fade">{{ 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.' | translate }}</span>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="column"
+            fxFlex="40"
+            fxLayoutGap="25px">
+            <h2 ngClass.lt-md="centered">{{ 'PR_RESOURCES'| translate }}</h2>
+            <div class="shadow padding"
+                fxLayout="column"
+                fxLayoutAlign="center center"
+                fxLayoutGap="20px">
+                <span class="fade">{{ 'PRESS_MORE' | translate }}</span>
+                <button class="wide main-color">{{ 'DOWNLOAD_PRESS_KIT' | translate }}</button>
+                <button class="wide main-color">{{ 'IMAGES_AND_LOGOS' | translate }}</button>
+                <button class="wide">{{ 'PRESS_COMM' | translate }}</button>
+                <div fxLayout="column"
+                    fxLayoutAlign="center center">
+                    <span class="highlight-accent bold">{{ 'PR_DEP' | translate }}</span>
+                    <span class="highlight-accent"><a href="mailto:PR@resto-in.com">{{ 'PR@resto-in.com' | translate }}</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

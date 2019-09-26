@@ -1,0 +1,46 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/colors.scss";
+
+img {
+    width: 100%;
+    border-radius: $borderRadius;
+}
+
+.product-name {
+    padding-top: 15px;
+}
+
+.product-description {
+    padding-top: 10px;
+}
+
+.option-name-container {
+    padding-top: 25px;
+
+    .option-name {
+        opacity: 0.5;
+    }
+
+    .option-required {
+        font-size: $smallSpan;
+        transition: $transition;
+    }
+
+    .unselected {
+        opacity: 1 !important;
+        color: $errorColor;
+    }
+}
+
+input {
+    margin-top: 10px;
+}
+
+#QtyRow {
+    padding: 25px 0px;
+}
+
+mat-list-option,
+mat-radio-button {
+    margin-top: 10px;
+}

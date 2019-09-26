@@ -1,0 +1,26 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/colors.scss";
+
+:host {
+    position: relative;
+
+    .title-box {
+        padding-bottom: 17px;
+    }
+
+    .box {
+        padding: 15px 0px 15px 25px;
+        border-top: 1px solid $lightGray;
+        text-align: center;
+        min-height: 1px;
+
+        .box-title {
+            padding-bottom: 10px;
+            display: block;
+        }
+
+        ri-provider-categories-selection-list {
+            @include scrollY;
+        }
+    }
+}

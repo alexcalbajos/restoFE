@@ -1,0 +1,23 @@
+@mixin threeColumns($verticalMargin, $horizontalMargin) {
+    margin-bottom: $horizontalMargin;
+
+    &:nth-child(3n) {
+        margin-right: (-$verticalMargin) !important;
+    }
+
+    @media only screen and (max-width: $md-maxWidth) {
+        &:nth-child(n) {
+            margin-right: $verticalMargin !important;
+        }
+
+        &:nth-child(2n) {
+            margin-right: (-$verticalMargin) !important;
+        }
+    }
+
+    @media only screen and (max-width: $xs-maxWidth) {
+        &:nth-child(n) {
+            margin-right: 0% !important;
+        }
+    }
+}

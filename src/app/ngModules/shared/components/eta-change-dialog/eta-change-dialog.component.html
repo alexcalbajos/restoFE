@@ -1,0 +1,14 @@
+<h3 [translate]="'ETA_CHANGED_TITLE'"
+    [translateParams]="{ providerName : provider.name }"
+    class="area-title centered bold"></h3>
+<div class="inline-container">
+    <span>{{ 'ETA_CHANGED_DESC' | translate }}</span>
+    <span class="bold highlight"
+        [translate]="provider.etaToDisplay"
+        [translateParams]="provider.etaToDisplayParams"></span>
+</div>
+<div class="row"
+    fxLayoutAlign="center center">
+    <button class="main-color form-button"
+        (click)="dialogRef.close()">{{ 'I_UNDERSTAND' | translate }}</button>
+</div>

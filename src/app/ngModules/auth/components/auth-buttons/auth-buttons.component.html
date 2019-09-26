@@ -1,0 +1,18 @@
+<div fxLayout="column"
+    fxLayoutGap="15px">
+    <button class="wide"
+        type="submit"
+        (click)="onUseGoogle()">{{ 'CONTINUE_WITH_GOOGLE' | translate }}</button>
+    <div fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="10px">
+        <div class="border"
+            fxFlex="1 1 auto"></div>
+        <span id="Or">{{ 'OR' | translate }}</span>
+        <div class="border"
+            fxFlex="1 1 auto"></div>
+    </div>
+    <button class="main-color wide"
+        type="submit"
+        (click)="onUseEmail()">{{ 'CONTINUE_WITH_EMAIL' | translate }}</button>
+</div>

@@ -1,0 +1,37 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/responsive.scss";
+
+:host {
+    position: fixed;
+    transform: translateZ(0);
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    .box {
+        background-color: $themeAccentColor;
+
+        span:not(.products) {
+            color: $primaryColor;
+        }
+    }
+
+    .container {
+        max-width: 500px !important;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .cart-action-row {
+        padding: 5px 0;
+    }
+
+    .products {
+        background-color: $primaryColor;
+        width: $spanLineHeight;
+        height: $spanLineHeight;
+        text-align: center;
+        border-radius: $borderRadius;
+    }
+}

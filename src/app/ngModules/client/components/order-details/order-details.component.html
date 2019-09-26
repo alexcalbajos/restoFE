@@ -1,0 +1,154 @@
+<div fxLayout="column"
+    class="shadow">
+    <div id="Header"
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+        class="box"
+        [ngClass]="{
+            'main' : isDelivered(),
+            'accent' : !isDelivered()
+        }">
+        <div class="svg-container"
+            [inlineSVG]="'/assets/svg/arrow-down.svg'"
+            fxHide.lt-md></div>
+        <h3 *ngIf="isDelivered()">{{ 'DELIVERED' | translate }}</h3>
+        <h3 *ngIf="!isDelivered()">{{ 'IN_PROGRESS' | translate }}</h3>
+        <span>{{ order?.deliverytime | date:'dd/MM/yy HH:mm' }}</span>
+    </div>
+    <!--
+
+    -->
+    <div class="box"
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+        fxLayout.lt-md="column"
+        fxLayoutAlign.lt-md="center center">
+        <div fxLayout="column"
+            fxFlex="1 1 100%">
+            <h3 ngClass.lt-md="centered">{{ 'ORDER_NO' | translate }}{{ order?.id }}</h3>
+            <h4 class="wide box-subtitle"
+                ngClass.lt-md="centered"
+                *ngIf="status"
+                [translate]="status"
+                [translateParams]="statusParams"></h4>
+        </div>
+        <ri-bicker-animation *ngIf="!isDelivered()"></ri-bicker-animation>
+    </div>
+    <!--
+
+    -->
+    <div *ngIf="!isDelivered()"
+        class="box border-top">
+        <ri-agm-map #map
+            [mapHeight]="'315px'"
+            [orderId]="order.id"
+            (statusChanged)="newStatus($event)"></ri-agm-map>
+    </div>
+    <!--
+
+    -->
+    <div *ngIf="isDelivered()"
+        fxLayout="row"
+        fxLayoutGap="70px"
+        class="box border-top">
+        <div fxLayout="column"
+            fxLayoutGap="20px">
+            <div fxLayout="column">
+                <span class="fade">{{ 'DONE' | translate }}</span>
+                <span>{{ order?.datetime | date:'dd/MM/yy HH:mm' }}</span>
+            </div>
+            <div fxLayout="column">
+                <span class="fade">{{ 'DELIVERED_FROM' | translate }}</span>
+                <span>{{ order?.selling_point.provider.name }}</span>
+            </div>
+        </div>
+        <div fxLayout="column"
+            fxLayoutGap="20px">
+            <div fxLayout="column"
+                *ngIf="order?.delivered">
+                <span class="fade">{{ 'DELIVERED_ON' | translate }}</span>
+                <span>{{ order?.delivered | date:'dd/MM/yy HH:mm' }}</span>
+            </div>
+            <div fxLayout="column">
+                <span class="fade">{{ 'DELIVERED_TO' | translate }}</span>
+                <span>{{ order?.address.address }}</span>
+                <span>{{ order?.address.phone1 }}</span>
+            </div>
+        </div>
+    </div>
+    <!--
+
+    -->
+    <div *ngIf="order.delivery_men_id"
+        class="box border-top">
+        <h3 class="box-title">{{ 'DELIVERY_MEN' | translate }}</h3>
+        <div fxLayout="row"
+            fxLayoutGap="70px">
+            <div fxLayout="column"
+                fxLayoutGap="20px">
+                <div fxLayout="column"
+                    *ngIf="order.delivery_men_id.first_name">
+                    <span class="fade">{{ 'NAME' | translate }}</span>
+                    <span>{{ order.delivery_men_id.first_name }}</span>
+                </div>
+                <div fxLayout="column"
+                    *ngIf="order.delivery_men_id.note_avg">
+                    <span class="fade">{{ 'RATING' | translate }}</span>
+                    <ri-rating-starts [score]="order.delivery_men_id.note_avg"
+                        [forDisplay]="true"></ri-rating-starts>
+                </div>
+            </div>
+            <div fxLayout="column"
+                fxLayoutGap="20px">
+                <div fxLayout="column"
+                    *ngIf="order.delivery_men_id.mobile">
+                    <span class="fade">{{ 'PHONE' | translate }}</span>
+                    <span>{{ order.delivery_men_id.mobile }}</span>
+                </div>
+                <div fxLayout="column"
+                    *ngIf="order.delivery_men_id.num_deliveries">
+                    <span class="fade">{{ 'DELIVERIES_NO' | translate }}</span>
+                    <span>{{ order.delivery_men_id.num_deliveries }} {{ 'DELIVERIES' | translate }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+
+    -->
+    <div class="box border-top">
+        <h3 class="box-title"
+            ngClass.lt-md="centered">{{ 'RECAP' | translate }}</h3>
+        <ri-disabled-product *ngFor="let product of order?.details"
+            [name]="product.product_name"
+            [qty]="product.quantity"
+            [price]="product.price"></ri-disabled-product>
+        <div fxLayout="row"
+            fxLayoutAlign="space-between center"
+            id="TotalRow">
+            <span>{{ 'TOTAL' | translate }}</span>
+            <p *ngIf="!order.resend"
+                class="accent">{{ order?.total_ft | number : '1.2-2' }}&euro;</p>
+            <p *ngIf="order.resend"
+                class="accent">{{ 0 }}&euro;</p>
+        </div>
+        <div *ngIf="order.resend"
+            fxLayout="row"
+            fxLayoutAlign="end end">
+            <span class="highlight">{{ 'ORDER_RESEND' | translate }} {{ order.resend }}</span>
+        </div>
+    </div>
+    <!--
+
+    -->
+    <div class="box border-top"
+        fxLayout="row"
+        fxLayout.lt-md="column"
+        fxLayoutGap.lt-md="15px"
+        fxLayoutAlign="space-between center">
+        <button (click)="getBill()"
+            ngClass.lt-md="wide">{{ 'DOWNLOAD_RECEIPT' | translate }}</button>
+        <button (click)="signalProblem()"
+            ngClass.lt-md="wide">{{ 'REPORT_PROBLEM' | translate }}</button>
+    </div>
+</div>

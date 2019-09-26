@@ -1,0 +1,16 @@
+<div *ngIf="automaticValidationResponse?.cartTotal >= 0"
+    fxLayout="row"
+    fxLayoutAlign="space-between center">
+    <div fxLayout="row"
+        fxLayoutAlign="space-between center"
+        fxLayoutGap="5px"
+        class="total">
+        <span>{{ 'TOTAL_CAPS' | translate }}</span>
+        <p class="accent">{{ automaticValidationResponse?.cartTotal | number : '1.2-2' }}&euro;</p>
+    </div>
+    <span class="secondary-button-accent"
+        (click)="viewCart()">{{ 'VIEW_MY_BASKET' | translate }}</span>
+</div>
+<button class="accent-color wide form-button"
+    [disabled]="!dataLoaded"
+    (click)="onValidateCart()">{{ 'PASS_ORDER' | translate }}</button>

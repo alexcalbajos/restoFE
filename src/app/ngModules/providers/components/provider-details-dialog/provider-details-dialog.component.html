@@ -1,0 +1,47 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<h3 class="bold provider-name">{{ provider.name }}</h3>
+<div fxLayout="row wrap"
+    fxLayoutAlign="center center">
+    <span class="provider-category after-pipe-group"
+        *ngFor="let category of provider?.categories">{{ category.name }}</span>
+</div>
+<span *ngIf="provider.short_description"
+    class="provider-description fade">{{ provider.short_description }}</span>
+<img class="provider-image"
+    [src]="provider.providers_app_main" />
+<div fxLayout="row"
+    fxLayoutAlign="space-between center">
+    <div fxLayout="row"
+        fxLayoutAlign="start start"
+        fxLayoutGap="15px">
+        <div fxLayout="row"
+            fxLayoutAlign="start start"
+            fxLayoutGap="10px">
+            <div class="svg-container icon"
+                [inlineSVG]="'/assets/svg/place.svg'"></div>
+            <div fxLayout="column">
+                <span class="fade">{{ address }}</span>
+                <div fxLayout="row"
+                    fxLayoutGap="5px">
+                    <span class="bold highlight">{{ postalCode }}</span>
+                    <span class="bold highlight">{{ city }}</span>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row"
+            fxLayoutAlign="start center"
+            fxLayoutGap="10px">
+            <div class="svg-container icon"
+                [inlineSVG]="'/assets/svg/clock.svg'"></div>
+            <div *ngFor="let hour of provider.schedules_hours.hours">
+                <span class="fade">{{ hour.start }}</span>
+                <span class="fade after-dash"></span>
+                <span class="fade">{{ hour.end }}</span>
+            </div>
+        </div>
+    </div>
+    <ri-provider-rating class="ri-label"
+        [rating]="provider.avg_note"></ri-provider-rating>
+</div>

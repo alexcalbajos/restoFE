@@ -1,0 +1,92 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/responsive.scss";
+
+:host {
+    z-index: 1;
+
+    .shadow {
+        padding: 0;
+
+        @media only screen and (max-width: $sm-maxWidth) {
+            position: absolute;
+            right: 0;
+            left: 0;
+        }
+
+        .close-details {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            z-index: 1;
+        }
+
+        #Header {
+            position: relative;
+
+            &.accent {
+                background-color: $themeAccentColor;
+
+                .svg-container {
+                    ::ng-deep {
+                        polygon {
+                            fill: $themeAccentColor;
+                            stroke: $themeAccentColor;
+                        }
+                    }
+                }
+            }
+
+            &.main {
+                background-color: $themeMainColor;
+
+                .svg-container {
+                    ::ng-deep {
+                        polygon {
+                            fill: $themeMainColor;
+                            stroke: $themeMainColor;
+                        }
+                    }
+                }
+            }
+
+            .svg-container {
+                position: absolute;
+                left: 0;
+                height: 55px;
+                width: 55px;
+                transform: rotate(90deg);
+                margin-left: -30px;
+            }
+
+            h3, span {
+                color: $primaryColor;
+            }
+        }
+
+        .box {
+            padding: 25px;
+
+            .box-title {
+                margin-bottom: 20px;
+            }
+
+            .box-subtitle {
+                margin-top: 20px;
+                display: block;
+            }
+        }
+
+        .border-top {
+            border-top: 2px solid $lightGray;
+        }
+
+        ri-disabled-product {
+            padding-bottom: 10px;
+        }
+
+        #TotalRow {
+            padding-top: 20px;
+        }
+    }
+}

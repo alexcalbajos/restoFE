@@ -1,0 +1,85 @@
+/*
+* === GENERIC ===
+*/
+$transition: all ease 0.3s;
+$shadow: 0 3px 22px 0 rgba(171, 171, 171, 0.5);
+$borderRadius: 2px;
+
+/*
+* === STRUCTURE ===
+*/
+$headerHeight: 80px;
+$headerHeightMobile: 70px;
+$headerPadding: 90px;
+$largeContainerWidth: 95%;
+$largeContainerMaxWidth: 1350px;
+$containerWidthOnXs: 85%;
+
+/*
+* === SHARED-FONT ===
+*/
+$spanVerticalPadding: 11px;
+$spanLineHeight: 20px;
+$smallSpan: 9px;
+$spanFontSize: 12px;
+
+@mixin spanFont {
+    font-size: $spanFontSize;
+    font-family: "Poppins";
+    letter-spacing: 0.5px;
+    line-height: $spanLineHeight;
+}
+
+/*
+* === ICONS ===
+*/
+$iconSize: 16px;
+$largeIconSize: 24px;
+
+/*
+* === MIXINS ===
+*/
+@mixin scroll {
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $lightGray;
+        outline: 1px solid $lightGray;
+        border-radius: 10px;
+        height: 30px;
+    }
+}
+
+@mixin scrollY {
+    overflow-y: auto;
+
+    @include scroll;
+}
+
+@mixin scrollX {
+    overflow-x: auto;
+
+    @include scroll;
+}
+
+@mixin ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*
+* === THEME ===
+*/
+.theme-wrapper {
+    --zopimBottom: 15px;
+    --headerTop: 0px;
+}
+
+$variables: (--zopimBottom: var(--zopimBottom), --headerTop: var(--headerTop));
+
+@function var($variable) {
+    @return map-get($variables, $variable);
+}

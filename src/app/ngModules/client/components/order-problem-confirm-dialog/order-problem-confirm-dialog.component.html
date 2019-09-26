@@ -1,0 +1,14 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<div fxLayout="column"
+    fxLayoutAlign="center center">
+    <h3 *ngIf="phoneNumber"
+        class="bold area-title centered"
+        [translate]="'ORDER_REQUEST_ACCEPTED'"
+        [translateParams]="{phoneNumber: phoneNumber}"></h3>
+    <span *ngIf="phoneNumber"
+        class="fade">{{ 'ORDER_REQUEST_CHAT'| translate }}</span>
+    <button class="form-button main-color"
+        (click)="zopimService.openChat()">{{ 'OPEN_CHAT' | translate }}</button>
+</div>

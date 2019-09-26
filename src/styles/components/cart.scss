@@ -1,0 +1,59 @@
+.cart {
+    width: 365px;
+    position: relative;
+
+    .fixed-element {
+        position: absolute;
+        transform: translateZ(0);
+        width: inherit;
+
+        &.fixed {
+            position: fixed;
+            top: $headerHeight;
+        }
+
+        &.fixed-at-bottom {
+            position: absolute;
+            bottom: 0;
+        }
+
+        .shadow {
+            button {
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+
+            .content-wrapper {
+                max-height: 470px;
+                min-height: 220px;
+                padding: 20px 15px;
+
+                .products-container {
+                    @include scrollY;
+
+                    margin-bottom: 40px;
+                    margin-right: -10px;
+                    padding-right: 10px;
+                }
+
+                .product-group {
+                    margin-bottom: 15px;
+
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
+                }
+
+                .total {
+                    padding-top: 10px;
+                }
+
+                #Cutlery {
+                    display: block;
+                    margin: 15px 0;
+                }
+            }
+        }
+    }
+}

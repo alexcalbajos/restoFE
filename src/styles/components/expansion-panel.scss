@@ -1,0 +1,28 @@
+mat-accordion {
+    mat-expansion-panel {
+        box-shadow: none !important;
+
+        .mat-expansion-panel-body {
+            padding: 15px;
+        }
+    }
+
+    &.large {
+        mat-expansion-panel {
+            border-bottom: 2px solid $lightGray;
+
+            &.mat-expansion-panel-spacing {
+                margin: 0px;
+            }
+
+            mat-expansion-panel-header {
+                min-height: 64px;
+                height: auto !important;
+            }
+
+            .mat-expansion-panel-body {
+                padding: 0 30px 15px;
+            }
+        }
+    }
+}

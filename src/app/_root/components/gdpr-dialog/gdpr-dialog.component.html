@@ -1,0 +1,11 @@
+<h3 class="bold area-title centered">{{ 'TOS_TITLE' | translate }}</h3>
+<span class="limit-height">{{ 'TOS_FULLTEXT' | translate }}</span>
+<h3 class="bold area-title centered">{{ 'PRIVACY_POLICY_TITLE' | translate }}</h3>
+<span class="limit-height">{{ 'PRIVACY_POLICY_FULLTEXT' | translate }}</span>
+<div fxLayout="row"
+    fxLayoutAlign="space-between center"
+    class="buttons-row">
+    <button (click)="dialogRef.close(false)">{{ 'CANCEL' | translate }}</button>
+    <button class="main-color"
+        (click)="dialogRef.close(true)">{{ 'CONFIRM' | translate }}</button>
+</div>

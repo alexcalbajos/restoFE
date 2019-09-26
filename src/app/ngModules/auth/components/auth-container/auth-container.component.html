@@ -1,0 +1,19 @@
+<div fxLayout="column"
+    fxLayoutAlign="start start"
+    [ngSwitch]="state">
+    <h3 class="title centered">{{ title | translate }}</h3>
+    <ri-auth-buttons *ngSwitchDefault
+        (useEmail)="changeState(initialEmailVisible)"
+        (useGoogle)="changeState(googleLoginVisible)"></ri-auth-buttons>
+    <ri-initial-email-form *ngSwitchCase="initialEmailVisible"
+        [email]="email"
+        (validEmail)="validEmail($event)"
+        (newEmail)="newEmail($event)"></ri-initial-email-form>
+    <ri-login-form *ngSwitchCase="loginVisible"
+        [email]="email"
+        (emailChanged)="emailChanged($event)"
+        (clientLoggedIn)="onClientAuthention()"></ri-login-form>
+    <ri-register-form *ngSwitchCase="registerVisible"
+        [email]="email"
+        (clientRegistered)="onClientAuthention()"></ri-register-form>
+</div>

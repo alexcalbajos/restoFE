@@ -1,0 +1,68 @@
+<div id="BackgroundContainer">
+    <div class="container">
+        <div class="first-row"
+            fxLayout="row"
+            fxLayout.lt-md="column"
+            fxLayoutGap.lt-md="30px"
+            fxLayoutAlign="space-between start">
+            <div fxLayout="column">
+                <div class="svg-container"
+                    id="Logo"
+                    [inlineSVG]="'/assets/svg/logo.svg'"
+                    routerLink="./"></div>
+                <span class="link"
+                    (click)="openWindow('https://resto-in.workable.com/')">{{ 'CAREER' | translate }}</span>
+                <span class="link"
+                    routerLink="../presentation/restaurant">{{ 'BECOME_RESTAURANT_PARTNER' | translate }}</span>
+            </div>
+            <div fxLayout="column">
+                <h4 class="wide">{{ 'ABOUT_RESTOIN' | translate }}</h4>
+                <span class="link"
+                    routerLink="../static/about">{{ 'ABOUT_TITLE' | translate }}</span>
+                <span class="link"
+                    routerLink="../static/terms">{{ 'TOS_TITLE' | translate }}</span>
+                <span class="link"
+                    routerLink="../static/privacy">{{ 'PRIVACY_POLICY_TITLE' | translate }}</span>
+            </div>
+            <div fxLayout="column">
+                <h4 class="wide">{{ 'AIDE' | translate }}</h4>
+                <span class="link"
+                    routerLink="../static/contact">{{ 'CONTACT' | translate }}</span>
+                <span class="link"
+                    routerLink="../static/faq">{{ 'FAQ' | translate }}</span>
+                <span class="link"
+                    routerLink="../sitemap">{{ 'SITE_PLAN' | translate }}</span>
+            </div>
+            <div fxLayout="row"
+                fxLayoutGap="50px">
+                <ri-app-store-button></ri-app-store-button>
+                <ri-google-play-button></ri-google-play-button>
+            </div>
+        </div>
+        <div class="divider main-color"></div>
+    </div>
+    <div class="background-food"></div>
+</div>
+<div class="container second-row"
+    fxLayout="row"
+    fxLayout.lt-md="column"
+    fxLayoutAlign="space-between center">
+    <div fxLayout="row"
+        fxLayoutGap="20px">
+        <div class="svg-container icon"
+            [inlineSVG]="'/assets/svg/twitter.svg'"
+            (click)="openTwitter()"></div>
+        <div class="svg-container icon"
+            [inlineSVG]="'/assets/svg/facebook.svg'"
+            (click)="openFacebook()"></div>
+        <div class="svg-container icon"
+            [inlineSVG]="'/assets/svg/instagram.svg'"
+            (click)="openInstagram()"></div>
+    </div>
+    <div fxLayout="row"
+        fxLayoutGap="3px">
+        <span>{{ '&copy;' | translate }}</span>
+        <span [translate]="'RIGHTS'"
+            [translateParams]="{providerName: staticConfig.brandName}"></span>
+    </div>
+</div>

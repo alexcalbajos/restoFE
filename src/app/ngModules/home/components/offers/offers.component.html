@@ -1,0 +1,18 @@
+<div class="container"
+    fxLayout="row"
+    fxLayoutAlign="center center">
+    <div fxHide.lt-md
+        id="OffersImage"
+        #image></div>
+    <div id="OffersText"
+        fxFlex="1 1 auto"
+        fxLayout="column"
+        fxLayoutAlign="center start"
+        fxLayoutGap="15px">
+        <h3 class="bold">{{ title | translate }}</h3>
+        <span fxFlexAlign="stretch"
+            class="fade">{{ desc | translate }}</span>
+        <button class="accent-color"
+            (click)="action()">{{ actionText | translate }}</button>
+    </div>
+</div>

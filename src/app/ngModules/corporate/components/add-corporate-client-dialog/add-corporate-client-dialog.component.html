@@ -1,0 +1,138 @@
+<div fxLayout="row"
+    fxLayoutAlign="space-between center">
+    <h4 *ngIf="client"
+        [translate]="'EDIT_CORP_CLIENT'"
+        [translateParams]="{client: fullName}"></h4>
+    <h4 *ngIf="!client">{{ 'ADD_CORP_CLIENT' | translate }}</h4>
+    <div class="svg-container icon close-dialog"
+        (click)="dialogRef.close()"
+        [inlineSVG]="'/assets/svg/close.svg'"></div>
+</div>
+<form fxLayout="column"
+    id="AddCorporateUserForm"
+    [formGroup]="addCorporateClientForm"
+    (ngSubmit)="onSubmit()">
+    <div fxLayout="row"
+        fxLayout.lt-sm="column"
+        fxLayoutGap="35px"
+        fxLayoutGap.lt-sm="0px"
+        fxFlexAlign="stretch">
+        <div class="form-control">
+            <span class="input-title">{{ 'FNAME' | translate }}</span>
+            <input [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(addCorporateClientForm.controls['first_name'])}"
+                type="text"
+                formControlName="first_name"
+                placeholder="{{ 'FNAME' | translate }}">
+            <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(addCorporateClientForm.controls['first_name'])}"
+                class="input-error placeholder"></span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['first_name'], 'required')}"
+                class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['first_name'], 'minlength')}"
+                class="input-error">{{ 'MIN_2_CHARACTERS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['first_name'], 'maxlength')}"
+                class="input-error">{{ 'MAX_60_CHARACTERS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['first_name'], 'custom')}"
+                class="input-error">{{ addCorporateClientForm.controls['first_name'].errors?.custom }}</span>
+        </div>
+        <div class="form-control">
+            <span class="input-title">{{ 'LNAME' | translate }}</span>
+            <input [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(addCorporateClientForm.controls['last_name'])}"
+                type="text"
+                formControlName="last_name"
+                placeholder="{{ 'LNAME' | translate }}">
+            <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(addCorporateClientForm.controls['last_name'])}"
+                class="input-error placeholder"></span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['last_name'], 'required')}"
+                class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['last_name'], 'minlength')}"
+                class="input-error">{{ 'MIN_2_CHARACTERS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['last_name'], 'maxlength')}"
+                class="input-error">{{ 'MAX_60_CHARACTERS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['last_name'], 'custom')}"
+                class="input-error">{{ addCorporateClientForm.controls['last_name'].errors?.custom }}</span>
+        </div>
+        <div class="form-control">
+            <span class="input-title">{{ 'ENTER_EXPIRATION_DATE' | translate }}</span>
+            <div class="input-with-icons">
+                <input [owlDateTime]="dt1"
+                    [owlDateTimeTrigger]="dt1"
+                    formControlName="account_expiration_date"
+                    [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(addCorporateClientForm.controls['account_expiration_date'])}">
+                <div class="icon-container"
+                    [owlDateTimeTrigger]="dt1">
+                    <div class="svg-container icon large"
+                        [inlineSVG]="'/assets/svg/date.svg'"></div>
+                </div>
+            </div>
+            <owl-date-time [pickerType]="'calendar'"
+                #dt1></owl-date-time>
+            <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(addCorporateClientForm.controls['account_expiration_date'])}"
+                class="input-error placeholder"></span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['account_expiration_date'], 'owlDateTimeParse')}"
+                class="input-error">{{ 'INVALID_DATE' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['account_expiration_date'], 'custom')}"
+                class="input-error">{{ addCorporateClientForm.controls['last_name'].errors?.custom }}</span>
+        </div>
+    </div>
+    <div fxLayout="row"
+        fxLayout.lt-sm="column"
+        fxLayoutGap="35px"
+        fxLayoutGap.lt-sm="0px"
+        fxFlexAlign="stretch">
+        <div class="form-control">
+            <span class="input-title">{{ 'ENTER_EMAIL_ADDRESS' | translate }}</span>
+            <input [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(addCorporateClientForm.controls['email'])}"
+                type="email"
+                formControlName="email"
+                placeholder="{{ 'ENTER_EMAIL_ADDRESS' | translate }}">
+            <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(addCorporateClientForm.controls['email'])}"
+                class="input-error placeholder"></span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['email'], 'required')}"
+                class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['email'], 'email')}"
+                class="input-error">{{ 'ERR_1624' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['email'], 'custom')}"
+                class="input-error">{{ addCorporateClientForm.controls['email'].errors?.custom }}</span>
+        </div>
+        <div class="form-control">
+            <span class="input-title">{{ 'PHONE' | translate }}</span>
+            <input ri-intl-tel-input
+                type="tel"
+                [value]="client?.phone"
+                [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(addCorporateClientForm.controls['phone'])}"
+                formControlName="phone">
+            <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(addCorporateClientForm.controls['phone'])}"
+                class="input-error placeholder"></span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['phone'], 'custom')}"
+                class="input-error">{{ addCorporateClientForm.controls['phone'].errors?.custom }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['phone'], 'required')}"
+                class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['phone'], 'pattern')}"
+                class="input-error">{{ 'INVALID_PHONE' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(addCorporateClientForm.controls['phone'], 'minlength')}"
+                class="input-error">{{ 'MIN_9_CHARACTERS' | translate }}</span>
+        </div>
+    </div>
+    <div class="form-control"
+        *ngIf="divisions?.length > 0">
+        <span class="input-title">{{ 'SELECT_DEPARTMENT' | translate }}</span>
+        <ng-select [items]="divisions"
+            bindLabel="name"
+            class="tall"
+            placeholder="{{ 'SELECT_DEPARTMENT' | translate }}"
+            [clearable]="false"
+            [searchable]="false"
+            formControlName="division"></ng-select>
+        <span class="input-error placeholder"></span>
+    </div>
+    <h4 class="table-title"
+        *ngIf="client"
+        [translate]="'EDIT_CORP_CLIENT_AUTH'"
+        [translateParams]="{client: fullName}"></h4>
+    <h4 class="table-title"
+        *ngIf="!client">{{ 'AUTH' | translate }}</h4>
+    <ri-corporate-client-order-amount-table #corporateTable
+        [selectedOrderAmounts]="selectedOrderAmounts"></ri-corporate-client-order-amount-table>
+    <button type="submit"
+        class="accent-color">{{ 'SAVE' | translate }}</button>
+</form>

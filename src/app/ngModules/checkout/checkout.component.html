@@ -1,0 +1,14 @@
+<div class="container"
+    id="BackRow"
+    fxLayout="row"
+    fxLayoutGap="30px"
+    fxLayoutAlign="start center"
+    fxHide.lt-sm>
+    <div class="svg-container icon"
+        [inlineSVG]="'/assets/svg/back.svg'"
+        (click)="back()"></div>
+    <span class="bold"
+        (click)="back()">{{ 'RETURN_TO_PROVIDER' | translate }}</span>
+</div>
+<router-outlet></router-outlet>
+<div class="background-food"></div>

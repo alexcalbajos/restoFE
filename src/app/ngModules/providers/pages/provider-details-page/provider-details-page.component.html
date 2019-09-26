@@ -1,0 +1,27 @@
+<div *ngIf="provider"
+    itemscope
+    [attr.itemtype]="itemType">
+    <ri-provider-header [provider]="provider"></ri-provider-header>
+    <div class="container"
+        fxLayout="row"
+        fxLayoutAlign="space-between"
+        fxLayoutGap="35px"
+        fxLayoutGap.lt-md="0px">
+        <div fxFlex="1 1 auto"
+            fxLayout="column">
+            <ri-provider-title-bar [provider]="provider"></ri-provider-title-bar>
+            <ri-product-categories fxFlex="1 1 auto"
+                [provider]="provider"
+                [attr.itemprop]="isRestaurant ? 'menu' : null"></ri-product-categories>
+            <ri-mobile-shopping-cart class="shadow"
+                fxHide
+                fxShow.lt-md
+                (validateCart)="validateCart()"></ri-mobile-shopping-cart>
+        </div>
+        <ri-shopping-cart fxFlex="365px"
+            fxHide.lt-md
+            class="cart"
+            [provider]="provider"
+            (validateCart)="validateCart()"></ri-shopping-cart>
+    </div>
+</div>

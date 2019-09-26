@@ -1,0 +1,117 @@
+@import "../../../styles/variables/responsive.scss";
+
+ri-presentation {
+    ri-enterprise-page, ri-restaurant-page {
+        display: block;
+        padding-top: 60px;
+    }
+
+    .box {
+        margin-top: 75px;
+    }
+
+    .secondary-button {
+        opacity: 1;
+    }
+
+    .responsive-image {
+        @media only screen and (max-width: $sm-maxWidth) {
+            width: 650px !important;
+            max-width: 100%;
+        }
+
+        @media only screen and (max-width: $xs-maxWidth) {
+            max-width: 100vw;
+        }
+
+        &.size-1 {
+            height: 400px;
+
+            @media only screen and (max-width: $xs-maxWidth) {
+                height: 250px;
+            }
+        }
+
+        &.size-2 {
+            height: 310px;
+
+            @media only screen and (max-width: $xs-maxWidth) {
+                height: 210px;
+            }
+        }
+
+        &.size-3 {
+            height: 280px;
+
+            @media only screen and (max-width: $xs-maxWidth) {
+                height: 200px;
+            }
+        }
+
+        &.size-4 {
+            height: 220px;
+
+            @media only screen and (max-width: $xs-maxWidth) {
+                height: 160px;
+            }
+        }
+    }
+
+    #Thumbnails {
+        margin: 100px 0;
+
+        .thumbnail {
+            height: 380px;
+
+            @media only screen and (max-width: $sm-maxWidth) {
+                height: 500px;
+            }
+
+            h3 {
+                min-height: 50px;
+                padding: 0 25px;
+
+                @media only screen and (max-width: $sm-maxWidth) {
+                    min-height: 75px;
+                    padding: 0 5px;
+                }
+
+                @media only screen and (max-width: $xs-maxWidth) {
+                    min-height: auto;
+                }
+            }
+
+            .large-circle {
+                margin: 10px 0;
+                height: 125px;
+                width: 125px;
+                min-height: 125px;
+                min-width: 125px;
+                background-color: none !important;
+                background-size: cover !important;
+            }
+        }
+    }
+
+    #Trust {
+        margin-bottom: 45px;
+
+        .trust-thumbnail {
+            margin-bottom: 40px;
+
+            @media only screen and (max-width: $sm-maxWidth) {
+                &:nth-child(2n) {
+                    margin-right: 0 !important;
+                }
+            }
+
+            @media only screen and (max-width: $xs-maxWidth) {
+                margin-right: 0 !important;
+            }
+        }
+
+        .logo {
+            background-size: contain !important;
+        }
+    }
+}

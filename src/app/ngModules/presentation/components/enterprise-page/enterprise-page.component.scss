@@ -1,0 +1,100 @@
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/responsive.scss";
+
+:host {
+    .responsive-image {
+        &#MacImage {
+            background: url("/assets/images/presentation/mac.png") no-repeat center;
+            background-size: contain;
+        }
+
+        &#PromoImage {
+            background: url("/assets/images/presentation/enterprise.jpg") no-repeat center;
+            background-size: cover;
+        }
+
+        &#PromoImageEvents {
+            background: url("/assets/images/presentation/events.jpg") no-repeat center;
+            background-size: cover;
+        }
+
+        &#Users {
+            background: url("/assets/images/presentation/utilisateurs.png") no-repeat center;
+            background-size: contain;
+        }
+
+        &#Bills {
+            background: url("/assets/images/presentation/bills.png") no-repeat center;
+            background-size: contain;
+        }
+
+        &#Addressess {
+            background: url("/assets/images/presentation/address.png") no-repeat center;
+            background-size: contain;
+        }
+    }
+
+    #Thumbnails {
+        .large-circle {
+            &.office-delivery {
+                background: $themeSecondaryColor url("/assets/images/presentation/office-delivery.jpg") no-repeat center;
+            }
+
+            &.simplify {
+                background: $themeSecondaryColor url("/assets/images/presentation/simplify.png") no-repeat center;
+            }
+
+            &.events {
+                background: $themeSecondaryColor url("/assets/images/presentation/events.png") no-repeat center;
+            }
+        }
+    }
+
+    #Trust {
+        .logo {
+            height: 40px;
+            
+            &#Lazard {
+                background: url("/assets/images/presentation/lazard.jpg") no-repeat center;
+            }
+
+            &#Dior {
+                background: url("/assets/images/presentation/dior.png") no-repeat center;
+            }
+
+            &#Fbd {
+                background: url("/assets/images/presentation/fbd.jpg") no-repeat center;
+            }
+
+            &#Tbwa {
+                background: url("/assets/images/presentation/tbwa.jpg") no-repeat center;
+            }
+        }
+    }
+
+    #MacContainer {
+        .inline-container {
+            @media only screen and (min-width: $sm-maxWidth) {
+                text-align: unset;
+            }
+
+            h1:first-of-type {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    #EnterpriseFooter {
+        background-color: $themeSecondaryColor;
+        margin-top: 60px;
+
+        .container {
+            padding: 15px 0px 40px;
+            max-width: 540px !important;
+
+            .large-circle {
+                margin-bottom: 0 !important;
+            }
+        }
+    }
+}

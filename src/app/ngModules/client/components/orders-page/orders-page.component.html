@@ -1,0 +1,53 @@
+<div class="container"
+    fxLayout="row"
+    fxLayoutGap="35px"
+    fxLayoutGap.lt-md="0"
+    fxLayoutAlign="space-between start">
+    <div fxFlex="calc(50% - 35px)"
+        fxFlex.lt-md="100%"
+        ngClass.gt-xs="shadow">
+        <div id="ScrollContainer"
+            infiniteScroll
+            [infiniteScrollDistance]="3"
+            [infiniteScrollThrottle]="50"
+            (scrolled)="onScroll()"
+            [scrollWindow]="false"
+            fxLayoutGap="15px">
+            <ri-order-box *ngFor="let order of orders; let index = index"
+                #orderBoxComponents
+                [order]="order"
+                [boxClass]="
+                {
+                    'selected' : order?.id === selectedOrder?.id,
+                    'fade' : selectedOrder && order?.id !== selectedOrder?.id,
+                    'shadow': mediaChange.mqAlias === 'xs'
+                }"
+                (click)="viewDetails(index)"
+                (selectedOrder)="selectedOrder = $event"></ri-order-box>
+            <div *ngIf="!dataLoaded"
+                class="spinner-container"
+                fxLayout="column"
+                fxLayoutAlign="center center">
+                <mat-spinner diameter="30"></mat-spinner>
+            </div>
+            <div *ngIf="dataLoaded && !orders.length"
+                fxLayout="row"
+                fxLayout.lt-sm="column"
+                fxLayoutGap="15px"
+                fxLayoutGap.lt-sm="25px"
+                fxLayoutAlign="start center"
+                [ngClass]="{'shadow': mediaChange.mqAlias === 'xs'}">
+                <div class="large-circle restaurant"></div>
+                <span ngClass.lt-sm="centered">{{ 'NO_ORDERS' | translate }}!</span>
+            </div>
+        </div>
+    </div>
+    <div fxFlex="calc(50% - 35px)"
+        *ngIf="!selectedOrder"></div>
+    <ri-order-details *ngIf="selectedOrder"
+        fxFlex="calc(50% - 35px)"
+        [order]="selectedOrder"
+        (orderDelivered)="orderDelivered($event)"></ri-order-details>
+</div>
+<div class="background-food"
+    [ngClass]="{'no-bottom': !orders?.length}"></div>

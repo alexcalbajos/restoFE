@@ -1,0 +1,104 @@
+@import "../../../../../styles/variables/responsive.scss";
+@import "../../../../../styles/variables/miscellaneous.scss";
+
+@mixin fade($url) {
+    &.fade {
+        &::before {
+            opacity: .4;
+        }
+    }
+}
+
+@mixin before($url) {
+    background: unset;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        z-index: -1;
+        background: $url;
+        background-size: cover !important;
+        transition: $transition;
+        background-position: center;
+    }
+}
+
+:host {
+    display: block;
+    margin-bottom: 25px;
+
+    @media only screen and (max-width: $xs-maxWidth) {
+        padding-top: 80px;
+    }
+
+    .container:not(:first-of-type) {
+        padding-top: 30px;
+        height: 900px;
+
+        @media only screen and (max-width: $xs-maxWidth) {
+            width: 100% !important;
+            min-height: 800px;
+            height: auto;
+        }
+
+        div {
+            h3 {
+                padding-top: 15px;
+                padding-bottom: 20px;
+
+                @media only screen and (max-width: $xs-maxWidth) {
+                    padding-left: 15px;
+                    padding-bottom: 30px;
+                }
+            }
+
+            .picture {
+                position: relative;
+                cursor: pointer;
+
+                @media only screen and (max-width: $xs-maxWidth) {
+                    min-height: 195px;
+                }
+
+                &::before {
+                    transition: $transition;
+                }
+            }
+
+            #Healthy {
+                @include before(url("/assets/images/categories/healthy.jpg"));
+                @include fade(url("/assets/images/categories/healthy.jpg"));
+            }
+
+            #Sweets {
+                @include before(url("/assets/images/categories/douceurs.jpg"));
+                @include fade(url("/assets/images/categories/douceurs.jpg"));
+            }
+
+            #Hungry {
+                @include before(url("/assets/images/categories/faim.jpg"));
+                @include fade(url("/assets/images/categories/faim.jpg"));
+            }
+
+            #Pause {
+                @include before(url("/assets/images/categories/pause.jpg"));
+                @include fade(url("/assets/images/categories/pause.jpg"));
+            }
+
+            #Inevitable {
+                @include before(url("/assets/images/categories/immanquables.jpg"));
+                @include fade(url("/assets/images/categories/immanquables.jpg"));
+            }
+
+            #Petites {
+                @include before(url("/assets/images/categories/petites.jpg"));
+                @include fade(url("/assets/images/categories/petites.jpg"));
+            }
+        }
+    }
+}

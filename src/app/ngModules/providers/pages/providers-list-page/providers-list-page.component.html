@@ -1,0 +1,45 @@
+<div class="container large"
+    fxLayout="row">
+    <ri-providers-filters #providersFilters
+        fxHide.lt-md
+        (newList)="onNewCategoriesList($event)"></ri-providers-filters>
+    <div class="fixed-element-container"
+        #fixedElementContainer>
+        <div class="fixed-element"
+            #fixedElement
+            fxHide.lt-md>
+            <ri-product-search></ri-product-search>
+            <ri-providers-sorting [numberOfProviders]="providers?.length"></ri-providers-sorting>
+        </div>
+        <div class="fixed-element-container-mobile"
+            fxHide.gt-sm>
+            <ri-product-search></ri-product-search>
+            <div class="fixed-element-mobile"
+                #fixedElementMobile>
+                <div id="AddressMobileBar"
+                    fxLayout="row"
+                    fxLayoutAlign="space-between center"
+                    fxLayoutGap="10px">
+                    <input class="shadow"
+                        type="text"
+                        [value]="address"
+                        readonly
+                        (click)="changeAddress()">
+                    <button class="icon shadow"
+                        (click)="openMobileFilters()">
+                        <div id="MenuIcon"
+                            class="svg-container icon"
+                            [inlineSVG]="'/assets/svg/menu.svg'"></div>
+                    </button>
+                </div>
+                <ri-providers-sorting [numberOfProviders]="providers?.length"></ri-providers-sorting>
+            </div>
+        </div>
+        <div class="dynamic-content">
+            <mat-progress-bar *ngIf="!dataLoaded"
+                mode="indeterminate"></mat-progress-bar>
+            <ri-providers-thumbnails *ngIf="dataLoaded"
+                [providers]="providers"></ri-providers-thumbnails>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/colors.scss";
+
+:host {
+    margin-top: -20px;
+    background-color: $primaryColor;
+    border-radius: $borderRadius;
+    padding: $spanVerticalPadding;
+    box-shadow: $shadow;
+    z-index: 2;
+
+    #InfoIcon, #OpenAllergies {
+        cursor: pointer;
+    }
+}

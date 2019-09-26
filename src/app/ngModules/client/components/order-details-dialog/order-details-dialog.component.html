@@ -1,0 +1,8 @@
+<div class="svg-container icon close-mobile-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<ri-order-box [order]="order"
+    [hideViewDetails]="true"
+    boxClass="for-dialog"></ri-order-box>
+<ri-order-details [order]="order"
+    (orderDelivered)="orderDelivered($event)"></ri-order-details>

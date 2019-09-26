@@ -1,0 +1,20 @@
+<div *ngIf="cart && cart.numberOfProducts > 0">
+    <div fxLayout="row"
+        fxLayoutAlign="center center"
+        class="cart-action-row">
+        <span class="secondary-button-accent"
+            (click)="viewCart()">{{ 'VIEW_MY_BASKET' | translate }}</span>
+    </div>
+    <div fxLayout="column"
+        fxLayoutAlign="center center"
+        class="box"
+        (click)="onValidateCart()">
+        <div fxLayout="row"
+            class="container"
+            fxLayoutAlign="space-between center">
+            <span class="products">{{ cart.numberOfProducts }}</span>
+            <span class="uppercase">{{ 'CONFIRM_BASKET' | translate }}</span>
+            <span class="accent">{{ cart.total | number : '1.2-2' }}&euro;</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<h3 class="area-title centered bold">{{ 'ALLERGIES_TITLE' | translate }}</h3>
+<div fxLayout="column"
+    fxLayoutGap="10px"
+    fxLayoutAlign="center center">
+    <span class="centered"
+        [translate]="'ALLERGIES_DESCRIPTION'"
+        [translateParams]="{providerName: provider.name}"></span>
+    <div fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="5px">
+        <div class="svg-container icon"
+            [inlineSVG]="'/assets/svg/phone.svg'"></div>
+        <span>{{ 'ALLERGIES_CALL' | translate }}</span>
+        <a [href]="phoneNumberRef">
+            <span class="bold highlight">{{ phoneNumber }}</span>
+        </a>
+    </div>
+</div>

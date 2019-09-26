@@ -1,0 +1,11 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+
+.press {
+    cursor: pointer;
+    padding: 25px;
+    transition: $transition;
+
+    &:hover {
+        box-shadow: $shadow;
+    }
+}

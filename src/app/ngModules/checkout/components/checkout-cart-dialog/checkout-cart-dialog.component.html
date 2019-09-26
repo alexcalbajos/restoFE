@@ -1,0 +1,51 @@
+<div class="svg-container icon close-mobile-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<div class="mobile-content">
+    <h4>{{ 'MY_BASKET' | translate }}</h4>
+    <div *ngIf="cart.products.length > 0">
+        <div *ngIf="!groupedProducts">
+            <ri-disabled-product *ngFor="let product of cart.products"
+                [name]="product.name"
+                [qty]="product.qty"
+                [price]="product.calculatedPrice"></ri-disabled-product>
+        </div>
+        <div *ngIf="groupedProducts">
+            <div *ngFor="let attachedClientFullName of groupedProducts | keyvalue"
+                class="product-group">
+                <span class="bold">{{ attachedClientFullName.key }}</span>
+                <ri-disabled-product *ngFor="let product of groupedProducts[attachedClientFullName.key]"
+                    [name]="product.name"
+                    [qty]="product.qty"
+                    [price]="product.calculatedPrice">
+                </ri-disabled-product>
+            </div>
+        </div>
+    </div>
+    <ri-checkout-cart-actions [automaticValidationResponse]="automaticValidationResponse"></ri-checkout-cart-actions>
+    <span *ngIf="cart.cutlery"
+        id="Cutlery"
+        class="main-color highlight bold">{{ 'CUTLERY_TAG' | translate }}</span>
+    <div id="SubTotal"
+        fxLayout="row"
+        fxLayoutAlign="space-between center">
+        <span>{{ 'SUBTOTAL' | translate }}</span>
+        <span class="accent">{{ cart.total | number : '1.2-2' }}&euro;</span>
+    </div>
+    <div *ngIf="automaticValidationResponse?.delivery?.fee"
+        fxLayout="row"
+        fxLayoutAlign="space-between center">
+        <span>{{ 'DELIVERY_FEES' | translate }}</span>
+        <span class="accent">{{ automaticValidationResponse?.delivery?.fee | number : '1.2-2' }}&euro;</span>
+    </div>
+</div>
+<div *ngIf="automaticValidationResponse?.cartTotal >= 0"
+    class="mobile-bottom-row"
+    #mobileBottomRow>
+    <div fxLayout="row"
+        fxLayoutAlign="space-between center"
+        class="content">
+        <span>{{ 'TOTAL_CAPS' | translate }}</span>
+        <p class="accent">{{ automaticValidationResponse?.cartTotal | number : '1.2-2' }}&euro;</p>
+    </div>
+</div>

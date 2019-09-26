@@ -1,0 +1,61 @@
+.ri-label {
+    border: 1px solid $lightGray;
+    padding: 4px 9px;
+
+    span {
+        color: $themeMainColor;
+    }
+
+    &.main-color {
+        background-color: $themeMainColor;
+        border-color: $themeMainColor;
+
+        span {
+            color: $primaryColor;
+        }
+    }
+
+    &.accent-color {
+        background-color: $themeAccentColor;
+        border-color: $themeAccentColor;
+
+        span {
+            color: $primaryColor;
+        }
+    }
+
+    &.small {
+        $smallLineHeight: 13px;
+
+        padding: 0;
+        height: $smallLineHeight;
+        width: $smallLineHeight;
+        border-width: 2px;
+        margin-right: 8px;
+        border-color: $mediumGray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: $transition;
+
+        span {
+            transition: $transition;
+            color: $themeMainColor;
+            font-weight: 700;
+            opacity: 0;
+            line-height: $smallLineHeight;
+        }
+
+        &.selected {
+            border-color: $themeMainColor;
+
+            span {
+                opacity: 1;
+            }
+        }
+
+        &.disabled {
+            border-color: $lightGray;
+        }
+    }
+}

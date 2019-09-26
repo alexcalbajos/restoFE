@@ -1,0 +1,23 @@
+<div fxLayout="row"
+    fxLayoutAlign="space-between start">
+    <h3 class="area-title bold uppercase-first">{{ 'DELIVERY_ADDRESSES' | translate }}</h3>
+    <span *ngIf="dataLoaded && clientHasAddresses"
+        class="area-box-button"
+        (click)="displayChangeSelectedAddressDialogComponent()">{{ 'EDIT' | translate }}</span>
+</div>
+<div *ngIf="!dataLoaded"
+    class="spinner-container"
+    fxLayout="column"
+    fxLayoutAlign="center center">
+    <mat-spinner diameter="30"></mat-spinner>
+</div>
+<div *ngIf="dataLoaded">
+    <ri-address-box *ngIf="selectedAddress"
+        [address]="selectedAddress">
+    </ri-address-box>
+    <ri-add-address-form #addAddressForm
+        (addressChanged)="setSelectedAddress($event)"
+        (addressPseudoSelected)="emitAddressChange($event)"
+        (addressNotChanged)="emitAddressChange(selectedAddress)"
+        *ngIf="!selectedAddress"></ri-add-address-form>
+</div>

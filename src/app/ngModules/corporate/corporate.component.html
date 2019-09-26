@@ -1,0 +1,52 @@
+<div class="container navbar-container"
+    fxLayout="row"
+    fxLayoutAlign="start center">
+    <div class="navbar">
+        <div class="nav"
+            fxLayout="row"
+            fxLayoutGap="5px"
+            fxLayoutAlign="center center"
+            [routerLinkActiveOptions]="{exact:true}"
+            routerLink="../corporate/clients"
+            routerLinkActive="selected">
+            <div class="svg-container icon large"
+                [inlineSVG]="'/assets/svg/user.svg'"></div>
+            <h4>{{ 'CLIENTS' | translate }}</h4>
+        </div>
+        <div class="nav"
+            fxLayout="row"
+            fxLayoutGap="5px"
+            fxLayoutAlign="center center"
+            [routerLinkActiveOptions]="{exact:true}"
+            routerLinkActive="selected"
+            routerLink="../corporate/addresses">
+            <div class="svg-container icon large"
+                [inlineSVG]="'/assets/svg/place.svg'"></div>
+            <h4>{{ 'ADDRESSES' | translate }}</h4>
+        </div>
+        <div class="nav"
+            fxLayout="row"
+            fxLayoutGap="5px"
+            fxLayoutAlign="center center"
+            [routerLinkActiveOptions]="{exact:true}"
+            routerLinkActive="selected"
+            routerLink="../corporate/codes">
+            <div class="svg-container icon large"
+                [inlineSVG]="'/assets/svg/codes.svg'"></div>
+            <h4>{{ 'CORP_CODES' | translate }}</h4>
+        </div>
+        <div class="nav"
+            fxLayout="row"
+            fxLayoutGap="5px"
+            fxLayoutAlign="center center"
+            [routerLinkActiveOptions]="{exact:true}"
+            routerLinkActive="selected"
+            routerLink="../corporate/bills">
+            <div class="svg-container icon large"
+                [inlineSVG]="'/assets/svg/facturation.svg'"></div>
+            <h4>{{ 'BILLS' | translate }}</h4>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
+<div class="background-food"></div>

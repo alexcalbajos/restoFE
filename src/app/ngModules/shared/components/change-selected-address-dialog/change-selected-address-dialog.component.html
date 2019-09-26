@@ -1,0 +1,18 @@
+<div fxLayout="column">
+    <div class="svg-container icon close-dialog"
+        (click)="dialogRef.close()"
+        [inlineSVG]="'/assets/svg/close.svg'"></div>
+    <button *ngIf="allowAdd"
+        class="wide"
+        (click)="dialogRef.close('add')"
+        [disabled]="clientService._client.getValue().isCorporate">{{ '+' | translate }} {{ 'ADD_NEW_ADDRESS' | translate }}</button>
+    <div *ngIf="allowAdd"
+        class="divider"></div>
+    <h3 class="bold area-title uppercase-first">{{ 'REGISTERED_ADDRESSES' | translate }}</h3>
+    <div class="area-box-list">
+        <ri-address-box *ngFor="let address of addressess"
+            class="selectable"
+            [address]="address"
+            (click)="dialogRef.close(address)"></ri-address-box>
+    </div>
+</div>

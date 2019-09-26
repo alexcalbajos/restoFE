@@ -1,0 +1,87 @@
+<h4>{{ 'INFORMATION' | translate }}</h4>
+<form fxLayout="column"
+    id="UserDetailsForm"
+    [formGroup]="userDetailsForm"
+    (ngSubmit)="onSubmit()">
+    <div fxLayout="row"
+        fxLayout.lt-sm="column"
+        fxLayoutGap="35px"
+        fxLayoutGap.lt-sm="0px"
+        fxFlexAlign="stretch">
+        <div class="form-control">
+            <span class="input-title">{{ 'FNAME' | translate }}</span>
+            <input [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(userDetailsForm.controls['first_name'])}"
+                type="text"
+                formControlName="first_name"
+                placeholder="{{ 'FNAME' | translate }}">
+            <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(userDetailsForm.controls['first_name'])}"
+                class="input-error placeholder"></span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['first_name'], 'required')}"
+                class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['first_name'], 'minlength')}"
+                class="input-error">{{ 'MIN_2_CHARACTERS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['first_name'], 'maxlength')}"
+                class="input-error">{{ 'MAX_60_CHARACTERS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['first_name'], 'custom')}"
+                class="input-error">{{ userDetailsForm.controls['first_name'].errors?.custom }}</span>
+        </div>
+        <div class="form-control">
+            <span class="input-title">{{ 'LNAME' | translate }}</span>
+            <input [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(userDetailsForm.controls['last_name'])}"
+                type="text"
+                formControlName="last_name"
+                placeholder="{{ 'LNAME' | translate }}">
+            <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(userDetailsForm.controls['last_name'])}"
+                class="input-error placeholder"></span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['last_name'], 'required')}"
+                class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['last_name'], 'minlength')}"
+                class="input-error">{{ 'MIN_2_CHARACTERS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['last_name'], 'maxlength')}"
+                class="input-error">{{ 'MAX_60_CHARACTERS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['last_name'], 'custom')}"
+                class="input-error">{{ userDetailsForm.controls['last_name'].errors?.custom }}</span>
+        </div>
+    </div>
+    <div fxLayout="row"
+        fxLayout.lt-sm="column"
+        fxLayoutGap="35px"
+        fxLayoutGap.lt-sm="0px"
+        fxFlexAlign="stretch">
+        <div class="form-control">
+            <span class="input-title">{{ 'ENTER_EMAIL_ADDRESS' | translate }}</span>
+            <input [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(userDetailsForm.controls['email'])}"
+                type="email"
+                formControlName="email"
+                placeholder="{{ 'ENTER_EMAIL_ADDRESS' | translate }}">
+            <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(userDetailsForm.controls['email'])}"
+                class="input-error placeholder"></span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['email'], 'required')}"
+                class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['email'], 'email')}"
+                class="input-error">{{ 'ERR_1624' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['email'], 'custom')}"
+                class="input-error">{{ userDetailsForm.controls['email'].errors?.custom }}</span>
+        </div>
+        <div class="form-control">
+            <span class="input-title">{{ 'PHONE' | translate }}</span>
+            <input ri-intl-tel-input
+                type="tel"
+                [value]="client.phone"
+                [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(userDetailsForm.controls['phone'])}"
+                formControlName="phone">
+            <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(userDetailsForm.controls['phone'])}"
+                class="input-error placeholder"></span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['phone'], 'required')}"
+                class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['phone'], 'pattern')}"
+                class="input-error">{{ 'INVALID_PHONE' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['phone'], 'minlength')}"
+                class="input-error">{{ 'MIN_9_CHARACTERS' | translate }}</span>
+            <span [ngClass]="{'show': formValidationService.displayError(userDetailsForm.controls['phone'], 'custom')}"
+                class="input-error">{{ userDetailsForm.controls['phone'].errors?.custom }}</span>
+        </div>
+    </div>
+    <button class="wide main-color"
+        type="submit">{{ 'SAVE' | translate }}</button>
+</form>

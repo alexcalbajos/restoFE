@@ -1,0 +1,22 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<h3 class="bold area-title">{{ 'ADD_NEW_CARD' | translate }}</h3>
+<div *ngIf="!dataLoaded"
+    class="spinner-container"
+    fxLayout="column"
+    fxLayoutAlign="center center">
+    <mat-spinner diameter="30"></mat-spinner>
+</div>
+<ri-dropin-form #dropinForm
+    [ngClass]="{ 'hide': !dataLoaded }"
+    (dataLoaded)="dataLoaded = $event"
+    (cardSaved)="dialogRef.close($event)"></ri-dropin-form>
+<div fxLayout="row"
+    fxLayoutAlign="space-between center"
+    class="buttons-row">
+    <button type="button"
+        (click)="dialogRef.close()">{{ 'CANCEL' | translate }}</button>
+    <button class="main-color"
+        (click)="submitDropinForm()">{{ 'SAVE' | translate }}</button>
+</div>

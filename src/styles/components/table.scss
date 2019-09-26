@@ -1,0 +1,57 @@
+table.mat-table {
+    width: 100%;
+
+    tr {
+        height: unset;
+
+        &.selectable {
+            cursor: pointer;
+            transition: $transition;
+
+            &.selected {
+                background-color: $lightGray;
+            }
+        }
+
+        th, td {
+            @include spanFont;
+
+            border: none;
+            padding: $spanVerticalPadding !important;
+        }
+
+        th {
+            $thBorder: 3px;
+            font-weight: bold;
+
+            background-color: $lightGray;
+            color: $strongGrey;
+            border: $thBorder solid $primaryColor;
+            border-radius: $borderRadius + $thBorder;
+
+            &:last-child {
+                border-right: none;
+            }
+
+            &.fixed-width {
+                width: 1px;
+            }
+
+            .mat-sort-header-button {
+                text-transform: unset;
+
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        td {
+            color: $strongGrey;
+
+            &.mat-column-actions {
+                padding: $spanVerticalPadding ($spanVerticalPadding / 2) !important;
+            }
+        }
+    }
+}

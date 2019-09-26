@@ -1,0 +1,320 @@
+<div class="container">
+    <div fxLayout="row"
+        fxLayout.lt-md="column"
+        fxLayoutAlign.lt-md="center center"
+        fxLayoutGap="35px">
+        <div fxFlex="50%"
+            fxFlex.lt-md="100%"
+            fxLayoutGap.lt-md="25px"
+            fxLayout="column"
+            fxLayoutAlign="space-around start"
+            fxLayoutAlign.lt-md="center center">
+            <div fxLayout="column">
+                <div fxLayout="row wrap"
+                    fxLayout.lt-md="column"
+                    fxLayoutGap.gt-sm="10px">
+                    <h1>{{ 'RESTOIN' | translate }}</h1>
+                    <h1 class="bold">{{ 'FOR_BUSINESS_GENERIC' | translate }}</h1>
+                </div>
+                <div fxLayout="column"
+                    ngClass.lt-md="centered">
+                    <div fxLayout="row"
+                        fxLayoutGap="3px"
+                        ngClass.lt-md="inline-container">
+                        <span>{{ 'BEST_RESTAURANTS' | translate }}</span>
+                        <span>{{ 'LESS_30_MIN' | translate }}</span>
+                    </div>
+                    <span>{{ 'DISCOVER_CORP' | translate }}</span>
+                </div>
+            </div>
+            <div fxLayout="row"
+                fxLayout.lt-lg="column"
+                fxFlexAlign="stretch"
+                fxLayoutGap="35px"
+                fxLayoutGap.lt-lg="10px"
+                fxLayoutAlign="center center"
+                fxLayoutAlign.md="center start"
+                ngClass.lt-md="centered">
+                <div fxLayout="column"
+                    fxFlex="50%"
+                    fxFlex="100%"
+                    fxLayoutGap="5px">
+                    <button class="main-color"
+                        (click)="openForm()">{{ 'CREATE_MY_CORP' | translate }}</button>
+                    <span>{{ 'FREE_FIRST' | translate }}</span>
+                </div>
+                <span fxFlex="50%"
+                    fxFlex="100%"
+                    class="secondary-button"
+                    (click)="openBookMe()">{{ 'CALL_BACK' | translate }}</span>
+            </div>
+        </div>
+        <div id="PromoImage"
+            class="responsive-image size-2"
+            fxFlex="50%"
+            fxFlex.lt-md="100%">
+        </div>
+    </div>
+    <!--
+
+    -->
+    <div id="Thumbnails"
+        fxLayout="row"
+        fxLayout.lt-sm="column"
+        fxLayoutAlign="center center">
+        <div class="thumbnail"
+            fxLayout="column"
+            fxLayoutAlign="start center"
+            (click)="scrollToSection('MacContainer')">
+            <h3 class="bold">{{ 'OFFICE_DELIVERY' | translate }}</h3>
+            <div class="large-circle office-delivery"></div>
+            <span class="fade"
+                fxFlex="1 1 auto">{{ 'OFFICE_DELIVERY_TEXT' | translate }}</span>
+        </div>
+        <div class="thumbnail"
+            fxLayout="column"
+            fxLayoutAlign="start center"
+            (click)="scrollToSection('BillsContainer')">
+            <h3 class="bold">{{ 'SIMLIFY_AND_CONTROL' | translate }}</h3>
+            <div class="large-circle simplify"></div>
+            <span class="fade"
+                fxFlex="1 1 auto">{{ 'SIMLIFY_AND_CONTROL_TEXT' | translate }}</span>
+        </div>
+        <div class="thumbnail"
+            fxLayout="column"
+            fxLayoutAlign="start center"
+            (click)="scrollToSection('EventsContainer')">
+            <h3 class="bold">{{ 'ORGANIZE_EVENTS' | translate }}</h3>
+            <div class="large-circle events"></div>
+            <span class="fade"
+                fxFlex="1 1 auto">{{ 'ORGANIZE_EVENTS_TEXT' | translate }}</span>
+        </div>
+    </div>
+    <!--
+
+    -->
+    <div id="Trust"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="55px">
+        <h2 class="centered">{{ 'THEY_TRUST' | translate }}</h2>
+        <div fxLayout="row wrap"
+            fxFlexAlign="stretch"
+            fxLayoutGap="35px">
+            <div class="trust-thumbnail"
+                fxLayout="column"
+                fxLayoutGap="20px"
+                fxFlex="calc(25% - 35px)"
+                fxFlex.sm="calc(50% - 35px)"
+                fxFlex.lt-sm="100%">
+                <div class="logo"
+                    id="Lazard"></div>
+                <button disabled
+                    class="keep-style">{{ 'NOCTURNE' | translate }}</button>
+                <span>{{ 'NOCTURNE_TEXT' | translate }}</span>
+            </div>
+            <div class="trust-thumbnail"
+                fxLayout="column"
+                fxLayoutGap="20px"
+                fxFlex="calc(25% - 35px)"
+                fxFlex.sm="calc(50% - 35px)"
+                fxFlex.lt-sm="100%">
+                <div class="logo"
+                    id="Dior"></div>
+                <button disabled
+                    class="keep-style">{{ 'APPOINTMENT' | translate }}</button>
+                <span>{{ 'APPOINTMENT_TEXT' | translate }}</span>
+            </div>
+            <div class="trust-thumbnail"
+                fxLayout="column"
+                fxLayoutGap="20px"
+                fxFlex="calc(25% - 35px)"
+                fxFlex.sm="calc(50% - 35px)"
+                fxFlex.lt-sm="100%">
+                <div class="logo"
+                    id="Fbd"></div>
+                <button disabled
+                    class="keep-style">{{ 'EVENTS' | translate }}</button>
+                <span>{{ 'EVENTS_TEXT' | translate }}</span>
+            </div>
+            <div class="trust-thumbnail"
+                fxLayout="column"
+                fxLayoutGap="20px"
+                fxFlex="calc(25% - 35px)"
+                fxFlex.sm="calc(50% - 35px)"
+                fxFlex.lt-sm="100%">
+                <div class="logo"
+                    id="Tbwa"></div>
+                <button disabled
+                    class="keep-style">{{ 'TEAM_LUNCH' | translate }}</button>
+                <span>{{ 'TEAM_LUNCH_TEXT' | translate }}</span>
+            </div>
+        </div>
+    </div>
+    <!--
+
+    -->
+    <div id="MacContainer"
+        fxLayout="row"
+        fxLayout.lt-md="column"
+        fxLayoutAlign.lt-md="center center"
+        fxLayoutGap="35px">
+        <div fxFlex="40%"
+            fxFlex.lt-md="100%"
+            fxLayoutGap="15px"
+            fxLayoutGap.lt-md="25px"
+            fxLayout="column"
+            fxLayoutAlign="center start"
+            fxLayoutAlign.lt-md="center center">
+            <div fxLayout="column">
+                <div class="inline-container">
+                    <h1>{{ 'CORP_FEATURES' | translate }}</h1>
+                    <h1 class="bold">{{ 'FOR_BUSINESS' | translate }}</h1>
+                </div>
+                <span ngClass.lt-md="centered">{{ 'CORP_FEATURES_TEXT' | translate }}</span>
+            </div>
+        </div>
+        <div id="MacImage"
+            class="responsive-image size-1"
+            fxFlex="60%"
+            fxFlex.lt-md="100%">
+        </div>
+    </div>
+    <!--
+
+    -->
+    <div id="BillsContainer"
+        class="box"
+        fxLayout="row"
+        fxLayout.lt-md="column-reverse"
+        fxLayoutAlign.lt-md="center center"
+        fxLayoutGap="35px">
+        <div id="Bills"
+            class="responsive-image size-3"
+            fxFlex="60%"
+            fxFlex.lt-md="100%">
+        </div>
+        <div fxFlex="40%"
+            fxFlex.lt-md="100%"
+            fxLayoutGap="15px"
+            fxLayoutGap.lt-md="25px"
+            fxLayout="column"
+            fxLayoutAlign="center start"
+            fxLayoutAlign.lt-md="center center">
+            <div fxLayout="column">
+                <h2 ngClass.lt-md="centered">{{ 'NO_MORE_EXPENSE' | translate }}</h2>
+                <span ngClass.lt-md="centered">{{ 'NO_MORE_EXPENSE_TEXT' | translate }}</span>
+            </div>
+        </div>
+    </div>
+    <!--
+
+    -->
+    <div id="EventsContainer"
+        class="box"
+        fxLayout="row"
+        fxLayout.lt-md="column"
+        fxLayoutAlign.lt-md="center center"
+        fxLayoutGap="35px">
+        <div fxFlex="45%"
+            fxFlex.lt-md="100%"
+            fxLayoutGap="15px"
+            fxLayoutGap.lt-md="25px"
+            fxLayout="column"
+            fxLayoutAlign="center start"
+            fxLayoutAlign.lt-md="center center"
+            class="align-right">
+            <div fxLayout="column">
+                <h2 ngClass.lt-md="centered">{{ 'TAILORED_EVENTS' | translate }}</h2>
+                <span ngClass.lt-md="centered">{{ 'TAILORED_EVENTS_TEXT' | translate }}</span>
+            </div>
+        </div>
+        <div id="PromoImageEvents"
+            class="responsive-image size-2"
+            fxFlex="55%"
+            fxFlex.lt-md="100%">
+        </div>
+    </div>
+    <!--
+
+    -->
+    <div class="box"
+        fxLayout="row"
+        fxLayout.lt-md="column-reverse"
+        fxLayoutAlign.lt-md="center center"
+        fxLayoutGap="35px">
+        <div id="Users"
+            class="responsive-image size-2"
+            fxFlex="60%"
+            fxFlex.lt-md="100%">
+        </div>
+        <div fxFlex="40%"
+            fxFlex.lt-md="100%"
+            fxLayoutGap="15px"
+            fxLayoutGap.lt-md="25px"
+            fxLayout="column"
+            fxLayoutAlign="center start"
+            fxLayoutAlign.lt-md="center center">
+            <div fxLayout="column">
+                <h2 ngClass.lt-md="centered">{{ 'CONTROL_EXPENSES' | translate }}</h2>
+                <span ngClass.lt-md="centered">{{ 'CONTROL_EXPENSES_TEXT' | translate }}</span>
+            </div>
+        </div>
+    </div>
+    <!--
+
+    -->
+    <div class="box"
+        fxLayout="row"
+        fxLayout.lt-md="column"
+        fxLayoutAlign.lt-md="center center"
+        fxLayoutGap="35px">
+        <div fxFlex="40%"
+            fxFlex.lt-md="100%"
+            fxLayoutGap="15px"
+            fxLayoutGap.lt-md="25px"
+            fxLayout="column"
+            fxLayoutAlign="center start"
+            fxLayoutAlign.lt-md="center center"
+            class="align-right">
+            <div fxLayout="column">
+                <h2 ngClass.lt-md="centered">{{ 'MANAGE_ADDRESS_AND_DELIVERY' | translate }}</h2>
+                <span ngClass.lt-md="centered">{{ 'MANAGE_ADDRESS_AND_DELIVERY_TEXT' | translate }}</span>
+            </div>
+        </div>
+        <div id="Addressess"
+            class="responsive-image size-4"
+            fxFlex="60%"
+            fxFlex.lt-md="100%">
+        </div>
+    </div>
+</div>
+<div id="EnterpriseFooter">
+    <div class="container"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="20px">
+        <div class="large-circle mail"></div>
+        <span class="centered">{{ 'IT_IS_TIME' | translate }}</span>
+        <div fxLayout="row"
+            fxLayout.lt-lg="column"
+            fxFlexAlign="stretch"
+            fxLayoutGap="35px"
+            fxLayoutGap.lt-lg="10px"
+            fxLayoutAlign="center center"
+            ngClass.lt-md="centered">
+            <div fxLayout="column"
+                fxFlex="50%"
+                fxFlex="100%"
+                fxLayoutGap="5px">
+                <button class="main-color"
+                    (click)="openForm()">{{ 'CREATE_MY_CORP' | translate }}</button>
+                <span>{{ 'FREE_FIRST' | translate }}</span>
+            </div>
+            <span fxFlex="50%"
+                fxFlex="100%"
+                class="secondary-button"
+                (click)="openBookMe()">{{ 'CALL_BACK' | translate }}</span>
+        </div>
+    </div>
+</div>

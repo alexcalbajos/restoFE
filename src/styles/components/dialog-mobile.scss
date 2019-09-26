@@ -1,0 +1,54 @@
+.cdk-overlay-container {
+    .cdk-global-overlay-wrapper {
+        .cdk-overlay-pane {
+            &.mobile {
+                max-height: 100%;
+                height: 100%;
+
+                .mat-dialog-container {
+                    width: 500px;
+                    padding: 0px;
+
+                    $mobilePadding: 20px;
+                    $footerHeight: 50px;
+
+                    .mobile-component {
+                        height: 100%;
+                        box-sizing: border-box;
+                        position: relative;
+                        display: block;
+
+                        .close-mobile-dialog {
+                            justify-content: flex-end;
+                            width: 100%;
+
+                            svg {
+                                padding-right: 10px;
+                                padding-top: 10px;
+                            }
+                        }
+
+                        .mobile-content {
+                            @include scrollY;
+
+                            padding: 10px 20px 0;
+                            max-height: calc(100% - #{$footerHeight} * 2);
+                        }
+
+                        .mobile-bottom-row {
+                            position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            border-top: 2px solid $lightGray;
+
+                            .content {
+                                padding: 0 $mobilePadding;
+                                height: $footerHeight;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

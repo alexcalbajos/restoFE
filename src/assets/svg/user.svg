@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="bounds" x="0" y="0" width="24" height="24"></rect>
+        <g id="Group" transform="translate(7.000000, 5.000000)" fill="#2D1A4B" fill-rule="nonzero">
+            <path d="M4,7 L6,7 C8.209139,7 10,8.790861 10,11 L10,15 L0,15 L0,11 C-2.705415e-16,8.790861 1.790861,7 4,7 Z" id="Rectangle"></path>
+            <circle id="Oval" cx="5" cy="3" r="3"></circle>
+        </g>
+    </g>
+</svg>

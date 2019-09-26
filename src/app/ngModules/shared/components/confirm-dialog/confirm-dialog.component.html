@@ -1,0 +1,34 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<div fxLayout="column"
+    fxLayoutAlign="center center">
+    <h3 *ngIf="data.title"
+        class="bold area-title">{{ data.title | translate }}</h3>
+    <div fxLayout="column"
+        fxLayoutAlign="start start"
+        fxLayoutGap="10px">
+        <div *ngFor="let description of data.descriptionLines; let index = index">
+            <span *ngIf="data.descriptionLinesTranslationParam"
+                translate
+                [translateParams]="data.descriptionLinesTranslationParam[index]">{{ description }}</span>
+            <span *ngIf="!data.descriptionLinesTranslationParam">{{ description | translate }}</span>
+        </div>
+    </div>
+    <div class="buttons-row"
+        fxLayout="row"
+        [ngClass]="{'spaced': data.showSecondAction}">
+        <button class="second-action"
+            *ngIf="data.secondActionLabel && data.showSecondAction"
+            (click)="close(false)">{{ data.secondActionLabel | translate }}</button>
+        <button class="second-action"
+            *ngIf="!data.secondActionLabel && data.showSecondAction"
+            (click)="close(false)">{{ 'CANCEL' | translate }}</button>
+        <button class="main-color"
+            *ngIf="data.firstActionLabel"
+            (click)="close(true)">{{ data.firstActionLabel | translate }}</button>
+        <button class="main-color"
+            *ngIf="!data.firstActionLabel"
+            (click)="close(true)">{{ 'CONFIRM' | translate }}</button>
+    </div>
+</div>

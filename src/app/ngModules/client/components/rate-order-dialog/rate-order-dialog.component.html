@@ -1,0 +1,19 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<h3 class="bold area-title centered">{{ 'RATE_YOUR_ORDER' | translate }}</h3>
+<div class="tracking-info-container"
+    fxLayout="column"
+    fxLayoutAlign="center center">
+    <div class="tracking-info-picture"
+        [style.background-image]="order.selling_point.provider.sanitizedLogo"></div>
+    <span class="tracking-info-name">{{ order?.selling_point?.provider.name }}</span>
+    <div class="rating-container">
+        <ri-rating-starts (rateChanged)="onRatingChanges($event)"></ri-rating-starts>
+    </div>
+    <input type="text"
+        placeholder="{{ 'ORDER_COMMENTS' | translate }}"
+        [(ngModel)]="comments">
+</div>
+<button class="wide form-button"
+    (click)="submitRating()">{{ 'ACCEPT' | translate }}</button>

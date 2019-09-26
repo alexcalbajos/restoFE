@@ -1,0 +1,11 @@
+<div fxLayout="row"
+    fxLayoutAlign="center center"
+    fxLayoutGap="10px">
+    <div class="svg-container icon"
+        [inlineSVG]="'/assets/svg/clock.svg'"></div>
+    <span *ngIf="provider.status !== 1"
+        class="highlight"
+        [translate]="provider.etaToDisplay"
+        [translateParams]="provider.etaToDisplayParams"></span>
+    <span *ngIf="provider.status === 1">{{ 'OPENS_AT' | translate }} {{ provider.opensAt | date:'HH:mm' }}</span>
+</div>

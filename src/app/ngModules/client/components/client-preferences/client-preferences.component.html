@@ -1,0 +1,18 @@
+<div fxLayout="row"
+    fxLayout.lt-sm="column"
+    fxLayoutGap="15px"
+    fxLayoutGap.lt-sm="25px"
+    fxLayoutAlign="start center">
+    <div class="large-circle mail"></div>
+    <div fxFlex="1 1 auto"
+        fxLayout="column"
+        fxLayoutAlign.lt-sm="center center">
+        <h4>{{ 'MY_PREFERENCES' | translate }}</h4>
+        <mat-checkbox [disableRipple]="true"
+            [(ngModel)]="newsletter"
+            (change)="save()">{{ 'RECEIVE_NEWSLETTER' | translate }}</mat-checkbox>
+        <mat-checkbox [disableRipple]="true"
+            [(ngModel)]="sms"
+            (change)="save()">{{ 'RECEIVE_RI_SMS' | translate }}</mat-checkbox>
+    </div>
+</div>

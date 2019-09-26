@@ -1,0 +1,76 @@
+<div class="container"
+    [ngClass]="headerClass"
+    fxLayout="row"
+    fxLayoutAlign="space-between center">
+    <div class="svg-container"
+        id="Logo"
+        [inlineSVG]="'/assets/svg/logo.svg'"
+        (click)="goHome()"></div>
+    <div *ngIf="headerClass?.includes('show-address')"
+        id="Address"
+        fxLayout="row"
+        fxLayoutGap="5px"
+        fxHide.lt-md
+        ngClass.gt-md="centered">
+        <span class="fade">{{ 'DELIVER_AT' | translate }}</span>
+        <span class="bold"
+            (click)="changeAddress()">{{ sessionAddress?.address }}</span>
+    </div>
+    <div fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="25px">
+        <div *ngIf="!isIncomplete"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+            fxLayoutGap="3px"
+            fxHide.lt-sm>
+            <span *ngFor="let language of languages"
+                class="fade language-button after-pipe-group"
+                [ngClass]="{'highlight bold': translateService.currentLang === language.language}"
+                (click)="changeLanguage(language.language)">{{ language.text }}</span>
+        </div>
+        <div *ngIf="!isIncomplete && cart?.total > 0"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+            fxLayoutGap="3px"
+            (click)="goToProvider()"
+            id="Cart"
+            fxHide.lt-sm>
+            <div id="CartIcon"
+                class="svg-container icon large"
+                [inlineSVG]="'/assets/svg/cart.svg'"></div>
+            <span class="accent">{{ cart.total | number : '1.2-2' }}&euro;</span>
+        </div>
+        <div *ngIf="client?.id"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+            fxLayoutGap="3px">
+            <div class="svg-container icon large"
+                [inlineSVG]="'/assets/svg/user.svg'"></div>
+            <span id="ClientName"
+                [matMenuTriggerFor]="clientMenu">{{ client.first_name }} {{ client.last_name }}</span>
+        </div>
+        <button *ngIf="!client?.id"
+            routerLink="./auth">{{ 'LOG_IN' | translate }}</button>
+    </div>
+</div>
+<mat-menu #clientMenu="matMenu"
+    class="accent"
+    [overlapTrigger]="false"
+    xPosition="before">
+    <span class="nav"
+        [routerLinkActiveOptions]="{exact:true}"
+        routerLinkActive="selected"
+        routerLink="../client">{{ 'ACCTMENU_MY_ACCOUNT' | translate }}</span>
+    <span class="nav"
+        [routerLinkActiveOptions]="{exact:true}"
+        routerLinkActive="selected"
+        routerLink="../client/orders">{{ 'ACCTMENU_ORDERS' | translate }}</span>
+    <span *ngIf="client?.admin"
+        class="nav uppercase-first"
+        [routerLinkActiveOptions]="{exact:true}"
+        routerLinkActive="selected"
+        routerLink="../corporate">{{ 'ENTERPRISE' | translate }}</span>
+    <span class="nav"
+        (click)="logout()">{{ 'LOG_OUT' | translate }}</span>
+</mat-menu>

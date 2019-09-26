@@ -1,0 +1,23 @@
+<div class="container"
+    fxLayout="column"
+    fxLayoutGap="35px">
+    <h3 class="bold centered static-page-title">{{ title | translate }}</h3>
+    <div class="shadow padding">
+        <span class="fade"
+            [innerHTML]="desc | nl2br"></span>
+    </div>
+    <div class="shadow">
+        <mat-accordion class="large">
+            <mat-expansion-panel *ngFor="let areaId of areaIds">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <h4 [innerHTML]="areaTitles[areaId] | nl2br"></h4>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <span class="fade"
+                    [innerHTML]="areaDescriptions[areaId] | nl2br"></span>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>
+<div class="background-food with-margin"></div>

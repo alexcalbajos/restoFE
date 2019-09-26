@@ -1,0 +1,17 @@
+<div class="container"
+    fxLayout="column"
+    fxLayoutGap="35px">
+    <h3 class="bold centered static-page-title">{{ title | translate }}</h3>
+    <div class="shadow padding"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="25px">
+        <span class="fade">{{ desc | translate }}</span>
+        <div fxLayout="row wrap"
+            fxLayoutAlign="center center">
+            <button *ngFor="let city of citiesService.allCities"
+                (click)="newCitySelected(city)">{{ city.name }}</button>
+        </div>
+    </div>
+</div>
+<div class="background-food with-margin"></div>

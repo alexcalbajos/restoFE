@@ -1,0 +1,15 @@
+<div class="svg-container"
+    [inlineSVG]="creditCard.iconUrl"></div>
+<div fxLayout="column"
+    fxFlex="stretch"
+    fxLayoutAlign="center start">
+    <div fxLayout="row"
+        fxLayoutAlign="space-between center"
+        fxFlexAlign="stretch">
+        <span>{{ creditCard.name }}</span>
+        <span *ngIf="allowDelete"
+            (click)="delete()"
+            class="area-box-button">{{ 'DELETE' | translate }}</span>
+    </div>
+    <span class="fade">{{ 'ENDS_IN' | translate }} {{ creditCard.four_digits }}</span>
+</div>

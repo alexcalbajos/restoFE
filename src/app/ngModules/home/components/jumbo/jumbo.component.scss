@@ -1,0 +1,82 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/responsive.scss";
+
+:host {
+    ri-header {
+        opacity: 0;
+
+        &.temp {
+            opacity: 0 !important;
+        }
+
+        &.fixed {
+            @media only screen and (max-width: $sm-maxWidth) {
+                z-index: 4;
+            }
+        }
+    }
+
+    .container {
+        max-width: 540px !important;
+        height: inherit;
+        min-height: inherit;
+
+        .inline-container {
+            width: 90%;
+
+            h1:first-of-type {
+                margin-right: 10px;
+            }
+        }
+
+        #FixedContainer, #AddressContainer {
+            width: 100%;
+            height: $headerHeight;
+            z-index: 3;
+        }
+
+        #AddressContainer {
+            &.fixed {
+                top: 0;
+                position: fixed;
+                transform: translateZ(0);
+                width: 540px;
+            }
+
+            .input-switch, ng-select {
+                min-width: 0px;
+            }
+
+            .input-switch {
+                position: relative;
+
+                .input-box {
+                    z-index: 2;
+                    position: relative;
+                }
+                
+                .input-error {
+                    z-index: 0;
+                }
+
+                ng-select {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    z-index: 1;
+                }
+
+                .svg-container {
+                    transition: $transition;
+                    cursor: pointer;
+
+                    &.reverse {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+}

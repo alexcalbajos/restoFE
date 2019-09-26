@@ -1,0 +1,27 @@
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/miscellaneous.scss";
+
+:host {
+    display: block;
+    height: 31vh;
+    max-height: 290px;
+    min-height: 175px;
+    position: relative;
+
+    .container {
+        height: 100%;
+        background-size: cover !important;
+        background-blend-mode: multiply !important;
+
+        h1 {
+            color: $primaryColor;
+            padding-bottom: 50px;
+            padding-left: 20px;
+            z-index: 1;
+
+            &.centered {
+                padding-left: 0px;
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<div fxLayout="row"
+    fxLayout.lt-md="column"
+    fxLayoutAlign="start center"
+    fxLayoutAlign.lt-md="start start"
+    fxLayoutGap="100px"
+    fxLayoutGap.lt-md="20px">
+    <h3 class="area-title bold uppercase-first">{{ 'CUTLERY' | translate }}</h3>
+    <div fxLayout="column"
+        fxLayoutGap="20px">
+        <span class="fade">{{ 'CUTLERY_DESC' | translate }}</span>
+        <mat-checkbox [(ngModel)]="checked"
+            [disableRipple]="true"
+            (change)="change()">{{ 'CUTLERY_ACCEPT' | translate }}</mat-checkbox>
+    </div>
+</div>

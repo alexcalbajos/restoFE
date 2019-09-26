@@ -1,0 +1,25 @@
+<div class="container">
+    <div *ngIf="dataLoaded">
+        <h3 class="bold centered">{{ 'SITEMAP' | translate }}</h3>
+        <div *ngFor="let pair of sitemapPairs"
+            class="city">
+            <h2>{{ 'PROVIDERS_IN' | translate }} {{ pair.city.name }}</h2>
+            <div fxLayout="row wrap"
+                fxLayoutAlign="start start"
+                fxLayoutGap="grid">
+                <a *ngFor="let provider of pair?.providers"
+                    [routerLink]="provider.provider_url"
+                    fxFlex="25"
+                    fxFlex.lt-md="50">
+                    <span class="highlight-accent">{{ provider.name }}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!dataLoaded"
+        class="spinner-container"
+        fxLayout="column"
+        fxLayoutAlign="center center">
+        <mat-spinner diameter="30"></mat-spinner>
+    </div>
+</div>

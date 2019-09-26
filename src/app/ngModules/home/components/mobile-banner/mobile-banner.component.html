@@ -1,0 +1,22 @@
+<div *ngIf="!closed && (isAndroid || isIos)"
+    class="banner-container">
+    <div fxLayout="row"
+        fxLayoutAlign="space-between center">
+        <div class="svg-container icon"
+            [inlineSVG]="'/assets/svg/close.svg'"
+            (click)="close()"></div>
+        <div id="LogoContainer"
+            class="svg-container"
+            [inlineSVG]="'/assets/svg/mobile-logo.svg'"
+            (click)="close()"></div>
+        <span *ngIf="isAndroid"
+            [translate]="'RESTOIN_FOR'"
+            [translateParams]="{agent: 'Android'}"></span>
+        <span *ngIf="isIos"
+            [translate]="'RESTOIN_FOR'"
+            [translateParams]="{agent: 'iOS'}"></span>
+        <button (click)="install()"
+            class="main-color">{{ 'INSTALL' | translate }}</button>
+    </div>
+    <div class="background-food"></div>
+</div>

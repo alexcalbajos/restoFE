@@ -1,0 +1,115 @@
+<div class="container"
+    fxLayout="row"
+    fxLayoutGap="10px"
+    fxLayoutAlign.lt-sm="center center">
+    <h2>{{ 'OUR' | translate }}</h2>
+    <h2 class="bold">{{ 'SUGGESTIONS' | translate }}</h2>
+</div>
+<div class="container"
+    fxLayout="row"
+    fxLayout.lt-sm="column"
+    fxLayoutGap="35px"
+    fxLayoutGap.lt-sm="0px">
+    <div fxFlex="0 1 100%"
+        fxLayout="column">
+        <div fxFlex="66%"
+            fxLayout="row"
+            fxLayout.lt-md="column"
+            fxLayoutGap="35px"
+            fxLayoutGap.lt-md="0px">
+            <div fxFlex="50%"
+                fxFlex.lt-md="33%"
+                fxLayout="column">
+                <div id="Healthy"
+                    class="picture"
+                    fxLayout="column"
+                    fxLayoutAlign="center center"
+                    fxFlex="100%"
+                    [ngClass]="{'fade': fade('healthy')}"
+                    (click)="goToCategory({ apiKey: 'healthy', translationKey: 'HEALTY'})">
+                    <mat-spinner *ngIf="fade('healthy')"
+                        diameter="30"></mat-spinner>
+                </div>
+                <h3 class="bold">{{ 'HEALTY' | translate }}</h3>
+            </div>
+            <div fxFlex="50%"
+                fxFlex.lt-md="66%"
+                fxLayout="column">
+                <div fxFlex="50%"
+                    fxLayout="column">
+                    <div id="Pause"
+                        class="picture"
+                        fxLayout="column"
+                        fxLayoutAlign="center center"
+                        fxFlex="100%"
+                        [ngClass]="{'fade': fade('au bureau')}"
+                        (click)="goToCategory({ apiKey: 'au bureau', translationKey: 'AU_BUREAU'})">
+                        <mat-spinner *ngIf="fade('au bureau')"
+                            diameter="30"></mat-spinner>
+                    </div>
+                    <h3 class="bold">{{ 'AU_BUREAU' | translate }}</h3>
+                </div>
+                <div fxFlex="50%"
+                    fxLayout="column">
+                    <div id="Hungry"
+                        class="picture"
+                        fxLayout="column"
+                        fxLayoutAlign="center center"
+                        fxFlex="100%"
+                        [ngClass]="{'fade': fade('faim de loup')}"
+                        (click)="goToCategory({ apiKey: 'faim de loup', translationKey: 'HUNGRY_AS_WOLF'})">
+                        <mat-spinner *ngIf="fade('faim de loup')"
+                            diameter="30"></mat-spinner>
+                    </div>
+                    <h3 class="bold">{{ 'HUNGRY_AS_WOLF' | translate }}</h3>
+                </div>
+            </div>
+        </div>
+        <div fxFlex="33%"
+            fxLayout="column">
+            <div id="Inevitable"
+                class="picture"
+                fxLayout="column"
+                fxLayoutAlign="center center"
+                fxFlex="100%"
+                [ngClass]="{'fade': fade('nos immanquables')}"
+                (click)="goToCategory({ apiKey: 'nos immanquables', translationKey: 'MUST_HAVES'})">
+                <mat-spinner *ngIf="fade('nos immanquables')"
+                    diameter="30"></mat-spinner>
+            </div>
+            <h3 class="bold">{{ 'MUST_HAVES' | translate }}</h3>
+        </div>
+    </div>
+    <div fxFlex="0 2 100%"
+        fxFlex.lt-md="0 1 100%"
+        fxLayout="column">
+        <div fxFlex="66%"
+            fxLayout="column">
+            <div id="Sweets"
+                class="picture"
+                fxLayout="column"
+                fxLayoutAlign="center center"
+                fxFlex="100%"
+                [ngClass]="{'fade': fade('douceurs')}"
+                (click)="goToCategory({ apiKey: 'douceurs', translationKey: 'GOURMANDISES'})">
+                <mat-spinner *ngIf="fade('douceurs')"
+                    diameter="30"></mat-spinner>
+            </div>
+            <h3 class="bold">{{ 'GOURMANDISES' | translate }}</h3>
+        </div>
+        <div fxFlex="33%"
+            fxLayout="column">
+            <div id="Petites"
+                class="picture"
+                fxLayout="column"
+                fxLayoutAlign="center center"
+                fxFlex="100%"
+                [ngClass]="{'fade': fade('evenementiel')}"
+                (click)="goToCategory({ apiKey: 'evenementiel', translationKey: 'CATERS'})">
+                <mat-spinner *ngIf="fade('evenementiel')"
+                    diameter="30"></mat-spinner>
+            </div>
+            <h3 class="bold">{{ 'CATERS' | translate }}</h3>
+        </div>
+    </div>
+</div>

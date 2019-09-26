@@ -1,0 +1,42 @@
+<div fxLayout="row"
+    fxLayoutAlign="space-between start">
+    <h3 class="area-title bold uppercase-first">{{ 'PAYMENT' | translate }}</h3>
+    <span *ngIf="dataLoaded && selectedPayment"
+        class="area-box-button"
+        (click)="displayChangeSelectedPaymentDialogComponent()">{{ 'EDIT' | translate }}</span>
+</div>
+<div *ngIf="corporateExtraPay"
+    id="BonificationInfo"
+    fxLayout="column">
+    <span *ngIf="bonificationAmount > 0">{{ bonificationAmount | number : '1.2-2' }}&euro; {{ 'PAID_OPTION_SUBTITLE_CORPO' | translate }}</span>
+    <span *ngIf="bonificationAmount > 0">{{ corporateExtraPay | number : '1.2-2' }}&euro; {{ 'PAID_OPTION_SUBTITLE_CC' | translate }}</span>
+    <span *ngIf="bonificationAmount === 0">{{ 'PAID_OPTION_LIMIT' | translate }}</span>
+</div>
+<div *ngIf="!dataLoaded"
+    class="spinner-container"
+    fxLayout="column"
+    fxLayoutAlign="center center">
+    <mat-spinner diameter="30"></mat-spinner>
+</div>
+<div *ngIf="dataLoaded">
+    <div *ngIf="selectedPayment"
+        [ngSwitch]="selectedPayment.paymentMethod.id">
+        <ri-credit-card-box *ngSwitchCase="creditCardMethodId"
+            [creditCard]="selectedPayment">
+        </ri-credit-card-box>
+        <div *ngSwitchCase="paypalMethodId"
+            class="area-box">
+            <div class="svg-container"
+                [inlineSVG]="selectedPayment.iconUrl"></div>
+            <div fxLayout="column"
+                fxLayoutAlign="center start">
+                <span>{{ selectedPayment.paymentMethod.description }}</span>
+            </div>
+        </div>
+    </div>
+    <ri-payment-methods #paymentMethods
+        *ngIf="!selectedPayment"
+        (paymentSelected)="setSelectedPayment($event)"
+        [paymentMethods]="allPaymentMethods"
+        [allowAdd]="true"></ri-payment-methods>
+</div>

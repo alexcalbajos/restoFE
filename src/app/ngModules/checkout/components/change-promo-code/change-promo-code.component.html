@@ -1,0 +1,17 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<h3 class="bold area-title centered">{{ 'ADD_PROMO_CODE' | translate }}</h3>
+<div class="form-control">
+    <input [(ngModel)]="promo"
+        placeholder="{{ 'ENTER_PROMO_CODE' | translate }}"
+        (input)="validationError = undefined"
+        [ngClass]="{'invalid' : validationError}">
+    <span [ngClass]="{'hide': validationError}"
+        class="input-error placeholder"></span>
+    <span [ngClass]="{'show': validationError}"
+        class="input-error">{{ validationError }}</span>
+</div>
+<button class="wide main-color form-button"
+    [disabled]="!dataLoaded"
+    (click)="validatePromoCode()">{{ 'VALIDER' | translate }}</button>

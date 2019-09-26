@@ -1,0 +1,103 @@
+.svg-container {
+    display: flex;
+
+    &.icon {
+        height: $iconSize;
+        width: $iconSize;
+
+        * {
+            transition: $transition;
+        }
+
+        &.large {
+            height: $largeIconSize;
+            width: $largeIconSize;
+        }
+
+        &.disabled {
+            cursor: default !important;
+            pointer-events: none;
+        }
+    }
+
+    svg {
+        height: 100%;
+        width: initial;
+    }
+}
+
+.large-circle {
+    height: 85px;
+    width: 85px;
+    min-height: 85px;
+    min-width: 85px;
+    border-radius: 50%;
+    background-color: $themeSecondaryColor;
+    background-size: contain !important;
+
+    &.small {
+        height: 65px;
+        width: 65px;
+        min-height: 65px;
+        min-width: 65px;
+    }
+
+    &.riders {
+        background: $themeSecondaryColor url("/assets/images/riders.png") no-repeat center;
+    }
+
+    &.restaurant {
+        background: $themeSecondaryColor url("/assets/images/restaurant.png") no-repeat center;
+
+        &.green {
+            background: $themeSecondaryColor url("/assets/images/restaurant_green.png") no-repeat center;
+        }
+
+        &.accent {
+            background: $themeSecondaryColor url("/assets/images/restaurant_accent.png") no-repeat center;
+        }
+    }
+
+    &.jobs {
+        background: $themeSecondaryColor url("/assets/images/jobs.png") no-repeat center;
+    }
+
+    &.mail {
+        background: $themeSecondaryColor url("/assets/images/mail.png") no-repeat center;
+    }
+
+    &.credit {
+        background: $themeSecondaryColor url("/assets/images/credit.png") no-repeat center;
+    }
+}
+
+#CartIcon {
+    #Group-8 {
+        fill: $themeAccentColor;
+    }
+}
+
+#MenuIcon {
+    path {
+        fill: $themeAccentColor;
+        stroke: $themeAccentColor;
+    }
+}
+
+#InfoIcon {
+    circle:first-of-type {
+        fill: $themeAccentColor;
+    }
+}
+
+#PlusIcon {
+    #Shape {
+        fill: $themeAccentColor;
+    }
+}
+
+#CloseAccentIcon {
+    path {
+        fill: $themeAccentColor;
+    }
+}

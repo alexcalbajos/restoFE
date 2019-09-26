@@ -1,0 +1,37 @@
+@import "../../../../../styles/variables/colors.scss";
+
+:host {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 65px;
+
+    input.disabled {
+        background-color: $primaryColor;
+    }
+
+    .icon {
+        cursor: pointer;
+
+        &.disabled {
+            ::ng-deep {
+                svg {
+                    #Shape {
+                        fill: $mediumGray !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .square {
+        border: 1px solid $mediumGray;
+        background-color: $primaryColor;
+        min-width: 24px;
+        min-height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: default;
+    }
+}

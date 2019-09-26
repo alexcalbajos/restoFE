@@ -1,0 +1,47 @@
+@import "../../../styles/variables/miscellaneous.scss";
+@import "../../../styles/variables/colors.scss";
+@import "../../../styles/variables/responsive.scss";
+
+ri-client {
+    flex: 1;
+    flex-basis: auto;
+    display: flex;
+    flex-direction: column;
+
+    ri-info-page, ri-orders-page {
+        flex: 1;
+        flex-basis: auto;
+        display: block;
+        position: relative;
+
+        @media only screen and (max-width: $xs-maxWidth) {
+            padding-top: 15px;
+        }
+
+        .shadow {
+            padding: 30px;
+            margin-bottom: 30px;
+
+            @media only screen and (max-width: $xs-maxWidth) {
+                padding: 20px;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media only screen and (max-width: $xs-maxWidth) {
+            .container {
+                width: 100% !important;
+            }
+        }
+    }
+
+    .background-food {
+        top: 30px;
+        bottom: 130px;
+
+        @media only screen and (max-width: $xs-maxWidth) {
+            top: 0;
+            bottom: 0;
+        }
+    }
+}

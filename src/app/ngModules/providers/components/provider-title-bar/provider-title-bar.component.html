@@ -1,0 +1,38 @@
+<div fxLayout="row"
+    fxLayout.lt-sm="column"
+    fxLayoutAlign="space-between center">
+    <div fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="10px">
+        <ri-provider-eta-label [provider]="provider"></ri-provider-eta-label>
+        <span class="fade before-pipe"></span>
+        <ri-provider-rating [showMeta]="true"
+            [ratingCount]="provider.num_comments"
+            [rating]="provider.avg_note"></ri-provider-rating>
+    </div>
+    <div fxHide.lt-lg
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="10px">
+        <span class="fade">{{ 'OPENED_HOURS' | translate }}</span>
+        <div fxHide.lt-lg
+            *ngFor="let hour of provider.schedules_hours.hours"
+            itemprop="openingHours">
+            <span>{{ hour.start }}</span>
+            <span class="before-dash"></span>
+            <span>{{ hour.end }}</span>
+        </div>
+    </div>
+    <div fxLayout="row"
+        fxLayoutAlign="center center"
+        fxLayoutGap="10px">
+        <div id="InfoIcon"
+            class="svg-container icon"
+            [inlineSVG]="'/assets/svg/info.svg'"
+            (click)="openProviderDetailsDialog()"></div>
+        <span class="fade before-pipe"></span>
+        <span id="OpenAllergies"
+            class="highlight"
+            (click)="openAllergiesDialog()">{{ 'FOOD_ALLERGY' | translate }}</span>
+    </div>
+</div>

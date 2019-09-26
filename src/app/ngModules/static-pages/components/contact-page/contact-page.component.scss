@@ -1,0 +1,16 @@
+:host {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .shadow {
+        margin-top: 65px;
+        margin-bottom: 65px;
+        box-sizing: border-box;
+
+        h3 {
+            margin-bottom: 40px;
+        }
+    }
+}

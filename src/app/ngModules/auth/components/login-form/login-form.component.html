@@ -1,0 +1,50 @@
+<form fxLayout="column"
+    id="LoginForm"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <span class="input-title">{{ 'ENTER_EMAIL_ADDRESS' | translate }}</span>
+        <input [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(loginForm.controls['email'])}"
+            (input)="watchForEmailChange()"
+            type="text"
+            formControlName="email"
+            autocomplete="new-password"
+            placeholder="{{ 'ENTER_EMAIL_ADDRESS' | translate }}">
+        <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(loginForm.controls['email'])}"
+            class="input-error placeholder"></span>
+        <span [ngClass]="{'show': formValidationService.displayError(loginForm.controls['email'], 'required')}"
+            class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+    </div>
+    <div class="form-control">
+        <span class="input-title">{{ 'RESET_PASSWORD' | translate }}</span>
+        <input [ngClass]="{'invalid' : formValidationService.isFormControlInvalid(loginForm.controls['password'])}"
+            #passwordInput
+            type="password"
+            formControlName="password"
+            autocomplete="new-password"
+            placeholder="{{ 'PASSWORD' | translate }}">
+        <span [ngClass]="{'hide': formValidationService.isFormControlInvalid(loginForm.controls['password'])}"
+            class="input-error placeholder"></span>
+        <span [ngClass]="{'show':  formValidationService.displayError(loginForm.controls['password'], 'required')}"
+            class="input-error">{{ 'REQUIRED_FIELDS' | translate }}</span>
+        <span [ngClass]="{'show': formValidationService.displayError(loginForm.controls['password'], 'invalidPassword')}"
+            class="input-error">{{ 'INVALID_PASSWORD' | translate }}</span>
+    </div>
+    <mat-checkbox [disableRipple]="true"
+        formControlName="stayConnected">{{ 'STAY_LOGGED_IN' | translate }}</mat-checkbox>
+    <button class="main-color wide with-spinner"
+        type="submit"
+        [disabled]="disableLogin">
+        <span *ngIf="!disableLogin">{{ 'LOG_IN' | translate }}</span>
+        <mat-spinner *ngIf="disableLogin"
+            diameter="20"></mat-spinner>
+    </button>
+    <button class="wide with-spinner"
+        type="button"
+        [disabled]="disableRestorePassword"
+        (click)="restorePassword()">
+        <span *ngIf="!disableRestorePassword">{{ 'FORGOT_PASS' | translate }}</span>
+        <mat-spinner *ngIf="disableRestorePassword"
+            diameter="20"></mat-spinner>
+    </button>
+</form>

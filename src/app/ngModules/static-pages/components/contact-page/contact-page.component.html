@@ -1,0 +1,35 @@
+<div class="container shadow padding">
+    <h3 class="bold centered">{{ 'CONTACT' | translate }}</h3>
+    <div fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="35px">
+        <div fxLayout="column"
+            fxLayoutAlign="center center">
+            <span class="centered">{{ 'CONTACT_QUESTION' | translate }}</span>
+            <div class="inline-container"
+                fxLayout="row"
+                fxLayoutGap="3px">
+                <span>{{ 'CONTACT_WRITE_BELOW' | translate }}</span>
+                <span class="secondary-button"
+                    (click)="zopimService.openChat()">{{ 'CHAT' | translate }}</span>
+            </div>
+        </div>
+        <div fxLayout="column"
+            fxLayoutAlign="center center">
+            <span class="centered">{{ 'CONTACT_DIF_QUESTION' | translate }}</span>
+            <div class="inline-container"
+                fxLayout="row"
+                fxLayoutGap="3px">
+                <span>{{ 'CONTACT_WRITE_US' | translate }}</span>
+                <span class="highlight bold">{{ mail }}</span>
+            </div>
+        </div>
+        <div class="inline-container"
+            fxLayout="row"
+            fxLayoutGap="3px">
+            <span class="centered">{{ 'CONTACT_PRESS' | translate }}</span>
+            <a href="mailto:pr@resto-in.com"><span class="highlight bold">{{ 'CONTACT_PRESS_HERE' | translate }}</span></a>
+        </div>
+    </div>
+</div>
+<div class="background-food"></div>

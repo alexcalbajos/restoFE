@@ -1,0 +1,24 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/colors.scss";
+
+.shadow {
+    ::ng-deep {
+        h4 {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.secondary-button {
+    padding-bottom: 15px;
+}
+
+ri-client-wallet {
+    &.invis {
+        max-height: 0 !important;
+        padding-bottom: 0 !important;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+}

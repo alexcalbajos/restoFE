@@ -1,0 +1,54 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/responsive.scss";
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/grids.scss";
+
+.provider {
+    cursor: pointer;
+
+    @include threeColumns(5%, 50px);
+
+    &:hover {
+        .provider-image {
+            transform: scale(1.05);
+        }
+    }
+
+    &:visited {
+        .ri-label {
+            border: 1px solid $lightGray !important;
+        }
+    }
+
+    .img-container {
+        overflow: hidden;
+
+        .provider-image {
+            transition: $transition;
+            height: 150px;
+            background-position: center;
+            background-size: cover;
+            border-radius: $borderRadius;
+
+            &.fade {
+                opacity: 0.5;
+            }
+        }
+    }
+
+    h4 {
+        padding-top: 10px;
+    }
+
+    .category {
+        transition: $transition;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    #Labels {
+        padding-top: 5px;
+    }
+}

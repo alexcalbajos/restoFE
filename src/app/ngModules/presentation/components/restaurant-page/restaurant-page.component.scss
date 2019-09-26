@@ -1,0 +1,65 @@
+@import "../../../../../styles/variables/colors.scss";
+
+:host {
+    #Description {
+        margin: 100px 0 85px;
+    }
+
+    .responsive-image {
+        &#RestaurantImage {
+            background: url("/assets/images/presentation/restaurant.jpg") no-repeat center;
+            background-size: cover;
+        }
+
+        &#RestaurantFooterImage {
+            background: url("/assets/images/presentation/restaurantFooter.jpg") no-repeat center;
+            background-size: cover;
+        }
+    }
+
+    #Thumbnails {
+        .large-circle {
+            &.develop {
+                background: $themeSecondaryColor url("/assets/images/presentation/develop.jpg") no-repeat center;
+            }
+
+            &.visibility {
+                background: $themeSecondaryColor url("/assets/images/presentation/visibility.jpg") no-repeat center;
+            }
+
+            &.deliver {
+                background: $themeSecondaryColor url("/assets/images/presentation/deliver.jpg") no-repeat center;
+            }
+        }
+    }
+
+    #Trust {
+        .logo {
+            height: 90px;
+
+            &#DsCafe {
+                background: url("/assets/images/presentation/dscafe.png") no-repeat center;
+            }
+
+            &#Sushi {
+                background: url("/assets/images/presentation/sushishop.png") no-repeat center;
+            }
+
+            &#Come {
+                background: url("/assets/images/presentation/come.png") no-repeat center;
+            }
+
+            &#Kfc {
+                background: url("/assets/images/presentation/kfc.png") no-repeat center;
+            }
+
+            &#Petit {
+                background: url("/assets/images/presentation/bangkok.jpg") no-repeat center;
+            }
+
+            &#Aloha {
+                background: url("/assets/images/presentation/aloha.jpg") no-repeat center;
+            }
+        }
+    }
+}

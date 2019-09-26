@@ -1,0 +1,33 @@
+@mixin responsiveContainer {
+    @media only screen and (max-width: $lg-maxWidth) {
+        width: $largeContainerWidth !important;
+    }
+
+    @media only screen and (max-width: $xs-maxWidth) {
+        width: $containerWidthOnXs !important;
+    }
+}
+
+.container {
+    width: 82% !important;
+    max-width: 1165px !important;
+    margin: 0 auto;
+
+    &.large {
+        width: $largeContainerWidth !important;
+        max-width: $largeContainerMaxWidth !important;
+
+        @include responsiveContainer;
+    }
+
+    @include responsiveContainer;
+}
+
+.inline-container {
+    display: inline-block !important;
+    text-align: center;
+
+    * {
+        display: inline !important;
+    }
+}

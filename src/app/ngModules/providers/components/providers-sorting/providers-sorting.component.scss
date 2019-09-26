@@ -1,0 +1,13 @@
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/responsive.scss";
+
+:host {
+    padding: 10px 0;
+    display: block;
+
+    mat-select {
+        width: 235px;
+        margin-left: auto;
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "domains": {
+        "prod": "api.resto-in.com",
+        "beta": "api-beta.resto-in.com"
+    },
+    "miscUrls": {
+        "sitemap": {
+            "en": "/sitemap",
+            "es": "/sitemap",
+            "fr": "/sitemap"
+        }
+    },
+    "buildDir": "./dist",
+    "siteMapSwig": "./sitemap.swig",
+    "robots": [
+        "./robots-es.txt",
+        "./robots-fr.txt"
+    ]
+}

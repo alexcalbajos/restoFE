@@ -1,0 +1,12 @@
+@import "../../../styles/variables/colors.scss";
+
+:host {
+    position: relative;
+
+    h3 {
+        position: absolute;
+        z-index: 99;
+        background-color: $primaryColor;
+        padding: 30px;
+    }
+}

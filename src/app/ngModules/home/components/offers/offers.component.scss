@@ -1,0 +1,25 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/responsive.scss";
+
+$imageSize: 230px;
+
+:host {
+    .container {
+        box-shadow: $shadow;
+        max-width: 760px !important;
+        height: $imageSize;
+        transform: translateY(-35%);
+        background-color: $primaryColor;
+    }
+
+    #OffersImage {
+        min-width: $imageSize;
+        min-height: $imageSize;
+        background-size: cover !important;
+    }
+
+    #OffersText {
+        padding: 0px 20px;
+    }
+}

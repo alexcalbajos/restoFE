@@ -1,0 +1,42 @@
+@import "../../../styles/variables/miscellaneous.scss";
+@import "../../../styles/variables/responsive.scss";
+@import "../../../styles/variables/colors.scss";
+
+ri-checkout {
+    .background-food {
+        top: $headerHeight;
+        height: 370px;
+
+        @media only screen and (max-width: $xs-maxWidth) {
+            top: $headerHeightMobile;
+        }
+    }
+
+    #BackRow {
+        height: $headerPadding;
+
+        span, .icon {
+            cursor: pointer;
+        }
+    }
+
+    #CheckoutSteps {
+        padding: 40px 60px;
+        background-color: $primaryColor;
+
+        @media only screen and (max-width: $xs-maxWidth) {
+            padding: 20px;
+        }
+    }
+
+    .divider {
+        margin-bottom: 60px;
+    }
+
+    @media only screen and (max-width: $xs-maxWidth) {
+        .container {
+            width: 100% !important;
+            margin-top: 10px;
+        }
+    }
+}

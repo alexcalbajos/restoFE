@@ -1,0 +1,45 @@
+$buttonMargin: 25px;
+
+form {
+    width: 100%;
+
+    button {
+        margin-top: $buttonMargin;
+    }
+
+    mat-checkbox {
+        padding-top: $spanVerticalPadding;
+    }
+}
+
+.buttons-row {
+    width: 100%;
+
+    button {
+        margin-top: $buttonMargin;
+        width: initial;
+    }
+
+    @media only screen and (max-width: $xs-maxWidth) {
+        flex-direction: column !important;
+
+        button {
+            width: 100% !important;
+        }
+    }
+}
+
+.form-button {
+    margin-top: $buttonMargin;
+}
+
+.form-footer {
+    margin-top: 35px;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 1px;
+}

@@ -1,0 +1,24 @@
+<div class="svg-container icon close-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<h3 class="bold area-title uppercase-first centered">{{ 'SET_DELIVERY_TIME' | translate }}</h3>
+<div fxLayout="row"
+    fxLayoutGap="35px">
+    <ng-select fxFlex="50"
+        [items]="deliveryDays"
+        bindLabel="weekday"
+        [appendTo]="'body'"
+        [clearable]="false"
+        [searchable]="false"
+        [(ngModel)]="selectedDay"
+        (change)="setSelectedHour($event)"></ng-select>
+    <ng-select fxFlex="50"
+        [items]="deliveryHours"
+        bindLabel="time"
+        [appendTo]="'body'"
+        [clearable]="false"
+        [searchable]="false"
+        [(ngModel)]="selectedHour"></ng-select>
+</div>
+<button class="wide main-color form-button"
+    (click)="submit()">{{ 'SAVE' | translate }}</button>

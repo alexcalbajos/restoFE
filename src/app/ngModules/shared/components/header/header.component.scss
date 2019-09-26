@@ -1,0 +1,69 @@
+@import "../../../../../styles/variables/miscellaneous.scss";
+@import "../../../../../styles/variables/colors.scss";
+@import "../../../../../styles/variables/responsive.scss";
+
+ri-header {
+    display: block;
+    position: relative;
+    transition: $transition;
+    margin-bottom: -$headerHeight;
+    width: 100%;
+    z-index: 3;
+    top: 0px;
+    top: var(--headerTop) !important;
+
+    @media only screen and (max-width: $xs-maxWidth) {
+        margin-bottom: -$headerHeightMobile;
+    }
+
+    &.fixed {
+        position: fixed;
+        right: 0;
+        transform: translateZ(0);
+        background-color: $primaryColor;
+        box-shadow: $shadow;
+        opacity: 1 !important;
+    }
+
+    .container {
+        height: $headerHeight;
+
+        @media only screen and (max-width: $xs-maxWidth) {
+            height: $headerHeightMobile;
+        }
+
+        #Logo {
+            height: 25px;
+            cursor: pointer;
+        }
+
+        #ClientName {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        #Cart {
+            * {
+                cursor: pointer;
+            }
+        }
+
+        #Address {
+            &.centered {
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+
+            .bold {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .language-button {
+        cursor: pointer;
+        font-size: $smallSpan;
+        transition: $transition;
+    }
+}

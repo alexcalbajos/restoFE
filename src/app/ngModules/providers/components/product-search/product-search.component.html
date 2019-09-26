@@ -1,0 +1,31 @@
+<div class="input-with-icons">
+    <input class="autocomplete"
+        (input)="search($event.target.value)"
+        [matAutocomplete]="auto"
+        placeholder="{{ 'SEARCH_PROVIDER' | translate }}">
+    <div class="icon-container">
+        <mat-spinner *ngIf="showSpinner"></mat-spinner>
+        <div *ngIf="!showSpinner"
+            class="svg-container icon large"
+            [inlineSVG]="'/assets/svg/search.svg'"></div>
+    </div>
+    <mat-autocomplete #auto="matAutocomplete"
+        class="product-search">
+        <mat-option *ngFor="let result of filteredResults"
+            [value]="result.name"
+            (click)="goToProduct(result.url)">
+            <div *ngIf="result.type === 'provider'"
+                fxLayout="row"
+                fxLayoutGap="10px"
+                fxLayoutAlign="start center">
+                <img *ngIf="result.img"
+                    [src]="result.img" />
+                <span class="bold">{{ result.name }}</span>
+                <span *ngIf="result.numberOfProducts">{{ result.numberOfProducts }} {{ 'PRODUCTS' | translate }}</span>
+            </div>
+            <span *ngIf="result.type === 'product'"
+                class="fade product">{{ result.name }}</span>
+            <span *ngIf="result.type === 'no-result'">{{ 'AUTOCOMPLETE_GENERIC_NORESULTS' | translate }}</span>
+        </mat-option>
+    </mat-autocomplete>
+</div>

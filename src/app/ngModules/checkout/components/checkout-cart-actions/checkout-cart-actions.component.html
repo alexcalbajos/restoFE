@@ -1,0 +1,32 @@
+<div *ngIf="automaticValidationResponse?.walletAmount?.walletAmountUsed > 0"
+    fxLayout="row"
+    fxLayoutAlign="space-between center"
+    (click)="disableWallet()"
+    class="action">
+    <div fxLayout="row"
+        fxLayoutAlign="space-between center"
+        fxLayoutGap="3px">
+        <div class="svg-container icon"
+            [inlineSVG]="'/assets/svg/credit.svg'"></div>
+        <span class="main-color highlight">{{ 'MY_CREDITS' | translate }}</span>
+    </div>
+    <span class="accent highlight before-dash">{{ automaticValidationResponse.walletAmount.walletAmountUsed | number : '1.2-2' }}&euro;</span>
+</div>
+<div *ngIf="automaticValidationResponse?.couponCode.code && automaticValidationResponse?.couponCode.isValid"
+    fxLayout="row"
+    fxLayoutAlign="space-between center"
+    (click)="disablePromoCode()"
+    class="action">
+    <div fxLayout="row"
+        fxLayoutAlign="space-between center"
+        fxLayoutGap="3px">
+        <div class="svg-container icon"
+            [inlineSVG]="couponCodeIcon"></div>
+        <span *ngIf="automaticValidationResponse.couponCode.type !== couponCodeTypeProduct"
+            class="main-color highlight">{{ automaticValidationResponse.couponCode.code }}</span>
+        <span *ngIf="automaticValidationResponse.couponCode.type === couponCodeTypeProduct"
+            class="main-color highlight">{{ automaticValidationResponse.couponCode.couponProduct }}</span>
+    </div>
+    <span *ngIf="automaticValidationResponse.couponCode.type !== couponCodeTypeProduct"
+        class="accent highlight before-dash">{{ automaticValidationResponse.couponCode.amount | number : '1.2-2' }}&euro;</span>
+</div>

@@ -1,0 +1,23 @@
+<div fxLayout="row"
+    fxLayoutAlign="center center"
+    fxLayoutGap="3px"
+    [ngClass]="getRatingClass()"
+    class="box"
+    [attr.itemprop]="showMeta ? 'aggregateRating' : null"
+    [attr.itemscope]="showMeta ? '' : null"
+    [attr.itemtype]="showMeta ? 'http://schema.org/AggregateRating' : null">
+    <div class="svg-container icon"
+        [inlineSVG]="'/assets/svg/heart.svg'"></div>
+    <span *ngIf="rating > 0"
+        [attr.itemprop]="showMeta ? 'ratingValue' : null"
+        class="after-percent">{{ rating | number:'1.0-0' }}</span>
+    <meta *ngIf="showMeta"
+        itemprop="worstRating"
+        content="0">
+    <meta *ngIf="showMeta"
+        itemprop="bestRating"
+        content="100">
+    <span *ngIf="ratingCount"
+        class="invis"
+        itemprop="ratingCount">{{ ratingCount }}</span>
+</div>

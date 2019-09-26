@@ -1,0 +1,28 @@
+@import "../../../styles/variables/colors.scss";
+
+ri-static-pages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .shadow {
+        &.padding {
+            padding: 35px;
+        }
+    }
+
+    .static-page-title {
+        margin-top: 35px;
+        margin-bottom: 45px;
+    }
+
+    .background-food.with-margin {
+        top: 120px;
+    }
+
+    .top-margin-container {
+        position: relative;
+        display: block;
+        flex: 1;
+    }
+}

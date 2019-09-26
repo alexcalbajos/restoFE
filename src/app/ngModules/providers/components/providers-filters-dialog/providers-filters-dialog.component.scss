@@ -1,0 +1,31 @@
+@import "../../../../../styles/variables/colors.scss";
+
+#ButtonsRow {
+    position: sticky;
+    bottom: 0;
+    background-color: $primaryColor;
+    border-top: 1px solid $lightGray;
+}
+
+.box {
+    padding: 10px;
+}
+
+mat-expansion-panel.mat-expansion-panel {
+    box-shadow: none !important;
+    border-bottom: 1px solid $lightGray;
+    border-radius: 0;
+    margin: 10px 0;
+    background-color: unset !important;
+
+    mat-expansion-panel-header {
+        margin-right: 3px;
+        background-color: unset !important;
+    }
+
+    ::ng-deep {
+        .mat-expansion-panel-body {
+            padding: 0 10px 10px;
+        }
+    }
+}

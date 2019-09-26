@@ -1,0 +1,18 @@
+<div class="svg-container icon close-mobile-dialog"
+    (click)="dialogRef.close()"
+    [inlineSVG]="'/assets/svg/close.svg'"></div>
+<div class="mobile-content">
+    <ri-cart-product *ngFor="let product of cart.products"
+        [product]="product"
+        [isShoppingCart]="true"></ri-cart-product>
+</div>
+<div *ngIf="cart.total > 0"
+    class="mobile-bottom-row"
+    #mobileBottomRow>
+    <div fxLayout="row"
+        fxLayoutAlign="space-between center"
+        class="content">
+        <span class="uppercase">{{ 'TOTAL' | translate }}</span>
+        <p class="accent">{{ cart.total | number : '1.2-2' }}&euro;</p>
+    </div>
+</div>

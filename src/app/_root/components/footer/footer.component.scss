@@ -1,0 +1,62 @@
+@import "../../../../styles/variables/colors.scss";
+@import "../../../../styles/variables/miscellaneous.scss";
+@import "../../../../styles/variables/responsive.scss";
+
+:host {
+    display: block;
+    border-top: 1px solid $lightGray;
+    margin-top: 60px;
+
+    &.no-margin {
+        margin-top: auto;
+    }
+
+    #BackgroundContainer {
+        position: relative;
+
+        .first-row {
+            padding-top: 80px;
+            margin-bottom: 50px;
+
+            @media only screen and (max-width: $sm-maxWidth) {
+                padding-top: 35px;
+                margin-bottom: 35px;
+            }
+        }
+
+        .background-food {
+            background-size: 350px;
+            opacity: 0.1;
+            background-color: $primaryColor;
+        }
+    }
+
+    .second-row {
+        padding: 20px 0px 40px;
+
+        @media only screen and (max-width: $sm-maxWidth) {
+            padding: 20px 0;
+        }
+    }
+
+    ri-app-store-button, ri-google-play-button {
+        ::ng-deep {
+            .action {
+                height: 30px;
+            }
+        }
+    }
+
+    span {
+        padding-top: 10px;
+    }
+
+    .icon {
+        cursor: pointer;
+        transition: $transition;
+    }
+
+    .link {
+        cursor: pointer;
+    }
+}

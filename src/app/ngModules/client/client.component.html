@@ -1,0 +1,30 @@
+<div class="container navbar-container"
+    fxLayout="row"
+    fxLayoutAlign="start center"
+    fxHide.lt-sm>
+    <div class="navbar">
+        <div class="nav"
+            fxLayout="row"
+            fxLayoutGap="5px"
+            fxLayoutAlign="center center"
+            [routerLinkActiveOptions]="{exact:true}"
+            routerLink="../client"
+            routerLinkActive="selected">
+            <div class="svg-container icon large"
+                [inlineSVG]="'/assets/svg/user.svg'"></div>
+            <h4>{{ 'ACCTMENU_MY_ACCOUNT' | translate }}</h4>
+        </div>
+        <div class="nav"
+            fxLayout="row"
+            fxLayoutGap="5px"
+            fxLayoutAlign="center center"
+            [routerLinkActiveOptions]="{exact:true}"
+            routerLinkActive="selected"
+            routerLink="../client/orders">
+            <div class="svg-container icon large"
+                [inlineSVG]="'/assets/svg/cart_main.svg'"></div>
+            <h4>{{ 'ACCTMENU_ORDERS' | translate }}</h4>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

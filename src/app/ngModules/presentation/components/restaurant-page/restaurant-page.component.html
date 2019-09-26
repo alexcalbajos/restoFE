@@ -1,0 +1,147 @@
+<div class="container">
+    <div fxLayout="row"
+        fxLayout.lt-md="column"
+        fxLayoutAlign.lt-md="center center"
+        fxLayoutGap="35px">
+        <div fxFlex="50%"
+            fxFlex.lt-md="100%"
+            fxLayoutGap.lt-md="25px"
+            fxLayout="column"
+            fxLayoutAlign="space-around start"
+            fxLayoutAlign.lt-md="center center">
+            <div fxLayout="column"
+                fxLayoutGap="20px">
+                <div fxLayout="row wrap"
+                    fxLayout.lt-md="column"
+                    fxLayoutGap.gt-sm="10px">
+                    <h1>{{ 'RESTOIN' | translate }}</h1>
+                    <h1 class="bold"
+                        ngClass.gt-sm="align-left">{{ 'BECOME_RESTAURANT_PARTNER' | translate }}</h1>
+                </div>
+                <p ngClass.lt-md="centered">{{ 'DEVELOP_BUSINESS_PARTNER' | translate }}</p>
+            </div>
+            <button class="main-color"
+                (click)="openForm()">{{ 'LETS_GO' | translate }}</button>
+        </div>
+        <div id="RestaurantImage"
+            class="responsive-image size-2"
+            fxFlex="50%"
+            fxFlex.lt-md="100%">
+        </div>
+    </div>
+    <!--
+
+    -->
+    <h3 id="Description"
+        class="bold centered">{{ 'PREMIUM_SERVICE' | translate }}</h3>
+    <!--
+
+    -->
+    <div id="Thumbnails"
+        fxLayout="row"
+        fxLayout.lt-sm="column"
+        fxLayoutAlign="center center">
+        <div class="thumbnail"
+            fxLayout="column"
+            fxLayoutAlign="start center">
+            <h3 class="bold">{{ 'DEVELOP_BUSINESS_CONFIDENCE' | translate }}</h3>
+            <div class="large-circle develop"></div>
+            <span class="fade"
+                fxFlex="1 1 auto">{{ 'DEVELOP_BUSINESS_CONFIDENCE_TEXT' | translate }}</span>
+        </div>
+        <div class="thumbnail"
+            fxLayout="column"
+            fxLayoutAlign="start center">
+            <h3 class="bold">{{ 'GET_VISIBILITY' | translate }}</h3>
+            <div class="large-circle visibility"></div>
+            <span class="fade"
+                fxFlex="1 1 auto">{{ 'GET_VISIBILITY_TEXT' | translate }}</span>
+        </div>
+        <div class="thumbnail"
+            fxLayout="column"
+            fxLayoutAlign="start center">
+            <h3 class="bold">{{ 'DELIVER_FAST_BETTER' | translate }}</h3>
+            <div class="large-circle deliver"></div>
+            <span class="fade"
+                fxFlex="1 1 auto">{{ 'DELIVER_FAST_BETTER_TEXT' | translate }}</span>
+        </div>
+    </div>
+    <!--
+
+    -->
+    <div id="Trust"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="55px">
+        <h2 class="centered">{{ 'DELIVERY_TRUST' | translate }}</h2>
+        <div fxLayout="row wrap"
+            fxFlexAlign="stretch"
+            fxLayoutGap="35px">
+            <div class="trust-thumbnail"
+                fxLayout="column"
+                fxLayoutGap="20px"
+                fxFlex="calc(33% - 35px)"
+                fxFlex.lt-sm="100%">
+                <div *ngIf="currentLang === 'es'"
+                    class="logo"
+                    id="Kfc"></div>
+                <div *ngIf="currentLang !== 'es'"
+                    class="logo"
+                    id="DsCafe"></div>
+                <h4 class="centered">{{ 'CLIENT_1' | translate }}</h4>
+                <span>{{ 'CLIENT_1_TEXT' | translate }}</span>
+            </div>
+            <div class="trust-thumbnail"
+                fxLayout="column"
+                fxLayoutGap="20px"
+                fxFlex="calc(33% - 35px)"
+                fxFlex.lt-sm="100%">
+                <div *ngIf="currentLang === 'es'"
+                    class="logo"
+                    id="Petit"></div>
+                <div *ngIf="currentLang !== 'es'"
+                    class="logo"
+                    id="Sushi"></div>
+                <h4 class="centered">{{ 'CLIENT_2' | translate }}</h4>
+                <span>{{ 'CLIENT_2_TEXT' | translate }}</span>
+            </div>
+            <div class="trust-thumbnail"
+                fxLayout="column"
+                fxLayoutGap="20px"
+                fxFlex="calc(33% - 35px)"
+                fxFlex.lt-sm="100%">
+                <div *ngIf="currentLang === 'es'"
+                    class="logo"
+                    id="Aloha"></div>
+                <div *ngIf="currentLang !== 'es'"
+                    class="logo"
+                    id="Come"></div>
+                <h4 class="centered">{{ 'CLIENT_3' | translate }}</h4>
+                <span>{{ 'CLIENT_3_TEXT' | translate }}</span>
+            </div>
+        </div>
+    </div>
+    <!--
+
+    -->
+    <div fxLayout="row"
+        fxLayout.lt-md="column"
+        fxLayoutAlign.lt-md="center center"
+        fxLayoutGap="35px">
+        <div id="RestaurantFooterImage"
+            class="responsive-image size-2"
+            fxFlex="50%"
+            fxFlex.lt-md="100%">
+        </div>
+        <div fxFlex="50%"
+            fxFlex.lt-md="100%"
+            fxLayoutGap.lt-md="25px"
+            fxLayout="column"
+            fxLayoutAlign="space-around start"
+            fxLayoutAlign.lt-md="center center">
+            <p ngClass.lt-md="centered">{{ 'JOIN_COMMUNITY' | translate }} {{ '48_HOURS_CALL' | translate }}</p>
+            <button class="main-color"
+                (click)="openForm()">{{ 'I_AM_REGISTERING' | translate }}</button>
+        </div>
+    </div>
+</div>

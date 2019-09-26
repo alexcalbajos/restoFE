@@ -1,0 +1,15 @@
+<div fxLayout="row"
+    fxLayoutGap="10px"
+    fxLayoutAlign="space-between center">
+    <span fxFlex="20"></span>
+    <span fxFlex="40"
+        class="centered bold">{{ 'TIME_MORNING' | translate }}</span>
+    <span fxFlex="40"
+        class="centered bold">{{ 'TIME_EVENING' | translate }}</span>
+</div>
+<ri-corporate-schedule-day *ngFor="let day of days"
+    #dayComponents
+    [day]="day"
+    [morningSchedules]="morningSchedules"
+    [eveningSchedules]="eveningSchedules"
+    (hourChanged)="onHourChange()"></ri-corporate-schedule-day>

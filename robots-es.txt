@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /checkout/
+Disallow: /client/
+Allow: /
+
+Sitemap: https://www.resto-in.es/sitemap.xml

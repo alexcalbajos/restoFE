@@ -1,0 +1,12 @@
+<div fxLayout="row"
+    fxLayoutAlign="space-between center">
+    <span class="fade"
+        *ngIf="numberOfProviders">{{ numberOfProviders }} {{ 'RESULTS' | translate }}</span>
+    <mat-select fxHide.lt-md
+        [(ngModel)]="selectedSortingOption"
+        (selectionChange)="sort()"
+        disableOptionCentering>
+        <mat-option *ngFor="let option of providersService.sortingOptions"
+            [value]="option">{{ option.name | translate }}</mat-option>
+    </mat-select>
+</div>
